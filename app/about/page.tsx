@@ -53,6 +53,93 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* Statistics Section */}
+          <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8 mb-16 border border-emerald-200">
+            <h2 className="text-3xl font-bold text-center mb-8" style={{ color: "var(--color-medical-green)" }}>
+              Our Track Record
+            </h2>
+            <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
+              Supporting <strong>~100 surgeons</strong> across <strong>~95 hospitals</strong> in more than 6 major hospital groups
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* MRI/US Fusion Biopsies */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">MRI/US Fusion Biopsies</h3>
+                <p className="text-xs text-gray-500 mb-3">Using MIM Fusion Software</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2025</span>
+                    <span className="text-2xl font-bold text-emerald-600">1,072</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2024</span>
+                    <span className="text-lg font-semibold text-gray-700">1,158</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2023</span>
+                    <span className="text-lg font-semibold text-gray-700">1,041</span>
+                  </div>
+                  <div className="pt-2 border-t border-gray-200">
+                    <span className="text-xs text-gray-500">Total: 3,271 cases</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* HIFU */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">HIFU Procedures</h3>
+                <p className="text-xs text-gray-500 mb-3">Sonablate HIFU + MIM Fusion</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2025</span>
+                    <span className="text-2xl font-bold text-blue-600">209</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2024</span>
+                    <span className="text-lg font-semibold text-gray-700">246</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2023</span>
+                    <span className="text-lg font-semibold text-gray-700">212</span>
+                  </div>
+                  <div className="pt-2 border-t border-gray-200">
+                    <span className="text-xs text-gray-500">Total: 667 cases</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* IRE (NanoKnife) */}
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">IRE (NanoKnife)</h3>
+                <p className="text-xs text-gray-500 mb-3">Irreversible Electroporation</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2025</span>
+                    <span className="text-2xl font-bold text-purple-600">64</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2024</span>
+                    <span className="text-lg font-semibold text-gray-700">53</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">2023</span>
+                    <span className="text-lg font-semibold text-gray-700">40</span>
+                  </div>
+                  <div className="pt-2 border-t border-gray-200">
+                    <span className="text-xs text-gray-500">Total: 157 cases</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-600">
+                <strong>4,095 total procedures</strong> supported across all modalities (2023-2025)
+              </p>
+            </div>
+          </div>
+
           {/* Clinical Team */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
@@ -76,15 +163,25 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Dr Clare Allen</h3>
                   <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
-                    Consultant Radiologist
+                    Consultant Uroradiologist
                   </p>
-                  <p className="text-sm text-gray-600">Specialist in Prostate MRI & Multiparametric Imaging</p>
+                  <p className="text-sm text-gray-600">MBBS (Oxford) | GMC: 3108389</p>
+                  <p className="text-xs text-gray-500 mt-1">UCLH | The Princess Grace Hospital | King Edward VII's Hospital | The London Clinic</p>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Dr Allen provides expert multiparametric MRI contouring services, identifying and delineating prostate cancer targets with precision. 
-                Her detailed contours form the foundation of our fusion biopsy planning, ensuring clinicians receive accurate, actionable target maps for systematic sampling.
-              </p>
+              
+              <div className="mb-4">
+                <h4 className="font-semibold text-gray-900 mb-2">A UK Leader in Prostate Cancer Care</h4>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  Clare qualified from Oxford (MBBS, 1985) and is the uro-radiology lead consultant at University College London. She has pioneered the use of mpMRI (multiparametric magnetic resonance imaging) for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  She was lead radiologist on the <strong>PROMISE Trial</strong> which proved the efficacy of mpMRI for prostate cancer globally, and received the <strong>UK Research Paper of the Year</strong> award.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Dr Allen has a well-developed clinical practice in dynamic contrast enhanced magnetic resonance imaging (DCE-MRI) in the prostate and leads a team of medical physicists in further defining the role of multi-sequence MRI in diagnostic utility of prostate cancer.
+                </p>
+              </div>
             </div>
           </div>
 

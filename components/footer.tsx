@@ -7,24 +7,19 @@ export function Footer() {
 
   const footerLinks = {
     Services: [
-      { name: "MR/US Fusion Biopsy", href: "/services/fusion-biopsy" },
-      { name: "On-Site HIFU", href: "/services/hifu" },
       { name: "Biopsy Planning", href: "/services/biopsy-plan" },
+      { name: "MR/US Fusion Biopsy", href: "/services/freehand-fusion" },
+      { name: "On-Site HIFU", href: "/services/hifu" },
+      { name: "IRE/NanoKnife", href: "/services/ire-nanoknife" },
+      { name: "Patient Referral", href: "/services/patient-referral" },
       { name: "How It Works", href: "/services" },
-      { name: "Equipment & Partners", href: "/about/equipment-services" },
     ],
     Company: [
       { name: "About PCL", href: "/about/pcl" },
       { name: "Clinician Experience", href: "/about/partners" },
+      { name: "Equipment & Technology Partners", href: "/about/equipment-services" },
       { name: "Contact", href: "/contact" },
       { name: "Privacy Statement", href: "/about/privacy" },
-    ],
-    Resources: [
-      { name: "Precision Diagnostics", href: "/services" },
-      { name: "Clinical Support", href: "/contact" },
-      { name: "Training Programs", href: "/about/partners" },
-      { name: "Technical Documentation", href: "/about/partners" },
-      { name: "Case Studies", href: "/services" },
     ],
   }
 
@@ -71,7 +66,7 @@ export function Footer() {
 
           {/* Links Sections */}
           <div className="lg:col-span-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
               {Object.entries(footerLinks).map(([category, links], index) => (
                 <motion.div
                   key={category}
@@ -117,12 +112,7 @@ export function Footer() {
               <a href="/about/privacy" className="hover:text-neutral-700 transition-colors">
                 Privacy Policy
               </a>
-              <a href="/contact" className="hover:text-neutral-700 transition-colors">
-                Terms of Service
-              </a>
-              <a href="/about/privacy" className="hover:text-neutral-700 transition-colors">
-                Cookies
-              </a>
+              <span className="text-neutral-400">No cookies used</span>
             </div>
           </div>
         </motion.div>

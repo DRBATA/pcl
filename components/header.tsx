@@ -132,7 +132,7 @@ export function Header() {
                       href="/about/equipment-services"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      Equipment & Services
+                      Equipment & Technology Partners
                     </Link>
                   </div>
                 )}
@@ -159,25 +159,19 @@ export function Header() {
                       href="/services/biopsy-plan"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      mpMRI Fusion
+                      Biopsy Planning
                     </Link>
                     <Link
                       href="/services/freehand-fusion"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      On-The-Day Setup
-                    </Link>
-                    <Link
-                      href="/services"
-                      className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
-                    >
-                      How It Works
+                      MR/US Fusion Biopsy
                     </Link>
                     <Link
                       href="/services/hifu"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      HIFU
+                      On-Site HIFU
                     </Link>
                     <Link
                       href="/services/ire-nanoknife"
@@ -189,7 +183,13 @@ export function Header() {
                       href="/services/patient-referral"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      Patient Referral-FTC
+                      Patient Referral
+                    </Link>
+                    <Link
+                      href="/services"
+                      className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
+                    >
+                      How It Works
                     </Link>
                   </div>
                 )}
@@ -251,7 +251,7 @@ export function Header() {
                       className="block text-[14px] py-1 text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Equipment & Services
+                      Equipment & Technology Partners
                     </Link>
                   </div>
                 </div>
@@ -266,25 +266,18 @@ export function Header() {
                       Biopsy Planning
                     </Link>
                     <Link
-                      href="/services/fusion-biopsy"
-                      className="block text-[14px] py-1 text-muted-foreground"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      On-Site Fusion
-                    </Link>
-                    <Link
                       href="/services/freehand-fusion"
                       className="block text-[14px] py-1 text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Freehand MRI/US Fusion
+                      MR/US Fusion Biopsy
                     </Link>
                     <Link
                       href="/services/hifu"
                       className="block text-[14px] py-1 text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      HIFU
+                      On-Site HIFU
                     </Link>
                     <Link
                       href="/services/ire-nanoknife"
@@ -298,7 +291,14 @@ export function Header() {
                       className="block text-[14px] py-1 text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Patient Referral-FTC
+                      Patient Referral
+                    </Link>
+                    <Link
+                      href="/services"
+                      className="block text-[14px] py-1 text-muted-foreground"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      How It Works
                     </Link>
                   </div>
                 </div>
