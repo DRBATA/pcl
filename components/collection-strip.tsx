@@ -24,13 +24,11 @@ const medicalServices: ServiceItem[] = [
     id: "precision-chain",
     name: "WORLD CLASS",
     images: [
-      "/precision_niopsy/Screenshot 2025-10-22 202621.png",
-      "/precision_niopsy/Screenshot 2025-10-22 202759.png",
-      "/precision_niopsy/Screenshot 2025-10-22 202806.png",
-      "/precision_niopsy/Screenshot 2025-10-22 202858.png",
-      "/precision_niopsy/Screenshot 2025-10-22 202924.png",
-      "/precision_niopsy/Screenshot 2025-10-22 203116.png",
-      "/precision_niopsy/Screenshot 2025-10-22 203142 - Copy.png",
+      "/tidy/pack/a.png",
+      "/tidy/pack/b.png",
+      "/tidy/pack/c.png",
+      "/tidy/pack/d.png",
+      "/tidy/pack/e.png",
     ],
     count: "End to End Chain of Precision",
     link: "/services",
@@ -54,10 +52,21 @@ const medicalServices: ServiceItem[] = [
   },
   {
     id: "equipment-hire",
-    name: "EQUIPMENT HIRE",
-    image: "/medical-equipment-installation.png",
-    count: "Break Out The Good Stuff → Check Out Our Kit",
+    name: "BREAK OUT THE GOOD STUFF",
+    images: [
+      "/tidy/setup/1.png",
+      "/tidy/setup/2.png",
+      "/tidy/setup/3.png",
+      "/tidy/setup/4.png",
+      "/tidy/setup/5.png",
+      "/tidy/setup/6.png",
+      "/tidy/setup/7.png",
+    ],
+    count: "Check Out Our Kit",
     link: "/about/equipment-services",
+    cycling: true,
+    boldTitle: true,
+    titleLines: ["BREAK OUT", "THE GOOD", "STUFF"],
   },
   {
     id: "focal-therapy-clinic",
@@ -210,7 +219,7 @@ export function CollectionStrip() {
                         src={service.image || "/placeholder.svg"}
                         alt={service.name}
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                         sizes="320px"
                       />
                     )}
@@ -230,7 +239,7 @@ export function CollectionStrip() {
                             {(service.titleLines || service.name.split(' ')).map((line: string, idx: number, arr: string[]) => (
                               <div
                                 key={idx}
-                                className={idx === arr.length - 1 ? "text-7xl font-extrabold uppercase leading-none" : "text-6xl font-extrabold uppercase leading-none mb-1"}
+                                className={idx === arr.length - 1 ? "text-5xl font-extrabold uppercase leading-tight" : "text-4xl font-extrabold uppercase leading-tight mb-1"}
                                 style={{
                                   color: idx === arr.length - 1 ? '#059669' : '#047857',
                                   textShadow: idx === arr.length - 1 ? '2px 2px 6px rgba(0,0,0,0.5), 0 0 2px rgba(255,255,255,0.4)' : '2px 2px 4px rgba(0,0,0,0.4), 0 0 1px rgba(255,255,255,0.3)',
