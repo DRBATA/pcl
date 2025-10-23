@@ -161,6 +161,85 @@ export default function BiopsyPlanPage() {
             <MultiparametricMRIViewer />
           </div>
 
+          {/* Dr Clare Allen - Lead Contouring Specialist */}
+          <div className="mb-16">
+            <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 md:p-12 shadow-lg border border-green-200">
+              <h2 className="text-3xl font-bold text-center mb-8" style={{ color: "var(--color-medical-green)" }}>
+                Expert MRI Contouring by Dr Clare Allen
+              </h2>
+              <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                <div className="lg:col-span-4">
+                  <div className="bg-white rounded-2xl p-6 shadow-lg">
+                    <Image
+                      src="/surgeons/ca.png"
+                      alt="Dr Clare Allen"
+                      width={300}
+                      height={300}
+                      className="w-full h-auto rounded-xl mb-4"
+                    />
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Dr Clare Allen</h3>
+                    <p className="text-lg font-medium mb-2" style={{ color: "var(--color-medical-green)" }}>
+                      Consultant Radiologist - Lead Contouring Specialist
+                    </p>
+                    <p className="text-sm text-gray-600 font-medium">Oxford Graduate, UCL Uro-Radiology Lead Consultant</p>
+                  </div>
+                </div>
+                <div className="lg:col-span-8">
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">Background & Expertise</h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        Dr Allen qualified from Oxford and is the uro-radiology lead consultant at UCL. She has pioneered the use of mpMRI imaging for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK and internationally. She was lead radiologist on the Promise Trial which proved the efficacy of mpMRI for prostate cancer globally.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">Contouring Process</h4>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        Once our service is booked, Dr Clare Allen sets up the biopsy plans for each patient, prior to
+                        the procedure. Using the MRI report from your local radiologist, Dr Allen adds her expert
+                        knowledge to identify all areas of suspicion. The biopsy plan is then created using specialist
+                        contouring software.
+                      </p>
+                      <div className="bg-white rounded-xl p-6 border border-green-200">
+                        <p className="text-gray-700 text-sm italic mb-4">
+                          "The fusion software allows me to view the T2, the dynamically enhanced and the high B value
+                          scans, plus the ADC map simultaneously. I can contour the targets using whichever images
+                          best show the lesion. I create the biopsy plan, aligning the contouring with the virtual
+                          template and adjusting the angle to match the ultrasound probe position during the biopsy
+                          procedure."
+                        </p>
+                        <p className="text-sm font-medium text-gray-900">
+                          The plan is then sent to the Application Specialists, ready for use in theatres.
+                        </p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Key Expertise Areas</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 mt-1">✓</span>
+                          <span className="text-gray-700">Expert contouring using specialist software</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 mt-1">✓</span>
+                          <span className="text-gray-700">MRI report analysis and target identification</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 mt-1">✓</span>
+                          <span className="text-gray-700">Biopsy plan creation with virtual template alignment</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 mt-1">✓</span>
+                          <span className="text-gray-700">Ultrasound probe position matching during procedures</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* The Clinical Workflow - Visual Story */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "var(--color-medical-green)" }}>
