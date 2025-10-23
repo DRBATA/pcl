@@ -134,6 +134,8 @@ export function HeroSection() {
               quality={90}
               loading="eager"
               priority={index === 0}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
             {/* Base Mobile Image */}
             <Image
@@ -145,6 +147,8 @@ export function HeroSection() {
               quality={90}
               loading="eager"
               priority={index === 0}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
             
             {/* Highlight Overlay - B Images */}
@@ -158,6 +162,8 @@ export function HeroSection() {
                   className="hidden md:block object-cover object-center ease-in-out"
                   sizes="100vw"
                   quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   style={{
                     opacity: currentStage === index ? (showHighlight ? 1 : 0.65) : 0,
                     transition: showHighlight 
@@ -173,6 +179,8 @@ export function HeroSection() {
                   className="md:hidden object-cover object-center ease-in-out"
                   sizes="100vw"
                   quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   style={{
                     opacity: currentStage === index ? (showHighlight ? 1 : 0.65) : 0,
                     transition: showHighlight 
