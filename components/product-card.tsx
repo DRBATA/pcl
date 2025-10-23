@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 
 interface ProductCardProps {
   product: {
@@ -24,7 +24,33 @@ interface ProductCardProps {
 
 export function ProductCard({ product, onQuickLook }: ProductCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
+  const [isInView, setIsInView] = useState(false)
+
+  // Intersection Observer to detect when card is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+        if (videoRef.current) {
+          // Speed up when in view, slow down when out of view
+          videoRef.current.playbackRate = entry.isIntersecting ? 2.0 : 0.3
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of card is visible
+    )
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current)
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current)
+      }
+    }
+  }, [])
 
   const handleMouseEnter = () => {
     setIsHovered(true)
@@ -36,12 +62,14 @@ export function ProductCard({ product, onQuickLook }: ProductCardProps) {
   const handleMouseLeave = () => {
     setIsHovered(false)
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.3 // Very slow when not hovering
+      // Return to appropriate speed based on viewport visibility
+      videoRef.current.playbackRate = isInView ? 2.0 : 0.3
     }
   }
 
   return (
     <motion.div
+      ref={cardRef}
       className="group relative bg-white overflow-hidden"
       style={{
         borderRadius: "24px",
