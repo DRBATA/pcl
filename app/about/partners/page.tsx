@@ -151,26 +151,6 @@ export default function PartnersPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl p-6 border-2 border-amber-400">
-              <p className="text-center font-bold text-xl mb-2">
-                🚚 Complete Supply Chain: From MRI Scan to Final Report
-              </p>
-              <p className="text-center text-sm text-amber-50 mb-4">
-                Our logistics partners ensure seamless nationwide service delivery
-              </p>
-              <div className="flex justify-center items-center gap-8">
-                <div className="bg-white rounded-lg p-4">
-                  <Image
-                    src="/logos/parker&sonstransport.gif"
-                    alt="Parker & Son Transport - Logistics Partner"
-                    width={120}
-                    height={60}
-                    className="opacity-90"
-                  />
-                </div>
-              </div>
-            </div>
-
             <div className="mt-8 bg-white/20 rounded-lg p-6 border border-white/30">
               <p className="text-center font-semibold text-lg mb-2">
                 💎 Why Surgeons Choose to Work With Us
@@ -179,65 +159,6 @@ export default function PartnersPage() {
                 Our team's specialized expertise in equipment logistics, technical troubleshooting, and precision calibration means you can concentrate on what you do best - clinical judgment and patient outcomes. We handle the complexity, you deliver exceptional care.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Clinical Excellence Section */}
-        <div className="container-custom pb-20 border-b">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Clinical Excellence</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We collaborate with leading clinicians and medical professionals to deliver exceptional prostate care
-              services. Our network includes experienced urologists, radiologists, and medical technicians who are
-              dedicated to advancing precision diagnostics in prostate cancer care.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-sm border"
-            >
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Expert Radiologists
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Specialized in prostate MRI interpretation and fusion biopsy guidance
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-sm border"
-            >
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Consultant Urologists
-              </h3>
-              <p className="text-gray-600 text-sm">Leading specialists in minimally invasive prostate treatments</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-sm border"
-            >
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Clinical Scientists
-              </h3>
-              <p className="text-gray-600 text-sm">Advanced imaging and treatment planning expertise</p>
-            </motion.div>
           </div>
         </div>
       </main>

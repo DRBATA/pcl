@@ -27,12 +27,246 @@ export default function AboutPCLPage() {
               Our Mission
             </h2>
             <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-              We are committed to developing access to state-of-the-art precision diagnostics for prostate cancer,
-              helping hospitals implement MR/US fusion biopsy services with proven technology and expert support.
+              Our mission is to make imaging-led diagnostics and treatment for prostate cancer available to all patients, clinicians and hospitals in the UK. All men deserve access to precision diagnostics and nuanced care.
             </p>
             <p className="text-gray-700 leading-relaxed">
               From MRI contouring to on-site application specialists, we handle the technical complexity so you can focus on patient care.
             </p>
+          </div>
+
+          {/* The Evolution of PCL */}
+          <div className="bg-white rounded-2xl p-12 mb-16 border-2 border-gray-200 shadow-lg">
+            <h2 className="text-3xl font-bold mb-8 text-center" style={{ color: "var(--color-medical-green)" }}>
+              The Evolution of Prostate Care Limited
+            </h2>
+
+            {/* Founding (2009) */}
+            <div className="mb-8">
+              <div className="flex items-start gap-4 mb-4">
+                <div className="flex-shrink-0 w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">📍</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                    Founding (2009)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Prostate Care Limited was established in 2009 as a specialist imaging centre on <strong>Queen Anne Street in London</strong>, aiming to serve mainly the MSK and neurology communities with its 3T MRI. Very quickly the 3T was in demand from a group of research urologists at nearby UCLH who were the world leaders in researching, advancing and trialling a new, imaging-led pathway for managing prostate cancer called <strong>focal therapy</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Turning Point - UCLH Collaboration */}
+            <div className="mb-8 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-200">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">🔬</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-blue-900">
+                    Turning Point – Collaboration with UCLH
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    This imaging-led pathway encompasses both <strong>diagnostics</strong> in the form of pre-biopsy imaging and image-guided biopsy, and <strong>treatment</strong> in the form of high-intensity focused ultrasound (HIFU).
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Prostate Care Limited developed as a specialist imaging centre and established a reputation for excellence and innovation in imaging the prostate, working with the team at UCLH and others who were running the patient trials required to advance the focal pathway.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Growth and Impact */}
+            <div className="mb-8">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">🚀</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-purple-900">
+                    Growth and Impact
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    We promoted this pathway to other clinicians and hospitals, enabling the former to offer their patients a non-invasive alternative to surgery and the latter a day-case procedure.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Our innovations have centred on continually increasing precision in imaging, reporting and patient engagement, and through these we have built relationships with leading Urologists around the country to support them in offering this new pathway to their patients.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Pivotal Trials */}
+            <div className="bg-gradient-to-br from-emerald-900 to-teal-900 text-white rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-bold mb-6 text-center">🏆 Pivotal Trials: Establishing the Standard of Care</h3>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="text-4xl">📄</div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-1 text-emerald-300">2017 - The PROMIS Trial</h4>
+                      <p className="text-xs text-emerald-100 mb-2">January 2017</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-blue-100 mb-3">
+                    A major UK-led trial demonstrated the value of <strong>mpMRI imaging pre-biopsy</strong>, establishing mpMRI imaging as a new standard of care for managing prostate cancer.
+                  </p>
+                  <div className="bg-emerald-500/20 rounded-lg p-3">
+                    <p className="text-xs text-emerald-50 font-semibold">
+                      Prostate Care Limited played a significant role in this groundbreaking trial.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="text-4xl">🎯</div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-1 text-cyan-300">2018 - The PRECISION Trial</h4>
+                      <p className="text-xs text-cyan-100 mb-2">March 2018</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-blue-100 mb-3">
+                    Another UK-led trial demonstrated that using an MRI to identify suspected cancer and performing a <strong>prostate biopsy targeted to the MRI information</strong> leads to more cancers being diagnosed than the standard method used for the last 25 years.
+                  </p>
+                  <div className="bg-cyan-500/20 rounded-lg p-3">
+                    <p className="text-xs text-cyan-50 font-semibold">
+                      PCL's involvement was instrumental in validating MRI-targeted biopsy as superior to traditional methods.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Today */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-emerald-300">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-20 h-20 bg-emerald-200 rounded-full flex items-center justify-center">
+                  <span className="text-3xl">🌟</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-emerald-900">
+                    Today and the Mission
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg font-medium">
+                    Today we are a dedicated team of application specialists who bring the technology and expertise required for image-guided biopsy and HIFU to clinicians and hospitals around the country. <strong>All men deserve access to precision diagnostics and nuanced care.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Why Top Teams Trust PCL Behind the Scenes */}
+          <div className="bg-gradient-to-r from-red-900 via-orange-900 to-amber-900 text-white rounded-2xl p-12 mb-16 border-4 border-orange-500">
+            <h2 className="text-3xl font-bold text-center mb-6">
+              🔑 Why Top Focal Therapy Teams Trust PCL Behind the Scenes
+            </h2>
+            <p className="text-center text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-amber-100">
+              Even leading focal therapy centres use Prostate Care Limited under the hood. It's not just the software — it's the <strong>mechanical, optical, and spatial discipline</strong> of setting up these fusion and ablation systems correctly.
+            </p>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border-2 border-amber-400">
+              <h3 className="text-2xl font-bold mb-4 text-center text-amber-300">
+                The Precise Chain of Precision: TARGET → PROBE → FIELD
+              </h3>
+              <p className="text-center text-lg text-amber-100 mb-4">
+                <strong>The precise matching of MRI target → probe position → ultrasound field</strong> is what makes or breaks fusion accuracy.
+              </p>
+              <p className="text-center text-amber-50">
+                Surgeons focus on clinical decisions. But they're completely dependent on every interlocking step in the chain — from Dr. Allen's virtual probe contouring, to millimeter-perfect equipment setup, to real-time field matching during the procedure.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">⚙️</div>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">It's Physically Hard Graft</h3>
+                <p className="text-sm text-amber-100 mb-3">
+                  Setting up the EX3 stepper + MicroTouch + cradle + water balloon + drape is a <strong>30-45 minute mechanical job</strong> if you don't know it by heart.
+                </p>
+                <p className="text-sm text-amber-50">
+                  Miss one screw or tension point and your probe alignment drifts 2-3mm — enough to miss a lesion or burn healthy tissue in HIFU. That's why surgeons and focal therapy clinics rely on PCL's on-site techs who've done hundreds of these builds.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">🧠</div>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">Geometric Consistency Is Critical</h3>
+                <p className="text-sm text-amber-100 mb-3">
+                  If you contour in MIM and then fuse in BK, that fusion is only as accurate as your <strong>probe axis and balloon fill</strong>.
+                </p>
+                <p className="text-sm text-amber-50">
+                  Without a precise stabiliser setup, your 3D registration collapses. Even if a clinic owns the fusion software, they still call in the PCL team to ensure mechanical reproducibility.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">🧩</div>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">The Unseen Layer of Expertise</h3>
+                <p className="text-sm text-amber-100 mb-3">
+                  When a site says "we use MIM" or "we use BK Fusion", they're referring to <strong>software licensing</strong>.
+                </p>
+                <p className="text-sm text-amber-50">
+                  But the implementation discipline — calibration, probe geometry, drape workflow, cooling, grid alignment — is operational, not technical. PCL fills that missing layer: the "application-specialist integrator."
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                <div className="text-4xl mb-3">🔬</div>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">Why Centres Outsource It</h3>
+                <p className="text-sm text-amber-100 mb-3">
+                  It's risky to do wrong:
+                </p>
+                <ul className="text-xs text-amber-50 space-y-1.5">
+                  <li>• Probe over-compression → gland deformation → mis-targeted lesion</li>
+                  <li>• Air in the balloon → acoustic shadowing</li>
+                  <li>• Wrong stand or drape tension → probe drift during ablation</li>
+                  <li>• Missed "step" in the EX3 → probe slips 5mm mid-case</li>
+                </ul>
+                <p className="text-sm text-amber-50 mt-3">
+                  A radiologist can contour a perfect target, but if those errors happen, the precision is lost.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-emerald-500 to-orange-500 rounded-xl p-8 border-2 border-white/30">
+              <h3 className="text-2xl font-bold mb-4 text-center">💡 That's Why PCL Remains Invisible But Indispensable</h3>
+              <p className="text-center text-white mb-4 leading-relaxed">
+                Clinics keep PCL behind the scenes, because it's a <strong>facilitator service</strong> — not a competing clinic.
+              </p>
+              <p className="text-center text-lg font-semibold text-yellow-100">
+                "The reason you don't see our name on the theatre list is because everything already works when you walk in."
+              </p>
+              
+              <div className="mt-6 grid md:grid-cols-3 gap-4 text-center">
+                <div className="bg-white/20 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🎨</div>
+                  <p className="text-sm font-bold mb-1">Pre-Fusion Contouring</p>
+                  <p className="text-xs text-yellow-50">Dr Allen's expert radiologist planning</p>
+                </div>
+                <div className="bg-white/20 rounded-lg p-4">
+                  <div className="text-3xl mb-2">⚙️</div>
+                  <p className="text-sm font-bold mb-1">On-Site Technical Execution</p>
+                  <p className="text-xs text-yellow-50">Millimeter-perfect setup & calibration</p>
+                </div>
+                <div className="bg-white/20 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🎯</div>
+                  <p className="text-sm font-bold mb-1">Theatre Confidence</p>
+                  <p className="text-xs text-yellow-50">Urologist focuses on clinical decisions</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-white/20 rounded-xl p-6 border-2 border-yellow-400">
+              <p className="text-center font-bold text-2xl mb-3 text-yellow-300">
+                We Bridge Radiology → Fusion → Theatre Where Others Can't
+              </p>
+              <p className="text-center text-amber-100">
+                That's the operational excellence that separates theoretical precision from reproducible clinical outcomes. Top teams know it. That's why they call PCL.
+              </p>
+            </div>
           </div>
 
           {/* Statistics Section */}
@@ -122,47 +356,163 @@ export default function AboutPCLPage() {
             </div>
           </div>
 
-          {/* Clinical Team */}
+          {/* Meet The Team */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Our Clinical Team
+              Meet The Team
             </h2>
             <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Expert radiologists providing multiparametric MRI contouring and precision targeting
+              From expert MRI contouring to equipment transport and on-site support - the complete team making precision fusion biopsy seamless
             </p>
 
-            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto mb-16">
-              <div className="flex items-center gap-6 mb-6">
-                <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-200 flex-shrink-0">
-                  <Image
-                    src="/surgeons/ca.png"
-                    alt="Dr Clare Allen"
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-cover"
-                  />
+            {/* Clinical Team - Dr Clare Allen */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
+                Clinical Team
+              </h3>
+              <p className="text-center text-sm text-gray-600 mb-8 max-w-xl mx-auto">
+                Expert radiologists providing multiparametric MRI contouring and precision targeting
+              </p>
+              
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-green-200 flex-shrink-0">
+                    <Image
+                      src="/surgeons/ca.png"
+                      alt="Dr Clare Allen"
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">Dr Clare Allen</h4>
+                    <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
+                      Consultant Uroradiologist
+                    </p>
+                    <p className="text-sm text-gray-600">MBBS (Oxford) | GMC: 3108389</p>
+                    <p className="text-xs text-gray-500 mt-1">UCLH | The Princess Grace Hospital | King Edward VII's Hospital | The London Clinic</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Dr Clare Allen</h3>
-                  <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
-                    Consultant Uroradiologist
+                
+                <div className="mb-4">
+                  <h5 className="font-semibold text-gray-900 mb-2">A UK Leader in Prostate Cancer Care</h5>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    Clare qualified from Oxford (MBBS, 1985) and is the uro-radiology lead consultant at University College London. She has pioneered the use of mpMRI (multiparametric magnetic resonance imaging) for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK.
                   </p>
-                  <p className="text-sm text-gray-600">MBBS (Oxford) | GMC: 3108389</p>
-                  <p className="text-xs text-gray-500 mt-1">UCLH | The Princess Grace Hospital | King Edward VII's Hospital | The London Clinic</p>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    She was lead radiologist on the <strong>PROMISE Trial</strong> which proved the efficacy of mpMRI for prostate cancer globally, and received the <strong>UK Research Paper of the Year</strong> award.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Dr Allen has a well-developed clinical practice in dynamic contrast enhanced magnetic resonance imaging (DCE-MRI) in the prostate and leads a team of medical physicists in further defining the role of multi-sequence MRI in diagnostic utility of prostate cancer.
+                  </p>
                 </div>
               </div>
+            </div>
+
+            {/* On-Site Application Specialists */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
+                On-Site Application Specialists
+              </h3>
+              <p className="text-center text-sm text-gray-600 mb-8 max-w-xl mx-auto">
+                Expert technicians managing equipment setup, calibration, and real-time procedure support
+              </p>
               
-              <div className="mb-4">
-                <h4 className="font-semibold text-gray-900 mb-2">A UK Leader in Prostate Cancer Care</h4>
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
+                <div className="mb-6">
+                  <Image
+                    src="/new/onsiteteam.jpg"
+                    alt="On-site Application Specialists"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </div>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  Clare qualified from Oxford (MBBS, 1985) and is the uro-radiology lead consultant at University College London. She has pioneered the use of mpMRI (multiparametric magnetic resonance imaging) for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-3">
-                  She was lead radiologist on the <strong>PROMISE Trial</strong> which proved the efficacy of mpMRI for prostate cancer globally, and received the <strong>UK Research Paper of the Year</strong> award.
+                  Our Application Specialists are the backbone of every procedure. They arrive early to set up the 6-degree-of-freedom stepper system, calibrate the MRI fusion overlay, and manage the technical complexity throughout your biopsy session.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Dr Allen has a well-developed clinical practice in dynamic contrast enhanced magnetic resonance imaging (DCE-MRI) in the prostate and leads a team of medical physicists in further defining the role of multi-sequence MRI in diagnostic utility of prostate cancer.
+                  From loading Dr Allen's pre-planned targets to tracking every core in real-time - they handle the sophisticated equipment so you can focus entirely on the patient.
                 </p>
+              </div>
+            </div>
+
+            {/* Coordination & Administration */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
+                Coordination & Administration
+              </h3>
+              <p className="text-center text-sm text-gray-600 mb-8 max-w-xl mx-auto">
+                The team holding everything together - from initial booking to final report delivery
+              </p>
+              
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-200 flex-shrink-0 bg-gray-100">
+                    <Image
+                      src="/new/secretary.png"
+                      alt="PCL Coordinator"
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="text-2xl font-bold text-gray-900">PCL Coordination Team</h4>
+                    <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
+                      Your Single Point of Contact
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  All your secretary needs to do is call us. Our coordination team handles imaging transfer, schedules Dr Allen's contouring, arranges on-site specialist deployment, and ensures everything is ready before you step into theatre.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  After the procedure, they coordinate the post-procedure targeting accuracy report - delivering complete documentation to support your clinical records.
+                </p>
+              </div>
+            </div>
+
+            {/* Transport & Logistics */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
+                Equipment Transport & Logistics Partners
+              </h3>
+              <p className="text-center text-sm text-gray-600 mb-8 max-w-xl mx-auto">
+                Nationwide equipment delivery ensuring seamless service across the UK
+              </p>
+              
+              <div className="bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl shadow-lg p-8 max-w-3xl mx-auto text-white">
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <div className="text-5xl">🚛</div>
+                  <h4 className="text-3xl font-bold">Precision Equipment Logistics</h4>
+                </div>
+                
+                <p className="text-center text-amber-50 mb-6">
+                  Specialized medical equipment transport ensuring your hardware arrives ready for theatre
+                </p>
+
+                <div className="bg-white rounded-xl p-4 mb-6 flex items-center justify-center">
+                  <Image
+                    src="/logos/parker&sonstransport.gif"
+                    alt="Parker & Son Transport - Medical Equipment Logistics Partner"
+                    width={200}
+                    height={80}
+                    className="h-16 w-auto"
+                  />
+                </div>
+
+                <p className="text-sm text-amber-50 leading-relaxed mb-4">
+                  <strong>Parker Medical Transport</strong> handles the complex logistics of ferrying our <strong>precision equipment</strong> - including the 6DOF stepper systems, ultrasound units, cradles, water balloons, and calibration tools - safely to your location and back.
+                </p>
+                
+                <div className="bg-white/20 rounded-lg p-4 border border-white/30">
+                  <p className="text-xs text-amber-100 text-center">
+                    <strong>Note:</strong> MRI images and planning data are transferred digitally via secure cloud-based systems - not by physical transport. This logistics partnership is specifically for equipment delivery, setup support, and post-procedure collection.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

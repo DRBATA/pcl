@@ -9,7 +9,7 @@ export function Footer() {
     Services: [
       { name: "Biopsy Planning", href: "/services/biopsy-plan" },
       { name: "MR/US Fusion Biopsy", href: "/services/freehand-fusion" },
-      { name: "On-Site HIFU", href: "/services/hifu" },
+      { name: "HIFU", href: "/services/hifu" },
       { name: "IRE/NanoKnife", href: "/services/ire-nanoknife" },
       { name: "Patient Referral", href: "/services/patient-referral" },
       { name: "How It Works", href: "/services" },

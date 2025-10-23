@@ -171,7 +171,7 @@ export function Header() {
                       href="/services/hifu"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
-                      On-Site HIFU
+                      HIFU
                     </Link>
                     <Link
                       href="/services/ire-nanoknife"
@@ -277,7 +277,7 @@ export function Header() {
                       className="block text-[14px] py-1 text-muted-foreground"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      On-Site HIFU
+                      HIFU
                     </Link>
                     <Link
                       href="/services/ire-nanoknife"

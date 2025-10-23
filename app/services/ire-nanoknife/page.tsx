@@ -132,54 +132,89 @@ export default function IREPage() {
               Challenging anatomical locations, post-ablation recurrence, and marginal disease - IRE's non-thermal ablation preserves critical structures while delivering precise treatment.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="mb-4">
-                  <img
-                    src="/about1/base.png"
-                    alt="Post-ablation MRI showing dark areas on T2 (non-specific) - scar or necrosis with focal early enhancement at edge of ablation cavity consistent with residual disease"
-                    className="w-full rounded-lg shadow-lg"
-                  />
+            <div className="mb-8">
+              <img
+                src="/new/complexcase+knife.png"
+                alt="Complex cases showing base recurrence, mid-gland anterior lesion, and apical tumor - ideal candidates for IRE/NanoKnife"
+                className="w-full rounded-xl shadow-2xl border-4 border-white/30"
+              />
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-purple-300">
+                <h3 className="text-xl font-bold mb-4 text-purple-300">🎯 Anterior & Apical Lesions: Where IRE Shines</h3>
+                <p className="text-sm text-blue-100 mb-3 leading-relaxed">
+                  Anterior and apical tumors are among the most challenging to treat due to proximity to the <strong>neurovascular bundles</strong> (controlling erectile function) and <strong>urethral sphincter</strong> (controlling continence).
+                </p>
+                <p className="text-sm text-blue-100 mb-3 leading-relaxed">
+                  <strong>Thermal ablation methods (HIFU, cryotherapy)</strong> generate heat or extreme cold that can damage these delicate structures, leading to:
+                </p>
+                <ul className="text-xs text-blue-50 space-y-1.5 ml-4">
+                  <li>• <strong>Erectile dysfunction</strong> from nerve damage</li>
+                  <li>• <strong>Urinary incontinence</strong> from sphincter injury</li>
+                  <li>• <strong>Urethral stricture</strong> from collateral thermal damage</li>
+                </ul>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-300">
+                <h3 className="text-xl font-bold mb-4 text-cyan-300">⚡ Non-Thermal Precision: Preserving Function</h3>
+                <p className="text-sm text-blue-100 mb-3 leading-relaxed">
+                  IRE/NanoKnife uses <strong>controlled electrical pulses</strong> instead of heat. This non-thermal mechanism:
+                </p>
+                <ul className="text-xs text-blue-50 space-y-2 ml-4">
+                  <li>• <strong>Preserves tissue architecture</strong> - nerves, blood vessels, and connective tissue remain intact</li>
+                  <li>• <strong>Protects erectile function</strong> - neurovascular bundles adjacent to the ablation zone are spared</li>
+                  <li>• <strong>Maintains continence</strong> - urethral sphincter function preserved even in apical tumors</li>
+                  <li>• <strong>Safe near critical structures</strong> - bladder neck, rectum, and urethra protected</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-xl p-6 mb-8 border-2 border-white/30">
+              <h3 className="text-2xl font-bold mb-4 text-center">🔬 MRI Fusion Guidance: The Complete Advantage</h3>
+              <p className="text-sm text-white mb-4 leading-relaxed text-center max-w-4xl mx-auto">
+                Our <strong>MRI-Ultrasound fusion technology</strong> allows us to target anterior and apical lesions with millimeter accuracy - lesions that would be nearly impossible to identify or treat without this guidance.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-3xl mb-2">📐</div>
+                  <p className="text-xs font-semibold mb-1">Precise Lesion Targeting</p>
+                  <p className="text-xs text-cyan-50">Dr Allen's pre-contoured MRI targets guide ablation in real-time</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-cyan-300">Base: Post-Ablation Recurrence</h3>
+                <div>
+                  <div className="text-3xl mb-2">🎨</div>
+                  <p className="text-xs font-semibold mb-1">Margins Without Over-Treatment</p>
+                  <p className="text-xs text-cyan-50">Treat cancer + safety margin while sparing healthy tissue</p>
+                </div>
+                <div>
+                  <div className="text-3xl mb-2">🏆</div>
+                  <p className="text-xs font-semibold mb-1">90%+ Success Rate</p>
+                  <p className="text-xs text-cyan-50">Over 90% cancer-free at 1 year (MRI + PSA criteria)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-pink-300">
+                <h3 className="text-lg font-bold mb-3 text-pink-300">📍 Post-Ablation Recurrence</h3>
                 <p className="text-sm text-blue-100">
-                  Post-ablation MRI shows dark areas on T2 (non-specific - scar or necrosis). <strong>Focal early enhancement at edge of ablation cavity</strong> consistent with residual disease requiring targeted re-treatment.
+                  <strong>Base-level recurrence after HIFU or cryo?</strong> Post-ablation MRI shows dark T2 areas (scar/necrosis) making recurrence hard to detect. Focal early enhancement at the ablation edge signals residual disease - ideal for targeted IRE re-treatment.
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="mb-4">
-                  <img
-                    src="/about1/mid.png"
-                    alt="Mid-gland anterior tumor - challenging location requiring precision non-thermal ablation"
-                    className="w-full rounded-lg shadow-lg"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-purple-300">Mid: Anterior Lesion</h3>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-yellow-300">
+                <h3 className="text-lg font-bold mb-3 text-yellow-300">📊 Long-Term Outcomes</h3>
                 <p className="text-sm text-blue-100">
-                  Mid-gland anterior tumor in challenging location. IRE's non-thermal mechanism allows precise ablation near critical structures, avoiding heat-related collateral damage.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="mb-4">
-                  <img
-                    src="/about1/apex.png"
-                    alt="Apical tumor requiring precision treatment near neurovascular bundle and urethral sphincter"
-                    className="w-full rounded-lg shadow-lg"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3 text-pink-300">Apex: Preservation of Function</h3>
-                <p className="text-sm text-blue-100">
-                  Apical tumor near neurovascular bundle and urethral sphincter. IRE's electrical pulses preserve surrounding tissue architecture, protecting continence and sexual function.
+                  Global focal therapy data shows <strong>75-80% of men remain free from radical treatment (surgery/radiotherapy) for 6-10 years</strong> after IRE. That's 4 out of 5 men avoiding whole-gland treatment while maintaining cancer control.
                 </p>
               </div>
             </div>
 
             <div className="mt-8 bg-white/20 rounded-lg p-6 border border-white/30">
-              <p className="text-center font-semibold text-lg mb-2">💡 Why Non-Thermal Ablation Matters</p>
+              <p className="text-center font-semibold text-lg mb-2">💡 Why Non-Thermal Ablation Matters for Complex Cases</p>
               <p className="text-center text-sm text-blue-50">
-                IRE delivers controlled electrical pulses that don't generate heat, making it ideal for marginal zones, post-ablation recurrence, and anatomically challenging locations where thermal therapies risk damage to critical structures.
+                IRE delivers controlled electrical pulses that don't generate heat, making it the <strong>safest option for anterior/apical lesions, marginal zones, post-ablation recurrence, and anatomically challenging locations</strong> where thermal therapies risk permanent damage to erectile function, continence, or urethral integrity.
               </p>
             </div>
           </div>

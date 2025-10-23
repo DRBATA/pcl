@@ -33,6 +33,59 @@ export default function HifuPage() {
             </p>
           </div>
 
+          {/* MRI Fusion-Guided HIFU Outcomes */}
+          <div className="bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 text-white rounded-2xl p-12 mb-12">
+            <h2 className="text-3xl font-bold text-center mb-4">🔬 MRI Fusion-Guided HIFU: Precision Targeting Drives Success</h2>
+            <p className="text-center text-emerald-100 mb-8 max-w-3xl mx-auto">
+              Real-time MRI fusion guidance ensures we treat the cancer AND a surrounding safety margin - dramatically improving outcomes while preserving function.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-emerald-400">
+                <div className="text-6xl text-center mb-4">90%+</div>
+                <h3 className="text-2xl font-bold text-center mb-4 text-emerald-300">Short-Term Success Rate</h3>
+                <p className="text-sm text-emerald-50 text-center">
+                  Using real-time MRI fusion guidance during HIFU treatment, <strong>over 90% of men are cancer-free at 1 year</strong> based on MRI and PSA criteria. Precision targeting ensures complete ablation of the cancerous area plus safety margin.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-cyan-400">
+                <div className="text-6xl text-center mb-4">75-80%</div>
+                <h3 className="text-2xl font-bold text-center mb-4 text-cyan-300">Long-Term Treatment Freedom</h3>
+                <p className="text-sm text-cyan-50 text-center">
+                  Global focal therapy data shows <strong>75-80% of men remain free from radical treatment (surgery or radiotherapy) for 6-10 years</strong> after MRI-guided HIFU. That's 4 out of 5 men avoiding whole-gland treatment while maintaining cancer control.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl p-6 border-2 border-white/30">
+              <h3 className="text-xl font-bold mb-4 text-center">🎯 Why MRI Fusion Makes the Difference</h3>
+              <div className="grid md:grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-3xl mb-2">📐</div>
+                  <p className="text-xs font-semibold mb-1">Precise Lesion Targeting</p>
+                  <p className="text-xs text-emerald-50">Dr Allen's pre-contoured MRI targets guide ablation in real-time - treat cancer + margin with millimeter accuracy</p>
+                </div>
+                <div>
+                  <div className="text-3xl mb-2">🌡️</div>
+                  <p className="text-xs font-semibold mb-1">Controlled Thermal Zone</p>
+                  <p className="text-xs text-emerald-50">Live thermal monitoring ensures complete ablation while preventing collateral damage to surrounding structures</p>
+                </div>
+                <div>
+                  <div className="text-3xl mb-2">✅</div>
+                  <p className="text-xs font-semibold mb-1">Verified Coverage</p>
+                  <p className="text-xs text-emerald-50">Real-time fusion confirms the entire target zone has been treated - no guesswork, just verifiable precision</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 bg-white/20 rounded-lg p-4 border border-white/30">
+              <p className="text-center text-sm text-emerald-50">
+                <strong>The PCL Advantage:</strong> MRI fusion transforms HIFU from "thermal energy deployment" to "precision-guided ablation with real-time verification" - ensuring you treat the cancer completely while preserving quality of life.
+              </p>
+            </div>
+          </div>
+
           <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 mb-12">
             <h2 className="text-2xl font-semibold mb-6" style={{ color: "var(--color-medical-green)" }}>
               HIFU Procedure Overview
