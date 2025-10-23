@@ -422,7 +422,7 @@ export default function AboutPCLPage() {
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
                 <div className="mb-6">
                   <Image
-                    src="/new/onsiteteam.jpg"
+                    src="/new/onsiteteam.png"
                     alt="On-site Application Specialists"
                     width={800}
                     height={400}
