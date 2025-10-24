@@ -70,7 +70,7 @@ const medicalServices: ServiceItem[] = [
   },
   {
     id: "equipment-hire",
-    name: "BREAK OUT THE GOOD STUFF",
+    name: "CUTTING EDGE EQUIPMENT",
     images: [
       "/tidy/setup/1.png",
       "/tidy/setup/2.png",
@@ -80,26 +80,26 @@ const medicalServices: ServiceItem[] = [
       "/tidy/setup/6.png",
       "/tidy/setup/7.png",
     ],
-    count: "Check Out Our Kit",
+    count: "Latest Tech, Mobile Rental",
     link: "/about/equipment-services",
     cycling: true,
     boldTitle: true,
-    titleLines: ["BREAK OUT", "THE GOOD", "STUFF"],
+    titleLines: ["LATEST", "TECH", "MOBILE"],
   },
   {
     id: "pack-up",
-    name: "PACK UP",
+    name: "ONSITE FUSION APPLICATION TECHNICIAN",
     images: [
       "/tidy/putawayprobe/packed.png",
       "/tidy/putawayprobe/tukcingaway.png",
       "/tidy/putawayprobe/puttingdown.png",
       "/tidy/putawayprobe/reachup.png",
     ],
-    count: "As If We Were Never There → End to End Service",
+    count: "Expert Support Throughout Your Procedure",
     link: "/about",
     cycling: true,
     boldTitle: true,
-    titleLines: ["PACK", "UP", "SERVICE"],
+    titleLines: ["ONSITE", "FUSION", "TECHNICIAN"],
   },
 ]
 

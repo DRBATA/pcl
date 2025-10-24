@@ -254,8 +254,8 @@ export default function FreehandFusionPage() {
                   <div className="flex gap-2 items-start">
                     <span className="text-green-600 text-lg">✓</span>
                     <div>
-                      <p className="font-semibold text-sm">Office-Based Procedures</p>
-                      <p className="text-xs text-gray-600">Local anesthesia, outpatient setting, reduced costs</p>
+                      <p className="font-semibold text-sm">Reduced Infection Risk</p>
+                      <p className="text-xs text-gray-600">Transperineal approach significantly reduces sepsis and bleeding vs transrectal</p>
                     </div>
                   </div>
                   <div className="flex gap-2 items-start">
@@ -277,7 +277,7 @@ export default function FreehandFusionPage() {
                 <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
                   <p className="text-xs font-semibold text-blue-900 mb-1">Best For:</p>
                   <p className="text-xs text-blue-800">
-                    Experienced operators, targeted biopsies, office settings, fast turnaround
+                    Minimally invasive approach, reduced infection/antibiotic use, fast turnaround, targeted biopsies
                   </p>
                 </div>
               </div>
@@ -428,7 +428,7 @@ export default function FreehandFusionPage() {
               <div>
                 <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg">
                   <Image
-                    src="/new/PLan_allignment.png"
+                    src="/NEW/PLan_allignment.png"
                     alt="Real-time needle tracking with MRI fusion overlay showing precise target location"
                     width={1200}
                     height={1200}
@@ -561,7 +561,7 @@ export default function FreehandFusionPage() {
 
             <div className="bg-white rounded-xl p-2 mb-8">
               <Image
-                src="/new/prec_hard.png"
+                src="/NEW/prec_hard.png"
                 alt="6-degree-of-freedom stepper system showing axial grid, 3D spatial view, and multi-axis positioning"
                 width={1600}
                 height={1200}
