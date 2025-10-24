@@ -158,6 +158,8 @@ export function HeroSection() {
                   className="hidden md:block object-cover object-center ease-in-out"
                   sizes="100vw"
                   quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   style={{
                     opacity: currentStage === index ? (showHighlight ? 1 : 0.65) : 0,
                     transition: showHighlight 
@@ -173,6 +175,8 @@ export function HeroSection() {
                   className="md:hidden object-cover object-center ease-in-out"
                   sizes="100vw"
                   quality={90}
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                   style={{
                     opacity: currentStage === index ? (showHighlight ? 1 : 0.65) : 0,
                     transition: showHighlight 
@@ -184,6 +188,8 @@ export function HeroSection() {
             )}
           </div>
         ))}
+
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background/50 z-10" />
       </div>
 
       <div className="relative z-20 h-screen flex items-center justify-center px-4 py-12">
