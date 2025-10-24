@@ -1,0 +1,13 @@
+# LiveKit core + agents (version-aligned)
+livekit==1.0.12
+livekit-agents==1.2.6
+
+# Supabase SDK
+supabase==2.7.4
+
+# OpenAI client for Completions API
+openai>=1.0.0
+
+# Misc
+python-dotenv>=1.0
+aiohttp~=3.10

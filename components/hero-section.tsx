@@ -113,8 +113,8 @@ export function HeroSection() {
   const currentHero = heroStages[currentStage]
 
   return (
-    <section className="relative h-screen overflow-hidden bg-background">
-      <div className="absolute inset-0 bg-slate-900">
+    <section className="relative h-screen overflow-hidden bg-slate-900">
+      <div className="absolute inset-0">
         {heroStages.map((stage, index) => (
           <div
             key={`${stage.desktopImage}-${index}`}

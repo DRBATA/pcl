@@ -22,6 +22,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# experimental
+/public/experimentaltesting
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

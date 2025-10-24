@@ -1,0 +1,14 @@
+# Email Agent Dependencies (NO LiveKit!)
+# Lightweight for autonomous email follow-ups
+
+# Supabase SDK (for Realtime + database queries)
+supabase==2.7.4
+
+# OpenAI client (for AI personalization)
+openai>=1.0.0
+
+# Environment variables
+python-dotenv>=1.0
+
+# Async HTTP
+aiohttp~=3.10

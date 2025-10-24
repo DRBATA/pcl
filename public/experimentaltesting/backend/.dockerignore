@@ -1,0 +1,54 @@
+# Build artifacts
+dist/
+build/
+*.log
+
+# Dependencies (will be installed fresh)
+node_modules/
+
+# Environment and config
+.env
+.env.*
+fly.toml
+fly.*.toml
+*.toml.backup
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git and version control
+.git/
+.gitignore
+.gitattributes
+**/.git/
+**/.gitignore
+
+# MCP server (exclude entirely - not needed in container)
+mcp-waterbar-emails/
+lib/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test and docs
+*.test.ts
+*.spec.ts
+*.test.js
+*.spec.js
+README.md
+docs/
+
+# Deployment scripts
+deploy*.ps1
+deploy*.sh

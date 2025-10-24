@@ -1,0 +1,33 @@
+# Lightweight Dockerfile for Email Follow-Up Agent
+# Includes MCP server for Resend/Stripe integration
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install Node.js and git
+RUN apt-get update && \
+    apt-get install -y nodejs npm curl git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.email.txt .
+RUN pip install --no-cache-dir -r requirements.email.txt
+
+# Clone MCP server from git (if public) OR copy only source files
+# For now, let's create a minimal stub that matches the interface
+RUN mkdir -p /app/mcp-waterbar-emails/build
+
+# Create a minimal MCP stub (we'll replace this with real one after testing)
+RUN echo 'console.log("MCP server stub - replace with real implementation");' > /app/mcp-waterbar-emails/build/index.js
+
+# Copy agent code
+COPY email_agent.py .
+COPY lib/ ./lib/
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV WATERBAR_MCP_PATH=/app/mcp-waterbar-emails/build/index.js
+
+# Run the email agent
+CMD ["python", "email_agent.py"]
