@@ -115,7 +115,7 @@ export default function AboutPCLPage() {
                   </p>
                   <div className="bg-emerald-500/20 rounded-lg p-3">
                     <p className="text-xs text-emerald-50 font-semibold">
-                      Prostate Care Limited played a significant role in this groundbreaking trial.
+                      We played a significant role in this groundbreaking trial.
                     </p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export default function AboutPCLPage() {
                   </p>
                   <div className="bg-cyan-500/20 rounded-lg p-3">
                     <p className="text-xs text-cyan-50 font-semibold">
-                      PCL's involvement was instrumental in validating MRI-targeted biopsy as superior to traditional methods.
+                      Our involvement was instrumental in validating MRI-targeted biopsy as superior to traditional methods.
                     </p>
                   </div>
                 </div>
@@ -148,23 +148,26 @@ export default function AboutPCLPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3 text-emerald-900">
-                    Today and the Mission
+                    What gets us up in the morning??
                   </h3>
-                  <p className="text-gray-700 leading-relaxed text-lg font-medium">
-                    Today we are a dedicated team of application specialists who bring the technology and expertise required for image-guided biopsy and HIFU to clinicians and hospitals around the country. <strong>All men deserve access to precision diagnostics and nuanced care.</strong>
+                  <p className="text-gray-700 leading-relaxed mb-3">
+                    <strong>Our mission: Supporting hospitals and surgeons to deliver precision diagnostics and treatment to every patient who needs it.</strong>
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    We don't just provide technology. We own it, maintain it, transport it, set it up, calibrate it, guide you through the procedure, and document the results. You get turnkey precision — <strong>equipment ready, targets planned, specialist in theatre, report delivered.</strong>
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Why Top Teams Trust PCL Behind the Scenes */}
+          {/* Why Top Urologists Trust Us Behind the Scenes */}
           <div className="bg-gradient-to-r from-red-900 via-orange-900 to-amber-900 text-white rounded-2xl p-12 mb-16 border-4 border-orange-500">
             <h2 className="text-3xl font-bold text-center mb-6">
-              🔑 Why Top Focal Therapy Teams Trust PCL Behind the Scenes
+              🔑 Why Top Urologists Trust Us Behind the Scenes
             </h2>
             <p className="text-center text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-amber-100">
-              Even leading focal therapy centres use Prostate Care Limited under the hood. It's not just the software — it's the <strong>mechanical, optical, and spatial discipline</strong> of setting up these fusion and ablation systems correctly.
+              Even leading urologists use us for their most complex cases. It's not just the software — it's the <strong>expert technical setup and real-time guidance</strong> that makes fusion and ablation systems work reliably.
             </p>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border-2 border-amber-400">
@@ -175,19 +178,19 @@ export default function AboutPCLPage() {
                 <strong>The precise matching of MRI target → probe position → ultrasound field</strong> is what makes or breaks fusion accuracy.
               </p>
               <p className="text-center text-amber-50">
-                Surgeons focus on clinical decisions. But they're completely dependent on every interlocking step in the chain — from Dr. Allen's virtual probe contouring, to millimeter-perfect equipment setup, to real-time field matching during the procedure.
+                <strong>Your expertise is clinical judgment. Our expertise is the technical foundation that supports it.</strong> From Dr. Allen's virtual probe contouring, to millimeter-perfect equipment setup, to real-time software guidance during the procedure — we handle the infrastructure so you can focus on decision-making.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-4xl mb-3">⚙️</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">It's Physically Hard Graft</h3>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">Complex Technical Setup</h3>
                 <p className="text-sm text-amber-100 mb-3">
-                  Setting up the EX3 stepper + MicroTouch + cradle + water balloon + drape is a <strong>30-45 minute mechanical job</strong> if you don't know it by heart.
+                  The EX3 stepper + MicroTouch + cradle + water balloon + drape system requires <strong>precise assembly and calibration</strong>.
                 </p>
                 <p className="text-sm text-amber-50">
-                  Miss one screw or tension point and your probe alignment drifts 2-3mm — enough to miss a lesion or burn healthy tissue in HIFU. That's why surgeons and focal therapy clinics rely on PCL's on-site techs who've done hundreds of these builds.
+                  Miss one adjustment and your probe alignment drifts 2-3mm — enough to miss a lesion or compromise treatment accuracy. That's why urologists rely on our on-site specialists who've perfected this setup across hundreds of procedures.
                 </p>
               </div>
 
@@ -198,18 +201,18 @@ export default function AboutPCLPage() {
                   If you contour in MIM and then fuse in BK, that fusion is only as accurate as your <strong>probe axis and balloon fill</strong>.
                 </p>
                 <p className="text-sm text-amber-50">
-                  Without a precise stabiliser setup, your 3D registration collapses. Even if a clinic owns the fusion software, they still call in the PCL team to ensure mechanical reproducibility.
+                  Without precise stabiliser setup, your 3D registration collapses. We ensure mechanical reproducibility across every procedure.
                 </p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-4xl mb-3">🧩</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">The Unseen Layer of Expertise</h3>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">The Setup Expertise You Need (But Don't See)</h3>
                 <p className="text-sm text-amber-100 mb-3">
-                  When a site says "we use MIM" or "we use BK Fusion", they're referring to <strong>software licensing</strong>.
+                  Having software licenses is different from achieving accurate, reproducible fusion in theatre.
                 </p>
                 <p className="text-sm text-amber-50">
-                  But the implementation discipline — calibration, probe geometry, drape workflow, cooling, grid alignment — is operational, not technical. PCL fills that missing layer: the "application-specialist integrator."
+                  <strong>Across 100+ surgeons and 95 hospitals, we've refined the critical setup discipline:</strong> probe geometry, sterile draping without compromising alignment, balloon fill technique, grid calibration and cooling protocols. From hundreds of theatres, we know what goes wrong when these details are missed.
                 </p>
               </div>
 
@@ -232,9 +235,9 @@ export default function AboutPCLPage() {
             </div>
 
             <div className="bg-gradient-to-r from-emerald-500 to-orange-500 rounded-xl p-8 border-2 border-white/30">
-              <h3 className="text-2xl font-bold mb-4 text-center">💡 That's Why PCL Remains Invisible But Indispensable</h3>
+              <h3 className="text-2xl font-bold mb-4 text-center">💡 That's Why We Remain Invisible But Indispensable</h3>
               <p className="text-center text-white mb-4 leading-relaxed">
-                Clinics keep PCL behind the scenes, because it's a <strong>facilitator service</strong> — not a competing clinic.
+                Clinics keep us behind the scenes, because we're a <strong>facilitator service</strong> — not a competing clinic.
               </p>
               <p className="text-center text-lg font-semibold text-yellow-100">
                 "The reason you don't see our name on the theatre list is because everything already works when you walk in."
@@ -264,7 +267,7 @@ export default function AboutPCLPage() {
                 We Bridge Radiology → Fusion → Theatre Where Others Can't
               </p>
               <p className="text-center text-amber-100">
-                That's the operational excellence that separates theoretical precision from reproducible clinical outcomes. Top teams know it. That's why they call PCL.
+                That's the operational excellence that separates theoretical precision from reproducible clinical outcomes. Top teams know it. That's why they call us.
               </p>
             </div>
           </div>
