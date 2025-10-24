@@ -516,10 +516,10 @@ export default function FreehandFusionPage() {
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <div className="text-4xl mb-3">🔒</div>
-                <h3 className="text-xl font-bold mb-3">Prostate Immobilization</h3>
+                <h3 className="text-xl font-bold mb-3">Additional Immobilization Support</h3>
                 <p className="text-sm text-blue-100 leading-relaxed">
-                  The rigid setup <strong>prevents prostate bending or distortion</strong> during sampling. 
-                  This ensures your MRI fusion overlay remains accurate throughout the entire procedure - no drift, no guessing.
+                  The rigid grid and stabilizer work with the water balloon to provide <strong>maximum stability for systematic coordinate-based mapping</strong>. 
+                  This allows reproducible documentation for future procedures or treatment planning.
                 </p>
               </div>
 
@@ -544,10 +544,10 @@ export default function FreehandFusionPage() {
 
             <div className="bg-emerald-500/20 border-2 border-emerald-400 rounded-xl p-6 text-center">
               <p className="text-lg font-semibold mb-2">
-                ⚡ <strong>The Bottom Line:</strong> Rigid alignment + Immobilization = Reproducible targeting
+                ⚡ <strong>The Bottom Line:</strong> Rigid alignment + Immobilization = Reproducible coordinate mapping
               </p>
               <p className="text-sm text-emerald-100">
-                Without precise stepper positioning, MRI fusion becomes guesswork. With it, every core is mapped, tracked, and reproducible.
+                The stepper system adds systematic grid-based documentation to MRI fusion. Every core location is mapped with coordinates and reproducible for future reference.
               </p>
             </div>
           </div>

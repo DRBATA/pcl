@@ -10,17 +10,17 @@ function MultiparametricMRIViewer() {
 
   const mriSequences = [
     {
-      image: "/New/1.png",
+      image: "/NEW/1.png",
       title: "Multiparametric MRI View 1",
       description: "Six different MRI sequences accessible for precision contouring - T2-weighted, ADC maps, diffusion, vascularity, and more"
     },
     {
-      image: "/New/2.png",
+      image: "/NEW/2.png",
       title: "Multiparametric MRI View 2",
       description: "Same anatomical plane, different sequences reveal different tissue characteristics for expert lesion identification"
     },
     {
-      image: "/New/3.png",
+      image: "/NEW/3.png",
       title: "Multiparametric MRI View 3",
       description: "Dr. Allen views all sequences simultaneously to identify targets with precision, creating detailed fusion plans"
     }
@@ -208,7 +208,7 @@ export default function BiopsyPlanPage() {
               <div className="order-2 lg:order-1">
                 <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg">
                   <Image
-                    src="/New/vritualprobe-biopsygrid.png"
+                    src="/NEW/vritualprobe-biopsygrid.png"
                     alt="Virtual probe positioning with biopsy grid overlay"
                     width={1200}
                     height={800}
@@ -278,7 +278,7 @@ export default function BiopsyPlanPage() {
               <div>
                 <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg">
                   <Image
-                    src="/New/MRI_to-US_fusion.png"
+                    src="/NEW/MRI_to-US_fusion.png"
                     alt="MRI targets fused to virtual ultrasound view showing green contoured lesions"
                     width={1200}
                     height={800}

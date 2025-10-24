@@ -134,7 +134,7 @@ export default function IREPage() {
 
             <div className="mb-8">
               <img
-                src="/new/complexcase+knife.png"
+                src="/NEW/complexcase_knif.png"
                 alt="Complex cases showing base recurrence, mid-gland anterior lesion, and apical tumor - ideal candidates for IRE/NanoKnife"
                 className="w-full rounded-xl shadow-2xl border-4 border-white/30"
               />
