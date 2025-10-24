@@ -436,7 +436,7 @@ export default function AboutPCLPage() {
                   Our Application Specialists are the backbone of every procedure. They arrive early to set up the 6-degree-of-freedom stepper system, calibrate the MRI fusion overlay, and manage the technical complexity throughout your biopsy session.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  From loading Dr Allen's pre-planned targets to tracking every core in real-time - they handle the sophisticated equipment so you can focus entirely on the patient.
+                  From loading Dr Allen's pre-planned targets to handling the sophisticated equipment so you can focus entirely on the patient.
                 </p>
               </div>
             </div>
