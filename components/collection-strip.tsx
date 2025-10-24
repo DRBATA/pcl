@@ -80,11 +80,11 @@ const medicalServices: ServiceItem[] = [
       "/tidy/setup/6.png",
       "/tidy/setup/7.png",
     ],
-    count: "Latest Tech, Mobile Rental",
+    count: "No Capital Investment or maintenance costs",
     link: "/about/equipment-services",
     cycling: true,
     boldTitle: true,
-    titleLines: ["LATEST", "TECH", "MOBILE"],
+    titleLines: ["CUTTING", "EDGE TECH", "TO YOU"]
   },
   {
     id: "pack-up",
@@ -95,11 +95,11 @@ const medicalServices: ServiceItem[] = [
       "/tidy/putawayprobe/puttingdown.png",
       "/tidy/putawayprobe/reachup.png",
     ],
-    count: "Expert Support Throughout Your Procedure",
-    link: "/about",
+    count: " with Onsite Fusion Technician",
+    link: "/about/pcl",
     cycling: true,
     boldTitle: true,
-    titleLines: ["ONSITE", "FUSION", "TECHNICIAN"],
+    titleLines: ["EXPERT", "SUPPORT"],
   },
 ]
 
@@ -107,9 +107,12 @@ function CyclingImage({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
+    // Total cycle time is 3 seconds, divided by number of images
+    const intervalTime = 3000 / images.length
+    
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length)
-    }, 2500) // Change image every 2.5 seconds
+    }, intervalTime)
 
     return () => clearInterval(interval)
   }, [images.length])
@@ -128,9 +131,9 @@ function CyclingImage({ images }: { images: string[] }) {
             src={img}
             alt={`Equipment management ${index + 1}`}
             fill
-            className="object-cover object-center"
+            className="object-cover"
             sizes="320px"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
           />
         </motion.div>
       ))}

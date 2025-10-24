@@ -422,7 +422,7 @@ export default function AboutPCLPage() {
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
                 <div className="mb-6">
                   <Image
-                    src="/new/onsiteteam.png"
+                    src="/NEW/onsiteteam.png"
                     alt="On-site Application Specialists"
                     width={800}
                     height={400}
@@ -451,7 +451,7 @@ export default function AboutPCLPage() {
                 <div className="flex items-center gap-6 mb-6">
                   <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-200 flex-shrink-0 bg-gray-100">
                     <Image
-                      src="/new/secretary.png"
+                      src="/NEW/secretary.png"
                       alt="PCL Coordinator"
                       width={96}
                       height={96}
