@@ -113,7 +113,7 @@ export function HeroSection() {
   const currentHero = heroStages[currentStage]
 
   return (
-    <section className="relative h-screen overflow-hidden bg-slate-900">
+    <section className="relative h-screen overflow-hidden">
       <div className="absolute inset-0">
         {heroStages.map((stage, index) => (
           <div
@@ -134,8 +134,6 @@ export function HeroSection() {
               quality={90}
               loading="eager"
               priority={index === 0}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
             {/* Base Mobile Image */}
             <Image
@@ -147,8 +145,6 @@ export function HeroSection() {
               quality={90}
               loading="eager"
               priority={index === 0}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
             
             {/* Highlight Overlay - B Images */}
