@@ -33,7 +33,7 @@ export default function PartnersPage() {
   return (
     <>
       <Header />
-      <main className="pt-32">
+      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
         {/* Hero Section */}
         <div className="bg-gradient-to-br from-green-900 to-emerald-800 text-white py-20">
           <div className="container-custom">

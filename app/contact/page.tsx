@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="pt-32">
+      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
         <div className="container-custom py-16">
           <h1 className="text-4xl font-bold mb-8" style={{ color: "var(--color-medical-green)" }}>
             Contact Us

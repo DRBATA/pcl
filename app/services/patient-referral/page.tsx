@@ -5,7 +5,7 @@ export default function PatientReferralPage() {
   return (
     <>
       <Header />
-      <main className="pt-40 sm:pt-44 lg:pt-48">
+      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
         <div className="container-custom py-16">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
