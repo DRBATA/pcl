@@ -27,18 +27,37 @@ export function ProductCard({ product, onQuickLook }: ProductCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
   const [isInView, setIsInView] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
-  // Intersection Observer to detect when card is in viewport
+  // Detect mobile
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024) // lg breakpoint
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Viewport detection - play only when in view
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting)
-        if (videoRef.current) {
-          // Speed up when in view, slow down when out of view
-          videoRef.current.playbackRate = entry.isIntersecting ? 2.0 : 0.3
+        
+        if (isMobile) {
+          // Mobile: play only when in viewport
+          if (entry.isIntersecting) {
+            video.play()
+          } else {
+            video.pause()
+          }
         }
       },
-      { threshold: 0.3 } // Trigger when 30% of card is visible
+      { threshold: 0.5 } // 50% visible
     )
 
     if (cardRef.current) {
@@ -50,20 +69,23 @@ export function ProductCard({ product, onQuickLook }: ProductCardProps) {
         observer.unobserve(cardRef.current)
       }
     }
-  }, [])
+  }, [isMobile])
 
   const handleMouseEnter = () => {
+    if (isMobile) return
+    
     setIsHovered(true)
     if (videoRef.current) {
-      videoRef.current.playbackRate = 2.0 // Fast on hover
+      videoRef.current.play()
     }
   }
 
   const handleMouseLeave = () => {
+    if (isMobile) return
+    
     setIsHovered(false)
     if (videoRef.current) {
-      // Return to appropriate speed based on viewport visibility
-      videoRef.current.playbackRate = isInView ? 2.0 : 0.3
+      videoRef.current.pause()
     }
   }
 
@@ -108,19 +130,21 @@ export function ProductCard({ product, onQuickLook }: ProductCardProps) {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {product.video ? (
-              <video
-                ref={videoRef}
-                src={product.video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover transition-opacity duration-500"
-                style={{ opacity: isHovered ? 1 : 0.6 }}
-                onLoadedMetadata={(e) => {
-                  e.currentTarget.playbackRate = 0.3 // Start very slow
-                }}
-              />
+              <div className="relative w-full h-full">
+                <video
+                  ref={videoRef}
+                  src={product.video}
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+                {/* Strong opacity overlay when not active */}
+                <div 
+                  className="absolute inset-0 bg-black/50 transition-opacity duration-500"
+                  style={{ opacity: (isHovered || isInView) ? 0 : 1 }}
+                />
+              </div>
             ) : (
               <Image
                 src={product.image || "/placeholder.svg"}

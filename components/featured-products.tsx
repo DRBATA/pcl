@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { ProductCard } from "./product-card"
 import { QuickLookModal } from "./quick-look-modal"
-import { Reveal } from "./reveal"
 
 const featuredProducts = [
   {
@@ -36,21 +35,6 @@ const featuredProducts = [
     quickLookVideos: ["/hifvidsfrontpage/hifumid.mp4", "/hifvidsfrontpage/hifuscan.mp4", "/hifvidsfrontpage/hifufin.mp4"],
     dimensions: "Treatment area: Customizable zones",
   },
-  {
-    id: "3",
-    name: "HIFU Completion & Assessment",
-    price: "Comprehensive Care",
-    video: "/hifvidsfrontpage/hifufin.mp4",
-    badge: "Complete" as const,
-    materials: ["Multi-focal Treatment", "Advanced Visualization"],
-    swatches: [
-      { name: "Primary Zone", color: "#FFD700" },
-      { name: "Secondary Zone", color: "#FFA500" },
-      { name: "Treatment Field", color: "#00BFFF" },
-    ],
-    quickLookVideos: ["/hifvidsfrontpage/hifufin.mp4", "/hifvidsfrontpage/hifuscan.mp4", "/hifvidsfrontpage/hifumid.mp4"],
-    dimensions: "Coverage: Multiple treatment zones",
-  },
 ]
 
 export function FeaturedProducts() {
@@ -68,28 +52,24 @@ export function FeaturedProducts() {
   }
 
   return (
-    <section className="py-20 lg:py-32" id="featured-products">
+    <section className="py-8 lg:py-12" id="featured-products">
       <div className="container-custom">
-        <Reveal>
-          <div className="text-left mb-16">
-            <h2 className="text-4xl text-neutral-900 mb-4 lg:text-6xl">
-              Advanced <span className="italic font-light">HIFU Technology</span>
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl">
-              Experience our state-of-the-art High-Intensity Focused Ultrasound treatments, delivering precise,
-              non-invasive therapy with exceptional accuracy and patient outcomes.
-            </p>
-          </div>
-        </Reveal>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProducts.map((product, index) => (
             <div key={product.id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-              <Reveal delay={index * 0.1}>
-                <ProductCard product={product} onQuickLook={handleQuickLook} />
-              </Reveal>
+              <ProductCard product={product} onQuickLook={handleQuickLook} />
             </div>
           ))}
+          
+          {/* Third card: Description with Multi-focal Treatment */}
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20">
+            <h2 className="text-3xl lg:text-4xl text-neutral-900 mb-6 text-center">
+              Advanced <span className="italic font-light">HIFU Technology</span>
+            </h2>
+            <p className="text-base text-neutral-600 text-center leading-relaxed">
+              Experience our state-of-the-art High-Intensity Focused Ultrasound treatments with multi-focal treatment capabilities, delivering precise, non-invasive therapy with exceptional accuracy and patient outcomes.
+            </p>
+          </div>
         </div>
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Phone, Mail, ChevronDown, Menu, X } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -39,36 +39,17 @@ export function Header() {
 
   return (
     <>
-      <div
-        className={cn(
-          "fixed top-0 left-0 right-0 z-[100] transition-all duration-300 animate-slide-down",
-          "bg-gradient-to-r from-primary to-primary/80 text-white py-2 sm:py-4 text-xs sm:text-sm font-medium tracking-wide min-h-[48px] sm:min-h-[56px] flex items-center",
-          "backdrop-blur-md border-b border-white/10",
-          isScrolled ? "shadow-lg" : "",
-        )}
-      >
-        <div className="container-custom flex justify-center items-center gap-4 sm:gap-16 w-full px-4">
-          <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
-            <Phone className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="font-medium truncate">0207 036 8850</span>
-          </div>
-          <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
-            <Mail className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span className="font-medium truncate">info@prostatecare.co.uk</span>
-          </div>
-        </div>
-      </div>
-
+      {/* White header */}
       <header
         className={cn(
-          "fixed top-12 sm:top-14 left-0 right-0 z-[99] transition-all duration-300 animate-slide-down",
-          "backdrop-blur-md border-b border-border/50",
-          isScrolled ? "bg-background/98 shadow-lg" : "bg-background/95",
+          "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
+          isScrolled ? "shadow-2xl" : "",
         )}
-        style={{ animationDelay: "0.1s" }}
       >
-        <div className="container-custom">
-          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18 relative py-2 px-4 sm:px-0">
+        {/* White banner */}
+        <div className="bg-white relative">
+          <div className="container-custom">
+            <div className="flex items-center justify-between h-28 relative py-2 px-4 sm:px-0">
             <div className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
               <Link href="/" className="flex items-center" aria-label="Prostate Care Limited Home">
                 <Image
@@ -115,7 +96,7 @@ export function Header() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
                 {activeDropdown === "about" && (
-                  <div className="absolute top-full left-0 mt-1 w-64 glass-panel rounded-2xl shadow-2xl border border-border/20 py-4 overflow-hidden animate-fade-in-scale">
+                  <div className="absolute top-full left-0 mt-1 w-64 glass-panel rounded-2xl shadow-2xl border border-border/20 py-4 overflow-hidden animate-fade-in-scale z-50">
                     <Link
                       href="/about/pcl"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
@@ -154,7 +135,7 @@ export function Header() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
                 {activeDropdown === "services" && (
-                  <div className="absolute top-full left-0 mt-1 w-64 glass-panel rounded-2xl shadow-2xl border border-border/20 py-4 overflow-hidden animate-fade-in-scale">
+                  <div className="absolute top-full left-0 mt-1 w-64 glass-panel rounded-2xl shadow-2xl border border-border/20 py-4 overflow-hidden animate-fade-in-scale z-50">
                     <Link
                       href="/services/biopsy-plan"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
@@ -209,7 +190,7 @@ export function Header() {
                 href="https://www.linkedin.com/company/the-focal-therapy-clinic/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-all duration-300 p-2.5 rounded-full hover:bg-muted/50 hover:shadow-md hover:scale-110 hover:-rotate-3"
+                className="text-primary hover:text-primary/80 transition-all duration-300 p-2.5 rounded-full hover:bg-muted hover:shadow-md hover:scale-110 hover:-rotate-3"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -218,6 +199,7 @@ export function Header() {
               </a>
             </div>
           </div>
+        </div>
 
           {isMobileMenuOpen && (
             <div className="lg:hidden bg-background border-t border-border py-4 animate-fade-in">

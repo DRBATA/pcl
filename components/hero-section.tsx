@@ -113,7 +113,7 @@ export function HeroSection() {
   const currentHero = heroStages[currentStage]
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden pt-48">
       <div className="absolute inset-0">
         {heroStages.map((stage, index) => (
           <div
