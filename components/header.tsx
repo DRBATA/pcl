@@ -48,9 +48,13 @@ export function Header() {
       >
         {/* White banner */}
         <div className="bg-white relative">
+          {/* Thin green line at bottom with executive grey shadow */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-emerald-600 shadow-[0_2px_8px_rgba(0,0,0,0.15)]" />
+          
           <div className="container-custom">
-            <div className="flex items-center justify-between h-28 relative py-2 px-4 sm:px-0">
-            <div className="flex-shrink-0 hover:scale-105 transition-transform duration-300">
+            <div className="flex items-center h-28 relative py-2 px-4 sm:px-0">
+            {/* Logo - Left */}
+            <div className="flex-shrink-0 hover:scale-105 transition-transform duration-300 w-[280px]">
               <Link href="/" className="flex items-center" aria-label="Prostate Care Limited Home">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%202%2C%202025%2C%2004_52_58%20PM-0V8eZCYOc0it3OPujSqYjhV2h32Oid.png"
@@ -64,14 +68,15 @@ export function Header() {
             </div>
 
             <button
-              className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors"
+              className="lg:hidden ml-auto p-2 rounded-md hover:bg-muted transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6 text-primary" /> : <Menu className="w-6 h-6 text-primary" />}
             </button>
 
-            <nav className="hidden lg:flex items-center space-x-12">
+            {/* Navigation - Centered */}
+            <nav className="hidden lg:flex items-center space-x-12 absolute left-1/2 -translate-x-1/2">
               <Link
                 href="/"
                 className="text-primary hover:text-primary/80 font-medium text-[15px] tracking-wide transition-all duration-300 hover:scale-105 relative group"
@@ -185,7 +190,8 @@ export function Header() {
               </Link>
             </nav>
 
-            <div className="hidden lg:flex items-center space-x-4">
+            {/* LinkedIn - Right (same distance from edge as logo) */}
+            <div className="hidden lg:flex items-center ml-auto w-[280px] justify-end">
               <a
                 href="https://www.linkedin.com/company/the-focal-therapy-clinic/"
                 target="_blank"
