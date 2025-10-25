@@ -3,156 +3,220 @@
 import { useEffect, useState, useRef } from "react"
 
 export function SimpleHero() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [isActive, setIsActive] = useState(false)
-  const video1Ref = useRef<HTMLVideoElement>(null)
-  const video2Ref = useRef<HTMLVideoElement>(null)
-  const [activeVideo, setActiveVideo] = useState<1 | 2>(1)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoTime, setVideoTime] = useState(0)
 
+  // Single 26-second video with time-based text
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY })
-      setIsActive(true)
-    }
+    const video = videoRef.current
+    if (!video) return
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
-
-  // Cross-fade videos with smooth loop
-  useEffect(() => {
-    const video1 = video1Ref.current
-    const video2 = video2Ref.current
-    if (!video1 || !video2) return
-
-    // Set playback speed to half (0.5x)
-    video1.playbackRate = 0.5
-    video2.playbackRate = 0.5
-
-    const fadeDuration = 1.5 // 1.5 second cross-fade
     let animationFrame: number
 
     const handleTimeUpdate = () => {
-      const currentVideo = activeVideo === 1 ? video1 : video2
-      const nextVideo = activeVideo === 1 ? video2 : video1
-      const duration = currentVideo.duration
+      const currentTime = video.currentTime
+      setVideoTime(currentTime)
 
-      if (!duration) return
+      // Slow down in last 2 seconds for 3D hologram reveal
+      if (currentTime >= 24) {
+        video.playbackRate = 0.5
+      } else {
+        video.playbackRate = 1.0
+      }
 
-      const timeRemaining = duration - currentVideo.currentTime
-
-      // Start cross-fade near the end
-      if (timeRemaining <= fadeDuration && timeRemaining > 0) {
-        const fadeProgress = 1 - (timeRemaining / fadeDuration)
-        
-        // Fade out current, fade in next
-        currentVideo.style.opacity = String(1 - fadeProgress)
-        nextVideo.style.opacity = String(fadeProgress)
-
-        // Start next video if not already playing
-        if (nextVideo.paused) {
-          nextVideo.currentTime = 0
-          nextVideo.play()
-        }
-      } else if (timeRemaining <= 0) {
-        // Switch active video
-        setActiveVideo(activeVideo === 1 ? 2 : 1)
-        currentVideo.pause()
-        currentVideo.currentTime = 0
+      // Loop video
+      if (currentTime >= 26) {
+        video.currentTime = 0
+        video.play()
       }
 
       animationFrame = requestAnimationFrame(handleTimeUpdate)
     }
 
-    video1.addEventListener('loadedmetadata', () => {
-      handleTimeUpdate()
-    })
-
-    if (video1.readyState >= 1) {
+    video.addEventListener('loadedmetadata', handleTimeUpdate)
+    if (video.readyState >= 1) {
       handleTimeUpdate()
     }
 
     return () => {
       cancelAnimationFrame(animationFrame)
     }
-  }, [activeVideo])
+  }, [])
 
-  // Calculate subtle transforms based on mouse position
-  // Convergence point is bottom-right area, words move toward it
-  const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0
-  const centerY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0
-  
-  // Distance from center to mouse (normalized)
-  const distX = (mousePos.x - centerX) / centerX
-  const distY = (mousePos.y - centerY) / centerY
-  const distance = Math.sqrt(distX * distX + distY * distY)
-  
-  // Subtle movement: words converge slightly as mouse moves away
-  const convergeFactor = Math.min(distance * 0.05, 0.15) // Max 15% movement
-  
-  // Fade based on distance: fade out when mouse is far down-right
-  const fadeThreshold = 0.7
-  const discoverOpacity = distance > fadeThreshold ? Math.max(0.3, 1 - (distance - fadeThreshold) * 1.5) : 1
-  const precisionOpacity = distance > fadeThreshold + 0.1 ? Math.max(0.3, 1 - (distance - fadeThreshold - 0.1) * 1.5) : 1
-  
-  // Scale: subtle zoom toward convergence point
-  const scale = 1 - convergeFactor * 0.3
+  // Scene 1 (0:00-0:07): "Stuck in 2D?" sequence
+  // "stuck" appears at 1.5s, fades by 3s
+  const s1_stuckProgress = Math.max(0, Math.min(1, (videoTime - 1.5) / 1))
+  const s1_stuckOpacity = videoTime >= 1.5 && videoTime < 6.7 ? 
+    (s1_stuckProgress < 0.8 ? s1_stuckProgress : 1 - Math.max(0, (videoTime - 3) / 3.7)) : 0
+  const s1_stuckTranslateZ = 300 - s1_stuckProgress * 200
+  const s1_stuckScale = 0.8 + s1_stuckProgress * 0.5
+
+  // "in" appears at 2.5s
+  const s1_inProgress = Math.max(0, Math.min(1, (videoTime - 2.5) / 1))
+  const s1_inOpacity = videoTime >= 2.5 && videoTime < 6.7 ? 
+    (s1_inProgress < 0.8 ? s1_inProgress : 1 - Math.max(0, (videoTime - 3.5) / 3.2)) : 0
+  const s1_inTranslateZ = 500 - s1_inProgress * 400
+  const s1_inScale = 0.5 + s1_inProgress * 0.8
+
+  // "2D?" appears at 3.5s, fades out before 7s transition
+  const s1_twoDProgress = Math.max(0, Math.min(1, (videoTime - 3.5) / 1))
+  const s1_twoDOpacity = videoTime >= 3.5 && videoTime < 6.7 ? 
+    (videoTime < 5.5 ? 1 : 1 - (videoTime - 5.5) / 1.2) : 0
+  const s1_twoDScale = 1.5 + Math.max(0, (videoTime - 5.5) * 0.3)
+  const s1_twoDTranslateZ = videoTime > 5.5 ? -(videoTime - 5.5) * 300 : 0
+
+  // Scene 2 (0:07-0:12): Women talking - fade in after transition
+  const s2_line1Opacity = videoTime >= 7.3 && videoTime < 11.7 ? 
+    Math.min(1, (videoTime - 7.3) / 0.5) * (1 - Math.max(0, (videoTime - 11.7) / 0.3)) : 0
+  const s2_line2Opacity = videoTime >= 8 && videoTime < 11.7 ? 
+    Math.min(1, (videoTime - 8) / 0.5) * (1 - Math.max(0, (videoTime - 11.7) / 0.3)) : 0
+  const s2_line3Opacity = videoTime >= 8.7 && videoTime < 11.7 ? 
+    Math.min(1, (videoTime - 8.7) / 0.5) * (1 - Math.max(0, (videoTime - 11.7) / 0.3)) : 0
+
+  // Scene 3 (0:12-0:21): Cognitive - wondering + variability
+  const s3_line1Opacity = videoTime >= 12.3 && videoTime < 20.7 ? 
+    Math.min(1, (videoTime - 12.3) / 0.8) : 0
+  const s3_line2Opacity = videoTime >= 14 && videoTime < 20.7 ? 
+    Math.min(1, (videoTime - 14) / 1) * (1 - Math.max(0, (videoTime - 20.7) / 0.3)) : 0
+
+  // Scene 4 (0:21-0:26): Precision - fade in after transition
+  const s4_unparalleledOpacity = videoTime >= 21.3 ? Math.min(1, (videoTime - 21.3) / 0.5) : 0
+  const s4_precisionOpacity = videoTime >= 22 ? Math.min(1, (videoTime - 22) / 0.8) : 0
+  const s4_precisionScale = 1 + Math.max(0, (videoTime - 22) * 0.1)
+
+  // Mobile video positioning - adjust focus per scene
+  const getObjectPosition = () => {
+    if (videoTime < 7) return '30% center' // Scene 1: ultrasound left
+    if (videoTime < 12) return '30% center' // Scene 2: person left
+    if (videoTime < 21) return 'center center' // Scene 3: screen center
+    return '70% center' // Scene 4: 3D hologram right
+  }
 
   return (
     <section className="relative h-full w-full overflow-hidden">
-      {/* Video background with cross-fade */}
+      {/* Video background */}
       <div className="absolute inset-0">
-        {/* Video 1 */}
         <video
-          ref={video1Ref}
+          ref={videoRef}
           autoPlay
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-          style={{ opacity: activeVideo === 1 ? 1 : 0 }}
+          loop
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: getObjectPosition() }}
         >
-          <source src="/vid/kitbeingsetup.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Video 2 */}
-        <video
-          ref={video2Ref}
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-          style={{ opacity: activeVideo === 2 ? 1 : 0 }}
-        >
-          <source src="/vid/kitbeingsetup.mp4" type="video/mp4" />
+          <source src="/vid/hero-full-26s.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </div>
 
-      {/* Hero content - bottom left with mouse-reactive transforms */}
-      <div className="relative z-10 h-full flex items-end px-8 pb-16 lg:px-16 lg:pb-24">
-        <div className="text-left text-white relative">
-          {/* Huge "Precision" text - converges down-right */}
-          <h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-serif font-light tracking-[0.2em] leading-none text-white ml-[4rem] md:ml-[6rem] lg:ml-[6rem] transition-all duration-500 ease-out"
-            style={{
-              transform: `translate(${convergeFactor * 20}px, ${convergeFactor * 10}px) scale(${scale})`,
-              opacity: precisionOpacity,
-            }}
-          >
-            Precision
-          </h1>
+      {/* Text overlays */}
+      <div 
+        className="relative z-10 h-full flex items-center justify-center"
+        style={{ perspective: '1000px' }}
+      >
+        <div className="relative text-center text-white w-full" style={{ transformStyle: 'preserve-3d' }}>
           
-          {/* "Discover" positioned above - converges toward focal point */}
-          <p 
-            className="absolute text-2xl md:text-4xl lg:text-5xl font-serif font-light tracking-[0.3em] text-white/80 top-[-4rem] md:top-[-5rem] lg:top-[-6rem] left-[4.5rem] md:left-[6.5rem] lg:left-[6.5rem] transition-all duration-500 ease-out"
+          {/* SCENE 1 (0:00-0:07): "Stuck in 2D?" */}
+          <div
+            className="absolute text-7xl md:text-9xl lg:text-[12rem] font-serif font-light text-white whitespace-nowrap"
             style={{
-              transform: `translate(${convergeFactor * 15}px, ${convergeFactor * 8}px) scale(${scale})`,
-              opacity: discoverOpacity * 0.8,
+              transform: `translate3d(-50%, -180px, ${s1_stuckTranslateZ}px) scale(${s1_stuckScale})`,
+              opacity: s1_stuckOpacity,
+              transformOrigin: 'center center',
+              left: '50%',
+              top: '50%',
+              transition: 'opacity 0.3s ease-out',
             }}
           >
-            Discover
-          </p>
+            stuck
+          </div>
+
+          <div
+            className="absolute text-5xl md:text-7xl lg:text-9xl font-serif font-light text-white whitespace-nowrap"
+            style={{
+              transform: `translate3d(-50%, -50%, ${s1_inTranslateZ}px) scale(${s1_inScale})`,
+              opacity: s1_inOpacity,
+              transformOrigin: 'center center',
+              left: '50%',
+              top: '50%',
+              transition: 'opacity 0.3s ease-out',
+            }}
+          >
+            in
+          </div>
+
+          <div
+            className="absolute text-8xl md:text-[10rem] lg:text-[14rem] font-serif font-bold text-white whitespace-nowrap"
+            style={{
+              transform: `translate3d(-50%, 0%, ${s1_twoDTranslateZ}px) scale(${s1_twoDScale})`,
+              opacity: s1_twoDOpacity,
+              transformOrigin: 'center center',
+              left: '50%',
+              top: '50%',
+              transition: 'opacity 0.3s ease-out',
+            }}
+          >
+            2D?
+          </div>
+
+          {/* SCENE 2 (0:07-0:12): Women talking */}
+          <div className="space-y-6 text-center px-8">
+            <div className="text-4xl md:text-6xl lg:text-7xl font-serif font-light italic" style={{ opacity: s2_line1Opacity }}>
+              staff can be
+            </div>
+            <div className="text-5xl md:text-7xl lg:text-8xl font-serif font-light" style={{ opacity: s2_line2Opacity }}>
+              unfamiliar with
+            </div>
+            <div className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold" style={{ opacity: s2_line3Opacity }}>
+              rarely used kit
+            </div>
+          </div>
+
+          {/* SCENE 3 (0:12-0:21): Cognitive sampling */}
+          <div className="space-y-8 text-center px-8">
+            <div className="text-4xl md:text-6xl lg:text-7xl font-serif font-light italic" style={{ opacity: s3_line1Opacity }}>
+              wondering about
+            </div>
+            <div style={{ opacity: s3_line2Opacity }}>
+              <div className="text-5xl md:text-7xl lg:text-8xl font-serif font-light">
+                intraobserver variability?*
+              </div>
+            </div>
+          </div>
+
+          {/* SCENE 4 (0:21-0:26): MRI/US Fusion */}
+          <div className="absolute left-4 md:left-16 lg:left-24 top-1/4 space-y-4 text-left max-w-2xl">
+            <div className="text-2xl md:text-4xl lg:text-5xl font-serif font-light" style={{ opacity: s4_unparalleledOpacity }}>
+              Get ready for unparalleled
+            </div>
+            
+            <div 
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold"
+              style={{ 
+                opacity: s4_precisionOpacity,
+                transform: `scale(${s4_precisionScale})`,
+                transition: 'transform 0.5s ease-in-out',
+              }}
+            >
+              precision
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      {/* Cognitive bias link - always visible in bottom right corner */}
+      <div className="absolute bottom-8 right-8 z-20">
+        <a 
+          href="https://pjuonline.com/index.php/pju/article/view/58?articlesBySimilarityPage=3" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs md:text-sm text-white underline hover:text-white/80 transition-colors"
+        >
+          *cognitive bias link
+        </a>
       </div>
     </section>
   )
