@@ -42,12 +42,26 @@
   /* Changed from purple to medical green */
   --sidebar-ring: oklch(0.28 0.08 155); /* Green sidebar ring */
 
-  /* Medical-tech glass morphism variables */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  /* Changed from purple to medical green */
-  --glass-border: rgba(15, 81, 50, 0.1);
-  --glass-shadow: rgba(15, 81, 50, 0.1);
+  /* Modern glassmorphism variables - iOS inspired */
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-bg-strong: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: rgba(0, 0, 0, 0.08);
+  --glass-shadow-hover: rgba(0, 0, 0, 0.12);
+  --glass-inset: rgba(255, 255, 255, 0.5);
   --metallic-gradient: linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 50%, #d1d5db 100%);
+
+  /* Cool gradient mesh backgrounds */
+  --gradient-mesh-bg: linear-gradient(to bottom right, #f8fafc, #dbeafe, #ccfbf1);
+  --gradient-mesh-teal: radial-gradient(ellipse at top right, rgba(153, 246, 228, 0.4), transparent);
+  --gradient-mesh-pink: radial-gradient(ellipse at bottom left, rgba(251, 207, 232, 0.3), transparent);
+
+  /* Gradient icon colors */
+  --gradient-teal: linear-gradient(to bottom right, #2dd4bf, #10b981);
+  --gradient-blue: linear-gradient(to bottom right, #60a5fa, #14b8a6);
+  --gradient-pink: linear-gradient(to bottom right, #f472b6, #fb7185);
+  --gradient-emerald: linear-gradient(to bottom right, #34d399, #14b8a6);
+  --gradient-text: linear-gradient(to right, #059669, #0d9488);
 
   /* Medical-tech gradient variables */
   /* Changed from purple to medical green */
@@ -169,11 +183,18 @@
   /* Changed from purple to bright medical green */
   --ring: oklch(0.45 0.08 155); /* Bright green focus ring */
 
-  /* Dark mode glass morphism */
+  /* Dark mode glassmorphism */
   --glass-bg: rgba(0, 0, 0, 0.4);
-  /* Changed from purple to medical green */
-  --glass-border: rgba(15, 81, 50, 0.2);
-  --glass-shadow: rgba(15, 81, 50, 0.2);
+  --glass-bg-strong: rgba(0, 0, 0, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-shadow-hover: rgba(0, 0, 0, 0.5);
+  --glass-inset: rgba(255, 255, 255, 0.1);
+
+  /* Dark mode gradient mesh */
+  --gradient-mesh-bg: linear-gradient(to bottom right, #0f172a, #1e293b, #334155);
+  --gradient-mesh-teal: radial-gradient(ellipse at top right, rgba(20, 184, 166, 0.2), transparent);
+  --gradient-mesh-pink: radial-gradient(ellipse at bottom left, rgba(236, 72, 153, 0.15), transparent);
 }
 
 @theme inline {
@@ -328,19 +349,89 @@
     letter-spacing: 0.1em;
   }
 
-  /* Glass morphism utilities */
+  /* Modern glassmorphism utilities */
   .glass-panel {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px var(--glass-shadow);
+    box-shadow: 0 8px 32px var(--glass-shadow), inset 0 1px 1px var(--glass-inset);
   }
 
   .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 16px var(--glass-shadow);
+    box-shadow: 0 8px 32px var(--glass-shadow), inset 0 1px 1px var(--glass-inset);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 12px 48px var(--glass-shadow-hover), inset 0 1px 1px var(--glass-inset);
+  }
+
+  .glass-input {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+  }
+
+  .glass-input:focus {
+    outline: none;
+    border-color: #14b8a6;
+    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-mesh {
+    background: var(--gradient-mesh-bg);
+    position: relative;
+  }
+
+  .gradient-mesh::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh-teal);
+    pointer-events: none;
+  }
+
+  .gradient-mesh::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh-pink);
+    pointer-events: none;
+  }
+
+  /* Gradient icon badges */
+  .icon-badge-teal {
+    background: var(--gradient-teal);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+  }
+
+  .icon-badge-blue {
+    background: var(--gradient-blue);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .icon-badge-pink {
+    background: var(--gradient-pink);
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.3);
+  }
+
+  .icon-badge-emerald {
+    background: var(--gradient-emerald);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   /* Medical-tech specific utilities */

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 // Generate random z-index with gaps between 3-7
 const generateRandomZIndex = (existingIndices: number[] = []) => {
@@ -23,6 +23,14 @@ const initialColumns = [
 
 const phrases = [
   {
+    text: "A complete\nservice",
+    position: "top-left",
+    align: "left",
+    color: "text-black",
+    italic: false,
+    zOffset: 0,
+  },
+  {
     text: "Calibrated\nto Spec",
     position: "center",
     align: "center",
@@ -39,7 +47,7 @@ const phrases = [
     zOffset: -10,
   },
   {
-    text: "Equipment\nMaintenance &\nMonitoring",
+    text: "Maintenance \n& Monitoring",
     position: "left",
     align: "left",
     color: "text-black",
@@ -50,16 +58,60 @@ const phrases = [
     text: "Best Precision\nAvailable",
     position: "bottom-right",
     align: "right",
-    color: "text-white",
+    color: "text-black",
     italic: true,
     zOffset: 0,
   },
 ]
 
 export function ServicesColumns() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [scrollY, setScrollY] = useState(0)
   const [currentPhrase, setCurrentPhrase] = useState(0)
   const [opacity, setOpacity] = useState(1)
+  const [currentImageIndices, setCurrentImageIndices] = useState([0, 2, 4, 1, 3]) // Staggered start for 5 cards
+  const [isInView, setIsInView] = useState(false)
+
+  const equipmentImages = [
+    "/tidy/setup/1.png",
+    "/tidy/setup/2.png", 
+    "/tidy/setup/3.png",
+    "/tidy/setup/4.png",
+    "/tidy/setup/5.png",
+    "/tidy/setup/6.png",
+    "/tidy/setup/7.png",
+  ]
+
+  const packImages = [
+    "/tidy/pack/a.png", 
+    "/tidy/pack/b.png",
+    "/tidy/pack/c.png",
+    "/tidy/pack/d.png",
+    "/tidy/pack/e.png",
+  ]
+
+  const putAwayImages = [
+    "/tidy/putawayprobe/packed.png",
+    "/tidy/putawayprobe/reachup.png",
+    "/tidy/putawayprobe/puttingdown.png",
+    "/tidy/putawayprobe/tukcingaway.png",
+  ]
+
+  // Get the appropriate image set for each container
+  const getImageSet = (containerIndex: number) => {
+    switch (containerIndex) {
+      case 0:
+      case 1: 
+      case 2:
+        return equipmentImages
+      case 3:
+        return packImages
+      case 4:
+        return putAwayImages
+      default:
+        return equipmentImages
+    }
+  }
   
   const [columns, setColumns] = useState(() => {
     const zIndices: number[] = []
@@ -75,6 +127,22 @@ export function ServicesColumns() {
       }
     })
   })
+
+  // Intersection Observer to detect when section is in view
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,8 +197,10 @@ export function ServicesColumns() {
     return () => clearInterval(directionInterval)
   }, [])
 
-  // Cycle through phrases
+  // Cycle through phrases - only when section is in view
   useEffect(() => {
+    if (!isInView) return
+
     const cycleInterval = setInterval(() => {
       // Fade out
       setOpacity(0)
@@ -144,10 +214,35 @@ export function ServicesColumns() {
     }, 5000) // Every 5 seconds
     
     return () => clearInterval(cycleInterval)
+  }, [isInView])
+
+  // Cycle through images at different intervals for random effect
+  useEffect(() => {
+    const intervals: NodeJS.Timeout[] = []
+    
+    // Different interval for each container (2.5s, 3.2s, 4.1s, 2.8s, 3.7s)
+    const cycleIntervals = [2500, 3200, 4100, 2800, 3700]
+    
+    cycleIntervals.forEach((intervalTime, containerIndex) => {
+      const interval = setInterval(() => {
+        setCurrentImageIndices(prev => {
+          const newIndices = [...prev]
+          const imageSet = getImageSet(containerIndex)
+          newIndices[containerIndex] = (newIndices[containerIndex] + 1) % imageSet.length
+          return newIndices
+        })
+      }, intervalTime)
+      
+      intervals.push(interval)
+    })
+    
+    return () => {
+      intervals.forEach(interval => clearInterval(interval))
+    }
   }, [])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100">
+    <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-50 to-slate-100">
       {/* Animated columns */}
       <div className="absolute inset-0 flex gap-4 justify-center items-stretch overflow-hidden">
         {columns.map((col, i) => (
@@ -164,24 +259,60 @@ export function ServicesColumns() {
         ))}
       </div>
 
-      {/* Floating images - using colored rectangles as placeholders */}
+      {/* Floating images - cycling photos */}
       <div className="absolute inset-0 pointer-events-none">
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className={`absolute rounded-2xl overflow-hidden shadow-2xl opacity-20 ${
-              i === 0 ? 'bg-emerald-500/40' : i === 1 ? 'bg-teal-500/40' : 'bg-cyan-500/40'
-            }`}
-            style={{
-              width: "280px",
-              height: "320px",
-              left: `${20 + i * 30}%`,
-              top: `${15 + i * 25}%`,
-              zIndex: 30 + i,
-              transform: `translateY(${Math.sin((scrollY + i * 200) * 0.002) * 30}px) rotate(${-5 + i * 5}deg)`,
-            }}
-          />
-        ))}
+        {[0, 1, 2, 3, 4].map((containerIndex) => {
+          const imageSet = getImageSet(containerIndex)
+          
+          // Position calculations
+          const getPosition = () => {
+            switch (containerIndex) {
+              case 0: return { left: '20%', top: '15%' }  // Original diagonal
+              case 1: return { left: '50%', top: '40%' }
+              case 2: return { left: '80%', top: '65%' }
+              case 3: return { left: '10%', top: '70%' }  // Bottom left
+              case 4: return { left: '85%', top: '10%' }  // Top right
+              default: return { left: '50%', top: '50%' }
+            }
+          }
+          
+          const getColor = () => {
+            const colors = ['bg-emerald-500/40', 'bg-teal-500/40', 'bg-cyan-500/40', 'bg-purple-500/40', 'bg-indigo-500/40']
+            return colors[containerIndex] || 'bg-gray-500/40'
+          }
+          
+          const position = getPosition()
+          
+          return (
+            <div
+              key={containerIndex}
+              className={`absolute rounded-2xl overflow-hidden shadow-2xl opacity-50 ${getColor()}`}
+              style={{
+                width: "280px",
+                height: "320px",
+                left: position.left,
+                top: position.top,
+                zIndex: 30 + containerIndex,
+                transform: `translateY(${Math.sin((scrollY + containerIndex * 200) * 0.002) * 30}px) rotate(${-5 + containerIndex * 5}deg)`,
+              }}
+            >
+              {/* Cycling image inside colored frame */}
+              <div className="absolute inset-2 rounded-xl overflow-hidden">
+                {imageSet.map((imageSrc, imageIndex) => (
+                  <img
+                    key={imageIndex}
+                    src={imageSrc}
+                    alt={`Image ${imageIndex + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    style={{
+                      opacity: currentImageIndices[containerIndex] === imageIndex ? 1.0 : 0
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
 
       {/* Cycling text phrases */}
@@ -193,6 +324,8 @@ export function ServicesColumns() {
           // Position classes
           const getPositionClasses = () => {
             switch (phrase.position) {
+              case "top-left":
+                return "top-[15%] left-[10%]"
               case "center":
                 return "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               case "top-right":

@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react"
 
 export function VideoContactSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [phase, setPhase] = useState<'video' | 'fade' | 'contact'>('video')
-  const [opacity, setOpacity] = useState(1)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [showReplay, setShowReplay] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const [videoOpacity, setVideoOpacity] = useState(1)
 
-  const replayVideo = () => {
-    setPhase('video')
-    setOpacity(1)
+  const handleReplay = () => {
+    setShowReplay(false)
+    setVideoOpacity(1)
     if (videoRef.current) {
       videoRef.current.currentTime = 0
       videoRef.current.play()
@@ -17,179 +19,171 @@ export function VideoContactSection() {
   }
 
   useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && videoRef.current && !showReplay) {
+          videoRef.current.play()
+        } else if (!entry.isIntersecting && videoRef.current) {
+          videoRef.current.pause()
+        }
+      },
+      { threshold: 0.5 }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [showReplay])
+
+  useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    const handleVideoEnd = () => {
-      // Start fade to white
-      setPhase('fade')
+    const handleTimeUpdate = () => {
+      const timeLeft = video.duration - video.currentTime
       
-      // Animate to white over 1 second
-      let fadeProgress = 0
-      const fadeInterval = setInterval(() => {
-        fadeProgress += 0.02
-        setOpacity(1 - fadeProgress)
-        
-        if (fadeProgress >= 1) {
-          clearInterval(fadeInterval)
-          // Show contact form
-          setTimeout(() => {
-            setPhase('contact')
-            // Fade in contact form
-            let fadeInProgress = 0
-            const fadeInInterval = setInterval(() => {
-              fadeInProgress += 0.02
-              setOpacity(fadeInProgress)
-              
-              if (fadeInProgress >= 1) {
-                clearInterval(fadeInInterval)
-              }
-            }, 20)
-          }, 300)
-        }
-      }, 20)
+      // Fade video in last 0.5 seconds
+      if (timeLeft <= 0.5 && timeLeft > 0) {
+        const opacity = timeLeft / 0.5
+        setVideoOpacity(opacity)
+      } else if (timeLeft > 0.5) {
+        setVideoOpacity(1)
+      }
+    }
+
+    const handleVideoEnd = () => {
+      setVideoOpacity(0)
+      setShowReplay(true)
     }
 
     const handleVideoError = () => {
-      console.error('Video failed to load, skipping to contact form')
-      setPhase('contact')
-      setOpacity(1)
+      console.error('Video failed to load')
+      setShowReplay(true)
     }
 
+    video.addEventListener('timeupdate', handleTimeUpdate)
     video.addEventListener('ended', handleVideoEnd)
     video.addEventListener('error', handleVideoError)
+    
     return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate)
       video.removeEventListener('ended', handleVideoEnd)
       video.removeEventListener('error', handleVideoError)
     }
   }, [])
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-white">
-      {/* Video phase */}
-      {phase === 'video' && (
-        <div 
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{ opacity }}
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-white">
+      {/* Video */}
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          muted={isMuted}
+          playsInline
+          className="w-full h-full object-cover transition-opacity duration-300"
+          style={{ opacity: videoOpacity }}
         >
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            playsInline
-            className="w-full h-full object-cover"
+          <source src="/vid/final.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
+        
+        {/* Audio toggle button */}
+        <button
+          onClick={() => setIsMuted(!isMuted)}
+          className="absolute bottom-8 right-8 z-30 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
+          aria-label={isMuted ? 'Unmute' : 'Mute'}
+        >
+          {isMuted ? (
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Replay button */}
+      {showReplay && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white z-40">
+          <button
+            onClick={handleReplay}
+            className="group relative transition-transform hover:scale-110 active:scale-95"
+            aria-label="Replay video"
           >
-            <source src="/hifvidsfrontpage/hifufin.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
-        </div>
-      )}
+            {/* Logo spinner */}
+            <div className="relative w-32 h-32">
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 120 120"
+                style={{ transform: 'rotate(-90deg)' }}
+              >
+                {/* Gray circle with wedge gaps */}
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="52"
+                  fill="none"
+                  stroke="#9ca3af"
+                  strokeWidth="14"
+                  strokeLinecap="butt"
+                  strokeDasharray="150 30"
+                  className="animate-spin-slow"
+                  style={{ animationDuration: '3s' }}
+                />
+              </svg>
+              
+              {/* Green circle at 45° */}
+              <svg
+                className="absolute"
+                style={{
+                  width: '58px',
+                  height: '58px',
+                  left: 'calc(50% + 26.5px)',
+                  top: 'calc(50% - 63px)',
+                }}
+                viewBox="0 0 58 58"
+              >
+                <circle
+                  cx="29"
+                  cy="29"
+                  r="24"
+                  fill="white"
+                  stroke="#059669"
+                  strokeWidth="8"
+                />
+              </svg>
 
-      {/* White fade phase */}
-      {phase === 'fade' && (
-        <div className="absolute inset-0 bg-white" />
-      )}
-
-      {/* Contact form phase */}
-      {phase === 'contact' && (
-        <div 
-          className="absolute inset-0 flex items-center justify-center bg-white px-8"
-          style={{ opacity }}
-        >
-          <div className="max-w-2xl w-full space-y-8">
-            <div className="text-center space-y-4">
-              <h2 className="text-5xl md:text-6xl font-serif font-light text-slate-900">
-                Ready to <span className="italic text-emerald-600">Elevate</span> Your Practice?
-              </h2>
-              <p className="text-lg text-slate-600">
-                Send us your secretary's details and we'll arrange everything
-              </p>
+              {/* Replay icon in center */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg
+                  className="w-12 h-12 text-white group-hover:text-emerald-500 transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              </div>
             </div>
 
-            <form className="space-y-6">
-              {/* Surgeon details */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-medium text-slate-800 border-b border-slate-200 pb-2">
-                  Your Details
-                </h3>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Your Title"
-                    className="px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                  />
-                </div>
-
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                />
-              </div>
-
-              {/* Secretary details */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-medium text-slate-800 border-b border-slate-200 pb-2">
-                  Secretary Details
-                </h3>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Secretary Name"
-                    className="px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Secretary Email"
-                    className="px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                  />
-                </div>
-
-                <input
-                  type="tel"
-                  placeholder="Secretary Phone"
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all"
-                />
-              </div>
-
-              {/* Additional info */}
-              <div className="space-y-4">
-                <textarea
-                  placeholder="Any specific requirements or dates? (Optional)"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all resize-none"
-                />
-              </div>
-
-              {/* Submit button */}
-              <button
-                type="submit"
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Request Information
-              </button>
-
-              <p className="text-sm text-slate-500 text-center">
-                We'll contact your secretary within 24 hours to arrange the details
-              </p>
-
-              {/* Replay video button */}
-              <button
-                type="button"
-                onClick={replayVideo}
-                className="w-full text-emerald-600 hover:text-emerald-700 font-medium py-2 transition-colors duration-300"
-              >
-                ← Watch Video Again
-              </button>
-            </form>
-          </div>
+            {/* Text hint */}
+            <div className="mt-4 text-center">
+              <span className="text-slate-700 text-lg font-serif">Watch again</span>
+            </div>
+          </button>
         </div>
       )}
     </section>

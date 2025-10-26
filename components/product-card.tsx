@@ -142,8 +142,21 @@ export function ProductCard({ product, onQuickLook }: ProductCardProps) {
                 {/* Strong opacity overlay when not active */}
                 <div 
                   className="absolute inset-0 bg-black/50 transition-opacity duration-500"
-                  style={{ opacity: (isHovered || isInView) ? 0 : 1 }}
+                  style={{ opacity: isHovered ? 0 : 1 }}
                 />
+                {/* Hover to play text - appears when not hovered (desktop only) */}
+                {!isMobile && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+                    style={{ opacity: isHovered ? 0 : 1 }}
+                  >
+                    <div className="text-white text-center">
+                      <p className="text-sm md:text-base font-light tracking-wide">
+                        Hover over video to play
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <Image

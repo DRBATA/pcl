@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { EvolutionTabs } from "@/components/EvolutionTabs"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
@@ -9,157 +10,11 @@ export default function AboutPCLPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        <div className="container-custom py-16">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              About Prostate Care Limited
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Delivering consistent, state-of-the-art expertise to support your clinical and operational practice
-            </p>
-          </div>
+      <main className="pt-20 sm:pt-24 lg:pt-28 pb-20">
+        {/* The Imaging Revolution - Full Width Tabs */}
+        <EvolutionTabs />
 
-          {/* Mission Statement */}
-          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 mb-16 border border-green-200">
-            <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Our Mission
-            </h2>
-            <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-              Our mission is to make imaging-led diagnostics and treatment for prostate cancer available to all patients, clinicians and hospitals in the UK. All men deserve access to precision diagnostics and nuanced care.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              From MRI contouring to on-site application specialists, we handle the technical complexity so you can focus on patient care.
-            </p>
-          </div>
-
-          {/* The Evolution of PCL */}
-          <div className="bg-white rounded-2xl p-12 mb-16 border-2 border-gray-200 shadow-lg">
-            <h2 className="text-3xl font-bold mb-8 text-center" style={{ color: "var(--color-medical-green)" }}>
-              The Evolution of Prostate Care Limited
-            </h2>
-
-            {/* Founding (2009) */}
-            <div className="mb-8">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="flex-shrink-0 w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">📍</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
-                    Founding (2009)
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Prostate Care Limited was established in 2009 as a specialist imaging centre on <strong>Queen Anne Street in London</strong>, aiming to serve mainly the MSK and neurology communities with its 3T MRI. Very quickly the 3T was in demand from a group of research urologists at nearby UCLH who were the world leaders in researching, advancing and trialling a new, imaging-led pathway for managing prostate cancer called <strong>focal therapy</strong>.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Turning Point - UCLH Collaboration */}
-            <div className="mb-8 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-200">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">🔬</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 text-blue-900">
-                    Turning Point – Collaboration with UCLH
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-3">
-                    This imaging-led pathway encompasses both <strong>diagnostics</strong> in the form of pre-biopsy imaging and image-guided biopsy, and <strong>treatment</strong> in the form of high-intensity focused ultrasound (HIFU).
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Prostate Care Limited developed as a specialist imaging centre and established a reputation for excellence and innovation in imaging the prostate, working with the team at UCLH and others who were running the patient trials required to advance the focal pathway.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Growth and Impact */}
-            <div className="mb-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">🚀</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 text-purple-900">
-                    Growth and Impact
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-3">
-                    We promoted this pathway to other clinicians and hospitals, enabling the former to offer their patients a non-invasive alternative to surgery and the latter a day-case procedure.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Our innovations have centred on continually increasing precision in imaging, reporting and patient engagement, and through these we have built relationships with leading Urologists around the country to support them in offering this new pathway to their patients.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pivotal Trials */}
-            <div className="bg-gradient-to-br from-emerald-900 to-teal-900 text-white rounded-xl p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-6 text-center">🏆 Pivotal Trials: Establishing the Standard of Care</h3>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="text-4xl">📄</div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-1 text-emerald-300">2017 - The PROMIS Trial</h4>
-                      <p className="text-xs text-emerald-100 mb-2">January 2017</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-blue-100 mb-3">
-                    A major UK-led trial demonstrated the value of <strong>mpMRI imaging pre-biopsy</strong>, establishing mpMRI imaging as a new standard of care for managing prostate cancer.
-                  </p>
-                  <div className="bg-emerald-500/20 rounded-lg p-3">
-                    <p className="text-xs text-emerald-50 font-semibold">
-                      We played a significant role in this groundbreaking trial.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="text-4xl">🎯</div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-1 text-cyan-300">2018 - The PRECISION Trial</h4>
-                      <p className="text-xs text-cyan-100 mb-2">March 2018</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-blue-100 mb-3">
-                    Another UK-led trial demonstrated that using an MRI to identify suspected cancer and performing a <strong>prostate biopsy targeted to the MRI information</strong> leads to more cancers being diagnosed than the standard method used for the last 25 years.
-                  </p>
-                  <div className="bg-cyan-500/20 rounded-lg p-3">
-                    <p className="text-xs text-cyan-50 font-semibold">
-                      Our involvement was instrumental in validating MRI-targeted biopsy as superior to traditional methods.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Today */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-emerald-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-20 h-20 bg-emerald-200 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">🌟</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-3 text-emerald-900">
-                    What gets us up in the morning??
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-3">
-                    <strong>Our mission: Supporting hospitals and surgeons to deliver precision diagnostics and treatment to every patient who needs it.</strong>
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    We don't just provide technology. We own it, maintain it, transport it, set it up, calibrate it, guide you through the procedure, and document the results. You get turnkey precision — <strong>equipment ready, targets planned, specialist in theatre, report delivered.</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="container-custom">
 
           {/* Why Top Urologists Trust Us Behind the Scenes */}
           <div className="bg-gradient-to-r from-red-900 via-orange-900 to-amber-900 text-white rounded-2xl p-12 mb-16 border-4 border-orange-500">

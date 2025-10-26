@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react"
 export function SimpleHero() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [videoTime, setVideoTime] = useState(0)
+  const [showReplay, setShowReplay] = useState(false)
 
   // Single 26-second video with time-based text
   useEffect(() => {
@@ -24,10 +25,10 @@ export function SimpleHero() {
         video.playbackRate = 1.0
       }
 
-      // Loop video
-      if (currentTime >= 26) {
-        video.currentTime = 0
-        video.play()
+      // Show replay button at end, pause video
+      if (currentTime >= 25.8 && !showReplay) {
+        setShowReplay(true)
+        video.pause()
       }
 
       animationFrame = requestAnimationFrame(handleTimeUpdate)
@@ -41,7 +42,15 @@ export function SimpleHero() {
     return () => {
       cancelAnimationFrame(animationFrame)
     }
-  }, [])
+  }, [showReplay])
+
+  const handleReplay = () => {
+    const video = videoRef.current
+    if (!video) return
+    setShowReplay(false)
+    video.currentTime = 0
+    video.play()
+  }
 
   // Scene 1 (0:00-0:07): "Stuck in 2D?" sequence
   // "stuck" appears at 1.5s, fades by 3s
@@ -118,70 +127,72 @@ export function SimpleHero() {
       >
         <div className="relative text-center text-white w-full" style={{ transformStyle: 'preserve-3d' }}>
           
-          {/* SCENE 1 (0:00-0:07): "Stuck in 2D?" */}
-          <div
-            className="absolute text-7xl md:text-9xl lg:text-[12rem] font-serif font-light text-white whitespace-nowrap"
-            style={{
-              transform: `translate3d(-50%, -180px, ${s1_stuckTranslateZ}px) scale(${s1_stuckScale})`,
-              opacity: s1_stuckOpacity,
-              transformOrigin: 'center center',
-              left: '50%',
-              top: '50%',
-              transition: 'opacity 0.3s ease-out',
-            }}
-          >
-            stuck
-          </div>
+          {/* SCENE 1 (0:00-0:07): "We Bring Fusion Biopsy To Your Theatre" - 3D Staggered */}
+<div
+  className="absolute text-4xl md:text-6xl lg:text-7xl font-serif font-light text-white whitespace-nowrap"
+  style={{
+    transform: `translate3d(-50%, -120px, ${s1_stuckTranslateZ}px) scale(${s1_stuckScale})`,
+    opacity: s1_stuckOpacity,
+    transformOrigin: 'center center',
+    left: '50%',
+    top: '50%',
+    transition: 'opacity 0.3s ease-out',
+  }}
+>
+  WE BRING
+</div>
 
-          <div
-            className="absolute text-5xl md:text-7xl lg:text-9xl font-serif font-light text-white whitespace-nowrap"
-            style={{
-              transform: `translate3d(-50%, -50%, ${s1_inTranslateZ}px) scale(${s1_inScale})`,
-              opacity: s1_inOpacity,
-              transformOrigin: 'center center',
-              left: '50%',
-              top: '50%',
-              transition: 'opacity 0.3s ease-out',
-            }}
-          >
-            in
-          </div>
+<div
+  className="absolute text-3xl md:text-5xl lg:text-6xl font-serif font-light text-white whitespace-nowrap"
+  style={{
+    transform: `translate3d(-45%, -50px, ${s1_inTranslateZ}px) scale(${s1_inScale})`,
+    opacity: s1_inOpacity,
+    transformOrigin: 'center center',
+    left: '50%',
+    top: '50%',
+    transition: 'opacity 0.3s ease-out',
+  }}
+>
+  MRI/US FUSION BIOPSY
+</div>
 
-          <div
-            className="absolute text-8xl md:text-[10rem] lg:text-[14rem] font-serif font-bold text-white whitespace-nowrap"
-            style={{
-              transform: `translate3d(-50%, 0%, ${s1_twoDTranslateZ}px) scale(${s1_twoDScale})`,
-              opacity: s1_twoDOpacity,
-              transformOrigin: 'center center',
-              left: '50%',
-              top: '50%',
-              transition: 'opacity 0.3s ease-out',
-            }}
-          >
-            2D?
-          </div>
+<div
+  className="absolute text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white whitespace-nowrap"
+  style={{
+    transform: `translate3d(-45%, 20px, ${s1_twoDTranslateZ}px) scale(${s1_twoDScale})`,
+    opacity: s1_twoDOpacity,
+    transformOrigin: 'center center',
+    left: '50%',
+    top: '50%',
+    transition: 'opacity 0.3s ease-out',
+  }}
+>
+TO YOUR THEATRE
+</div>
 
           {/* SCENE 2 (0:07-0:12): Women talking */}
-          <div className="space-y-6 text-center px-8">
-            <div className="text-4xl md:text-6xl lg:text-7xl font-serif font-light italic" style={{ opacity: s2_line1Opacity }}>
-              staff can be
-            </div>
-            <div className="text-5xl md:text-7xl lg:text-8xl font-serif font-light" style={{ opacity: s2_line2Opacity }}>
-              unfamiliar with
-            </div>
-            <div className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold" style={{ opacity: s2_line3Opacity }}>
-              rarely used kit
+          <div className="absolute bottom-24 left-0 right-0 px-4 md:px-8 lg:px-16">
+            <div className="max-w-6xl mx-auto space-y-3 md:space-y-4 lg:space-y-6">
+              <div className="text-3xl md:text-5xl lg:text-6xl font-serif font-light italic break-words" style={{ opacity: s2_line1Opacity }}>
+                No need for
+              </div>
+              <div className="text-4xl md:text-6xl lg:text-7xl font-serif font-light break-words" style={{ opacity: s2_line2Opacity }}>
+                expensive equipment
+              </div>
+              <div className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold break-words" style={{ opacity: s2_line3Opacity }}>
+                or training
+              </div>
             </div>
           </div>
 
           {/* SCENE 3 (0:12-0:21): Cognitive sampling */}
           <div className="space-y-8 text-center px-8">
             <div className="text-4xl md:text-6xl lg:text-7xl font-serif font-light italic" style={{ opacity: s3_line1Opacity }}>
-              wondering about
+              we manage the 
             </div>
             <div style={{ opacity: s3_line2Opacity }}>
               <div className="text-5xl md:text-7xl lg:text-8xl font-serif font-light">
-                intraobserver variability?*
+                technical complexity
               </div>
             </div>
           </div>
@@ -189,7 +200,7 @@ export function SimpleHero() {
           {/* SCENE 4 (0:21-0:26): MRI/US Fusion */}
           <div className="absolute left-4 md:left-16 lg:left-24 top-1/4 space-y-4 text-left max-w-2xl">
             <div className="text-2xl md:text-4xl lg:text-5xl font-serif font-light" style={{ opacity: s4_unparalleledOpacity }}>
-              Get ready for unparalleled
+              You get unmatched
             </div>
             
             <div 
@@ -218,6 +229,83 @@ export function SimpleHero() {
           *cognitive bias link
         </a>
       </div>
+
+      {/* Replay button with spinner logo - appears at end */}
+      {showReplay && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+          <button
+            onClick={handleReplay}
+            className="group relative transition-transform hover:scale-110 active:scale-95"
+            aria-label="Replay video"
+          >
+            {/* Logo spinner */}
+            <div className="relative w-32 h-32">
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 120 120"
+                style={{ transform: 'rotate(-90deg)' }}
+              >
+                {/* Gray circle with wedge gaps */}
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="52"
+                  fill="none"
+                  stroke="#9ca3af"
+                  strokeWidth="14"
+                  strokeLinecap="butt"
+                  strokeDasharray="150 30"
+                  className="animate-spin-slow"
+                  style={{ animationDuration: '3s' }}
+                />
+              </svg>
+              
+              {/* Green circle at 45° */}
+              <svg
+                className="absolute"
+                style={{
+                  width: '58px',
+                  height: '58px',
+                  left: 'calc(50% + 26.5px)',
+                  top: 'calc(50% - 63px)',
+                }}
+                viewBox="0 0 58 58"
+              >
+                <circle
+                  cx="29"
+                  cy="29"
+                  r="24"
+                  fill="white"
+                  stroke="#059669"
+                  strokeWidth="8"
+                />
+              </svg>
+
+              {/* Replay icon in center */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <svg
+                  className="w-12 h-12 text-white group-hover:text-emerald-500 transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            {/* Text hint */}
+            <div className="mt-4 text-center">
+              <span className="text-white text-lg font-serif">Watch again</span>
+            </div>
+          </button>
+        </div>
+      )}
     </section>
   )
 }

@@ -55,20 +55,24 @@ export function FeaturedProducts() {
     <section className="py-8 lg:py-12" id="featured-products">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProducts.map((product, index) => (
-            <div key={product.id} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-              <ProductCard product={product} onQuickLook={handleQuickLook} />
-            </div>
-          ))}
+          {/* First product card */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0s' }}>
+            <ProductCard product={featuredProducts[0]} onQuickLook={handleQuickLook} />
+          </div>
           
-          {/* Third card: Description with Multi-focal Treatment */}
-          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20">
+          {/* Middle card: Description with Multi-focal Treatment */}
+          <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <h2 className="text-3xl lg:text-4xl text-neutral-900 mb-6 text-center">
               Advanced <span className="italic font-light">HIFU Technology</span>
             </h2>
             <p className="text-base text-neutral-600 text-center leading-relaxed">
               Experience our state-of-the-art High-Intensity Focused Ultrasound treatments with multi-focal treatment capabilities, delivering precise, non-invasive therapy with exceptional accuracy and patient outcomes.
             </p>
+          </div>
+          
+          {/* Second product card */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <ProductCard product={featuredProducts[1]} onQuickLook={handleQuickLook} />
           </div>
         </div>
       </div>
