@@ -37,13 +37,13 @@ function MultiparametricMRIViewer() {
   return (
     <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border-2 border-purple-200">
       <h2 className="text-2xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-        📊 Multiparametric MRI Contouring: 6 Views, One Volume
+        Multiparametric MRI Contouring: Six Views, One Volume
       </h2>
       <p className="text-center text-gray-700 text-sm mb-4 max-w-4xl mx-auto">
-        <strong>Normally:</strong> Surgeons look at a single MRI scan and cognitively estimate biopsy targets.
+        <strong>Traditional approach:</strong> Surgeons review a single MRI scan and estimate biopsy targets.
       </p>
       <p className="text-center text-gray-700 text-sm mb-8 max-w-4xl mx-auto">
-        <strong>With PCL:</strong> Dr. Allen accesses <strong>six different MRI sequence views</strong> of the same anatomical plane - T2-weighted, ADC, diffusion, vascularity patterns - to contour lesions with millimeter precision. The plan is ready, no cognitive fusion needed.
+        <strong>With PCL:</strong> Dr. Allen accesses <strong>six different MRI sequence views</strong> of the same anatomical plane - T2-weighted, ADC, diffusion, vascularity patterns - to contour lesions with millimeter precision. The plan is ready, no cognitive estimation needed.
       </p>
 
       <div className="relative w-full max-w-5xl mx-auto">
@@ -87,7 +87,7 @@ function MultiparametricMRIViewer() {
       </div>
 
       <div className="mt-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-4">
-        <p className="text-sm font-semibold mb-2">💡 Why Multiparametric MRI Matters</p>
+        <p className="text-sm font-semibold mb-2">Why Multiparametric MRI Matters</p>
         <p className="text-xs text-purple-50">
           <strong>Vascularity patterns</strong> distinguish active cancer (new chaotic blood vessels) from old scar tissue or previous ablation sites. 
           Combined with ADC maps and T2-weighted images, Dr. Allen precisely identifies and contours targets - giving you millimeter-accurate biopsy coordinates.
@@ -101,22 +101,68 @@ export default function BiopsyPlanPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        <div className="container-custom py-16">
-          {/* Hero */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              MRI/US Fusion Planning
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Expert pre-procedure MRI contouring and virtual fusion planning. Dr. Clare Allen creates millimeter-accurate targeting plans for biopsy or HIFU procedures - ready before you step into theatre.
-            </p>
+      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+        
+        {/* Hero Section - Split Layout */}
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+          <div className="container-custom">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left: Text Content */}
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                  MRI Fusion Planning & Contouring
+                </h1>
+                <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                  Expert radiologist-led targeting plans delivered before your procedure day. Dr Clare Allen's multiparametric MRI analysis creates millimeter-accurate coordinates for fusion biopsy or HIFU.
+                </p>
+                <div className="space-y-3 text-slate-200">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Consultant radiologist expertise with 20+ years in prostate mpMRI</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Virtual fusion alignment and grid planning completed in advance</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Ready-to-use targeting coordinates for immediate procedure start</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: MRI Planning Video */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto"
+                  >
+                    <source src="/biopsy-planning.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
+
+        <div className="container-custom py-16">
 
           {/* Interactive MRI Viewer */}
-          <div className="mb-16">
+          <section className="mb-20">
             <MultiparametricMRIViewer />
-          </div>
+          </section>
 
           {/* Dr Clare Allen - Lead Contouring Specialist */}
           <div className="mb-16">
@@ -218,7 +264,11 @@ export default function BiopsyPlanPage() {
               </div>
               <div className="order-1 lg:order-2">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border border-blue-200">
-                  <div className="text-4xl mb-4">📐</div>
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                  </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
                     Part A: Virtual Probe Positioning
                   </h3>
@@ -227,15 +277,21 @@ export default function BiopsyPlanPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex gap-2">
-                      <span className="text-green-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Green outline</strong> = Prostate gland boundary from MRI</span>
                     </li>
                     <li className="flex gap-2">
-                      <span className="text-cyan-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Cyan overlay</strong> = Virtual probe and biopsy grid</span>
                     </li>
                     <li className="flex gap-2">
-                      <span className="text-blue-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Grid pattern</strong> = Systematic sampling coordinates</span>
                     </li>
                   </ul>
@@ -247,7 +303,11 @@ export default function BiopsyPlanPage() {
             <div className="grid lg:grid-cols-2 gap-8 mb-12 items-center">
               <div>
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border border-emerald-200">
-                  <div className="text-4xl mb-4">🔗</div>
+                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                    </svg>
+                  </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
                     Part B: MRI Fusion to Virtual Ultrasound
                   </h3>
@@ -256,21 +316,27 @@ export default function BiopsyPlanPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex gap-2">
-                      <span className="text-green-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Green contours</strong> = MRI-identified lesions</span>
                     </li>
                     <li className="flex gap-2">
-                      <span className="text-gray-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Grayscale view</strong> = Virtual ultrasound field</span>
                     </li>
                     <li className="flex gap-2">
-                      <span className="text-blue-600 font-bold">✓</span>
+                      <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                       <span><strong>Cyan dots</strong> = Grid reference points for alignment</span>
                     </li>
                   </ul>
                   <div className="mt-4 bg-emerald-100 rounded-lg p-3">
                     <p className="text-xs text-emerald-900 font-semibold">
-                      💡 This fusion plan is created days before your procedure. On the day, our Application Specialist loads this plan and matches it to the live ultrasound.
+                      This fusion plan is created days before your procedure. On the day, our Application Specialist loads this plan and matches it to live ultrasound.
                     </p>
                   </div>
                 </div>
@@ -289,31 +355,29 @@ export default function BiopsyPlanPage() {
             </div>
           </div>
 
-          {/* Clinical Evidence: Why MRI Fusion Matters */}
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-12 mb-16 border-2 border-blue-200">
-            <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-              📊 Clinical Evidence: From Blind Sampling to Precision Targeting
-            </h2>
-            <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
-              Traditional prostate biopsy involved spreading 10-12 needles blindly across the gland, hoping to hit cancer. MRI fusion changed everything - we moved from <strong>blind deployment to precise targeting</strong>.
+          {/* Clinical Evidence */}
+          <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 mb-20">
+            <h2 className="text-3xl font-bold text-center mb-4">Clinical Evidence: Precision vs Systematic Sampling</h2>
+            <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
+              Traditional prostate biopsy involved systematic sampling across the gland. MRI fusion enables precision targeting of identified lesions with significantly improved detection rates.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-xl p-6 shadow-md border-2 border-emerald-200">
-                <div className="text-5xl mb-3 text-center">50% vs 35%</div>
-                <h3 className="text-lg font-bold text-center mb-3 text-emerald-900">Detection Rate</h3>
-                <p className="text-sm text-gray-700 text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-emerald-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-emerald-400">50% vs 35%</div>
+                <h3 className="text-lg font-bold text-center mb-3">Detection Rate</h3>
+                <p className="text-sm text-slate-200 text-center">
                   MRI fusion biopsy achieves <strong>50% detection rate for clinically significant prostate cancer</strong> vs 35% for systematic biopsy alone (PI-RADSv2 ≥3)
                 </p>
-                <p className="text-xs text-gray-500 text-center mt-2">
+                <p className="text-xs text-slate-400 text-center mt-2">
                   SpringerLink study, 1,229 biopsy sessions
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-md border-2 border-blue-200">
-                <div className="text-5xl mb-3 text-center">+41%</div>
-                <h3 className="text-lg font-bold text-center mb-3 text-blue-900">High-Risk Detection</h3>
-                <p className="text-sm text-gray-700 text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-blue-400">+41%</div>
+                <h3 className="text-lg font-bold text-center mb-3">High-Risk Detection</h3>
+                <p className="text-sm text-slate-200 text-center">
                   Targeted MRI fusion biopsy diagnoses <strong>41% more high-risk prostate cancers</strong> compared to standard systematic biopsy (RR=1.41)
                 </p>
                 <p className="text-xs text-gray-500 text-center mt-2">
@@ -321,10 +385,10 @@ export default function BiopsyPlanPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-md border-2 border-purple-200">
-                <div className="text-5xl mb-3 text-center">86%</div>
-                <h3 className="text-lg font-bold text-center mb-3 text-purple-900">Avoid Unnecessary Biopsies</h3>
-                <p className="text-sm text-gray-700 text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-purple-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-purple-400">86%</div>
+                <h3 className="text-lg font-bold text-center mb-3">Avoid Unnecessary Biopsies</h3>
+                <p className="text-sm text-slate-200 text-center">
                   In men with <strong>negative MRI, 86% safely avoided biopsy</strong> over 3 years with only 4% developing clinically significant cancer
                 </p>
                 <p className="text-xs text-gray-500 text-center mt-2">
@@ -333,22 +397,18 @@ export default function BiopsyPlanPage() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-4 text-center">🎯 Better Differentiation = Better Treatment Decisions</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <p className="text-sm text-blue-50 mb-2">
-                    <strong>Aggressive vs Indolent Tumors:</strong> High-resolution mpMRI imaging allows clearer distinction between cancers that require immediate treatment and slow-growing ones suitable for active surveillance.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-blue-50">
+            <div className="bg-gradient-to-r from-emerald-600/20 to-blue-600/20 rounded-xl p-6 border border-white/20">
+              <h3 className="text-xl font-bold mb-4 text-center">Improved Differentiation = Better Treatment Decisions</h3>
+              <div className="grid md:grid-cols-2 gap-6 text-sm text-slate-200">
+                <p>
+                  <strong>Aggressive vs Indolent Tumors:</strong> High-resolution mpMRI imaging enables clearer distinction between cancers requiring immediate treatment and slow-growing ones suitable for active surveillance.
+                </p>
+                <p>
                     <strong>Reduced Over-Treatment:</strong> Avoiding treatment for slow-growing tumors that may never require intervention, while ensuring aggressive cancers are caught early and treated appropriately.
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
+          </section>
 
           {/* What Makes This Planning Special */}
           <div className="bg-gradient-to-br from-blue-900 to-emerald-900 text-white rounded-2xl p-12 mb-16">

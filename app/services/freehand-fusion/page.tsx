@@ -145,7 +145,7 @@ function SetupChecklist() {
     <div className="bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-6">
       <div className="mb-4">
         <h3 className="text-xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
-          What Our Application Specialists Handle 🛠️
+          What Our Application Specialists Handle
         </h3>
         <p className="text-sm text-gray-600 mb-1">
           <strong>Setup Time:</strong> ~34 minutes of precision assembly
@@ -201,9 +201,9 @@ function SetupChecklist() {
         ))}
       </div>
 
-      <div className="mt-4 p-3 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg border border-green-300">
-        <p className="text-sm font-medium text-green-900 text-center">
-          💡 <strong>Pro Tip:</strong> Our Application Specialists handle all of this on-site, so you can focus on the patient.
+      <div className="mt-4 p-3 bg-gradient-to-r from-emerald-100 to-green-100 rounded-lg border border-emerald-300">
+        <p className="text-sm font-medium text-emerald-900 text-center">
+          <strong>On-Site Support:</strong> Our Application Specialists handle all of this setup, so you can focus on the patient.
         </p>
       </div>
     </div>
@@ -214,16 +214,61 @@ export default function FreehandFusionPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        <div className="container-custom py-16">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              Biopsy Alignment
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              On-site equipment setup, real-time fusion alignment, and Application Specialist support. The sophisticated technical system we manage on procedure day - so you can focus on the patient.
-            </p>
+      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+        
+        {/* Hero Section - Split Layout */}
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+          <div className="container-custom">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left: Text Content */}
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                  MRI/US Fusion Biopsy
+                </h1>
+                <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                  On-site equipment setup, real-time fusion alignment, and Application Specialist support throughout your procedure. We manage the technical complexity - you focus on the patient.
+                </p>
+                <div className="space-y-3 text-slate-200">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Precision equipment delivery, setup, and calibration</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Real-time fusion alignment and needle tracking</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Expert Application Specialist support throughout procedure</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Fusion Biopsy Image */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl blur-xl"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  <Image
+                    src="/fusion-biopsy/hero.png"
+                    alt="MRI/US Fusion Biopsy Equipment and Setup"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
+
+        <div className="container-custom py-16">
 
           {/* Two Approaches - Honest Comparison */}
           <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 mb-16 border-2 border-gray-200">

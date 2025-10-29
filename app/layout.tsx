@@ -11,24 +11,25 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prostatecare.co.uk"),
-  title: "Prostate Care Limited — Precision diagnostics for prostate cancer",
+  title: "Prostate Care Limited | Specialist Equipment & Managed Services",
   description:
-    "State-of-the-art MR/US fusion biopsy and HIFU services. Expert radiologist contouring and mobile equipment solutions.",
+    "Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.",
+  keywords: "prostate biopsy, HIFU, ultrasound rental, MRI fusion, bkFusion, Navigo, Sonablate, Ablatherm, surgical equipment",
   generator: "v0.app",
   alternates: {
     canonical: "https://prostatecare.co.uk/",
   },
   openGraph: {
     siteName: "Prostate Care Limited",
-    title: "Precision diagnostics for prostate cancer | Prostate Care Limited",
+    title: "Prostate Care Limited | Specialist Equipment & Managed Services",
     description:
-      "State-of-the-art MR/US fusion biopsy and HIFU services. Expert radiologist contouring and mobile equipment solutions.",
+      "Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.",
     type: "website",
     url: "https://prostatecare.co.uk/",
     images: [
       {
         url: "/og-image-prostate-care.jpg",
-        alt: "Prostate Care Limited — Precision diagnostics for prostate cancer",
+        alt: "Prostate Care Limited | Specialist Equipment & Managed Services",
         width: 1200,
         height: 630,
       },
@@ -37,13 +38,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Precision diagnostics for prostate cancer | Prostate Care Limited",
+    title: "Prostate Care Limited | Specialist Equipment & Managed Services",
     description:
-      "State-of-the-art MR/US fusion biopsy and HIFU services. Expert radiologist contouring and mobile equipment solutions.",
+      "Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.",
     images: [
       {
         url: "/og-image-prostate-care.jpg",
-        alt: "Prostate Care Limited — Precision diagnostics for prostate cancer",
+        alt: "Prostate Care Limited | Specialist Equipment & Managed Services",
       },
     ],
     site: "@prostatecare",

@@ -5,402 +5,350 @@ export default function HifuPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
+      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+        
+        {/* Hero Section - Split Layout */}
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+          <div className="container-custom">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left: Text Content */}
+              <div>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+                  High Intensity Focused Ultrasound (HIFU)
+                </h1>
+                <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                  Precision ablation using converging ultrasound waves to thermally destroy prostate tumor tissue while preserving healthy surrounding structures.
+                </p>
+                <div className="space-y-3 text-slate-200">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Non-invasive, bloodless procedure with rapid recovery</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Real-time ultrasound feedback for precise targeting</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Radiation-free with minimal side effects</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: HIFU Video */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto"
+                  >
+                    <source src="/hifu.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className="container-custom py-16">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              High Intensity Focused Ultrasound (HIFU)
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Non-invasive ablation modality that has become a core component of the focal therapy platform, using
-              converging ultrasound waves to thermally destroy prostate tumor tissue from within.
-            </p>
-          </div>
 
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-semibold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              Proven Clinical Outcomes and Evidence Base
-            </h2>
-            <p className="text-gray-700 mb-4">
-              A 2024 systematic review pooling outcomes from &gt;20 HIFU cohorts reported excellent cancer control in
-              the treated zones – on follow-up biopsies within 2 years, only ~9% of men had significant cancer
-              persisting in the ablated area. About 75–80% of men avoid conversion to radical prostatectomy or radiation
-              for at least 6–10 years post-treatment.
-            </p>
-            <p className="text-gray-700 text-sm">
-              Functional outcomes are favorable – 97% of patients had no significant urinary continence deterioration,
-              and severe sexual side effects were uncommon (~6%).
-            </p>
-          </div>
+          {/* 7 Key Benefits - Icon Cards */}
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
+                Sonablate HIFU Advantages
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Advanced features that make HIFU a leading choice for focal prostate therapy
+              </p>
+            </div>
 
-          {/* MRI Fusion-Guided HIFU Outcomes */}
-          <div className="bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 text-white rounded-2xl p-12 mb-12">
-            <h2 className="text-3xl font-bold text-center mb-4">🔬 MRI Fusion-Guided HIFU: Precision Targeting Drives Success</h2>
-            <p className="text-center text-emerald-100 mb-8 max-w-3xl mx-auto">
-              Real-time MRI fusion guidance ensures we treat the cancer AND a surrounding safety margin - dramatically improving outcomes while preserving function.
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {/* Real-time ultrasound-derived feedback */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Real-Time Ultrasound Feedback
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Live thermal monitoring ensures precise energy delivery and complete ablation of target tissue with immediate verification.
+                </p>
+              </div>
+
+              {/* Minimally-invasive, bloodless ablation */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Minimally-Invasive, Bloodless
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Transrectal approach with no incisions, minimal trauma, and rapid recovery compared to traditional surgery.
+                </p>
+              </div>
+
+              {/* Adjustable for each dose of HIFU energy */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Adjustable Energy Dosing
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Customize HIFU energy for each treatment zone, optimizing ablation while protecting surrounding structures.
+                </p>
+              </div>
+
+              {/* Repeatable procedure, if needed */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Repeatable Procedure
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Can be performed as an outpatient procedure with repeatability if needed, providing flexible treatment options.
+                </p>
+              </div>
+
+              {/* Radiation-free */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Radiation-Free
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  No ionizing radiation exposure, making it a safer option for eligible patients with fewer long-term risks.
+                </p>
+              </div>
+
+              {/* Healthy tissue sparing */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Healthy Tissue Sparing
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Focused ultrasound precisely targets cancerous tissue while sparing healthy prostate and surrounding organs.
+                </p>
+              </div>
+
+              {/* Minimal side effects */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  Minimal Side Effects
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Preservation of erectile function and continence in the majority of cases with targeted cancer control.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Clinical Outcomes */}
+          <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 mb-20">
+            <h2 className="text-3xl font-bold text-center mb-4">MRI Fusion-Guided HIFU: Clinical Outcomes</h2>
+            <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
+              Real-time MRI fusion guidance ensures complete ablation of cancer plus safety margin while preserving function.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-emerald-400">
-                <div className="text-6xl text-center mb-4">90%+</div>
-                <h3 className="text-2xl font-bold text-center mb-4 text-emerald-300">Short-Term Success Rate</h3>
-                <p className="text-sm text-emerald-50 text-center">
-                  Using real-time MRI fusion guidance during HIFU treatment, <strong>over 90% of men are cancer-free at 1 year</strong> based on MRI and PSA criteria. Precision targeting ensures complete ablation of the cancerous area plus safety margin.
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-emerald-400/30">
+                <div className="text-6xl font-bold text-center mb-4 text-emerald-400">90%+</div>
+                <h3 className="text-2xl font-bold text-center mb-4">Short-Term Success Rate</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  Using real-time MRI fusion guidance, <strong>over 90% of men are cancer-free at 1 year</strong> based on MRI and PSA criteria. Precision targeting ensures complete ablation of the cancerous area plus safety margin.
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border-2 border-cyan-400">
-                <div className="text-6xl text-center mb-4">75-80%</div>
-                <h3 className="text-2xl font-bold text-center mb-4 text-cyan-300">Long-Term Treatment Freedom</h3>
-                <p className="text-sm text-cyan-50 text-center">
-                  Global focal therapy data shows <strong>75-80% of men remain free from radical treatment (surgery or radiotherapy) for 6-10 years</strong> after MRI-guided HIFU. That's 4 out of 5 men avoiding whole-gland treatment while maintaining cancer control.
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-cyan-400/30">
+                <div className="text-6xl font-bold text-center mb-4 text-cyan-400">75-80%</div>
+                <h3 className="text-2xl font-bold text-center mb-4">Long-Term Treatment Freedom</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  Global focal therapy data shows <strong>75-80% of men remain free from radical treatment</strong> (surgery or radiotherapy) for 6-10 years after MRI-guided HIFU.
                 </p>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-teal-500 to-emerald-500 rounded-xl p-6 border-2 border-white/30">
-              <h3 className="text-xl font-bold mb-4 text-center">🎯 Why MRI Fusion Makes the Difference</h3>
-              <div className="grid md:grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-3xl mb-2">📐</div>
-                  <p className="text-xs font-semibold mb-1">Precise Lesion Targeting</p>
-                  <p className="text-xs text-emerald-50">Dr Allen's pre-contoured MRI targets guide ablation in real-time - treat cancer + margin with millimeter accuracy</p>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">🌡️</div>
-                  <p className="text-xs font-semibold mb-1">Controlled Thermal Zone</p>
-                  <p className="text-xs text-emerald-50">Live thermal monitoring ensures complete ablation while preventing collateral damage to surrounding structures</p>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">✅</div>
-                  <p className="text-xs font-semibold mb-1">Verified Coverage</p>
-                  <p className="text-xs text-emerald-50">Real-time fusion confirms the entire target zone has been treated - no guesswork, just verifiable precision</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 bg-white/20 rounded-lg p-4 border border-white/30">
-              <p className="text-center text-sm text-emerald-50">
-                <strong>The PCL Advantage:</strong> MRI fusion transforms HIFU from "thermal energy deployment" to "precision-guided ablation with real-time verification" - ensuring you treat the cancer completely while preserving quality of life.
+            <div className="bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-xl p-6 border border-white/20">
+              <p className="text-center text-slate-100">
+                <strong>The PCL Advantage:</strong> MRI fusion transforms HIFU from thermal energy deployment to precision-guided ablation with real-time verification — ensuring complete cancer treatment while preserving quality of life.
               </p>
             </div>
-          </div>
+          </section>
 
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-semibold mb-6" style={{ color: "var(--color-medical-green)" }}>
-              HIFU Procedure Overview
-            </h2>
-            <div className="aspect-video w-full max-w-3xl mx-auto mb-6">
-              <video
-                src="/hifuvids/start.mp4"
-                controls
-                className="w-full h-full rounded-lg"
-                poster="/sonablate-hifu-advantages.jpg"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p className="text-gray-700 text-center text-sm">
-              See how HIFU delivers precise, non-invasive treatment for prostate cancer
-            </p>
-          </div>
-
-          {/* Sonablate Advantages */}
-          <div className="mb-12">
-            <img
-              src="/sonablate-hifu-advantages.jpg"
-              alt="Sonablate HIFU Advantages: Real-time feedback, minimally invasive, adjustable energy, repeatable, radiation-free, tissue sparing, minimal side effects"
-              className="w-full rounded-xl shadow-lg"
-            />
-          </div>
-
-          {/* PCL Team's Critical Role */}
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 mb-12 border-2 border-orange-300">
-            <h2 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
-              🔥 What the Prostate Care Team Actually DO During HIFU
-            </h2>
-            
-            <div className="bg-white rounded-xl p-6 mb-6 border-2 border-orange-200">
-              <p className="text-gray-800 font-medium mb-4 text-center">
-                HIFU isn't "set it and forget it" - it requires <strong>constant expert monitoring</strong> to prevent thermal injury while achieving complete ablation.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="text-3xl">🌡️</div>
-                  <h3 className="text-lg font-bold text-red-900">Real-Time Thermal Monitoring</h3>
-                </div>
-                <p className="text-sm text-gray-700 mb-3">
-                  Our Application Specialists continuously monitor temperature mapping throughout the procedure:
-                </p>
-                <ul className="text-xs text-gray-600 space-y-1.5">
-                  <li>• Track focal zone temperatures (~90°C at target)</li>
-                  <li>• Monitor surrounding tissue to prevent overheating</li>
-                  <li>• Watch for thermal buildup between pulses</li>
-                  <li>• Adjust energy levels in real-time based on feedback</li>
-                  <li>• Ensure cooling periods prevent collateral damage</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="text-3xl">⚠️</div>
-                  <h3 className="text-lg font-bold text-orange-900">Safety Shut-Off Management</h3>
-                </div>
-                <p className="text-sm text-gray-700 mb-3">
-                  Automated safety systems require expert interpretation and override decisions:
-                </p>
-                <ul className="text-xs text-gray-600 space-y-1.5">
-                  <li>• Evaluate automatic shut-off alerts</li>
-                  <li>• Distinguish true safety concerns from false positives</li>
-                  <li>• Make real-time decisions on pulse adjustments</li>
-                  <li>• Coordinate with surgeon on repositioning if needed</li>
-                  <li>• Document all thermal events for post-procedure review</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="text-3xl">🎯</div>
-                  <h3 className="text-lg font-bold text-blue-900">Treatment Planning & Execution</h3>
-                </div>
-                <ul className="text-xs text-gray-600 space-y-1.5">
-                  <li>• Pre-procedure MRI contouring and target mapping</li>
-                  <li>• Setup and calibration of HIFU system</li>
-                  <li>• Real-time ultrasound-MRI fusion alignment</li>
-                  <li>• Systematic ablation pattern execution</li>
-                  <li>• Quality assurance of complete coverage</li>
-                  <li>• Post-procedure imaging verification</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="text-3xl">📊</div>
-                  <h3 className="text-lg font-bold text-emerald-900">Data Management & Reporting</h3>
-                </div>
-                <ul className="text-xs text-gray-600 space-y-1.5">
-                  <li>• Capture all thermal dose data for each pulse</li>
-                  <li>• Generate detailed treatment maps</li>
-                  <li>• Document ablation coverage relative to MRI targets</li>
-                  <li>• Create post-procedure reports for clinical team</li>
-                  <li>• Archive data for follow-up correlation</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-6 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-xl p-6">
-              <p className="font-semibold text-center mb-2">✨ The PCL Difference: Expert Oversight Throughout</p>
-              <p className="text-sm text-emerald-50 text-center">
-                You focus on the patient and clinical decisions. We handle the complex thermal management, system monitoring, and technical execution that makes HIFU safe and effective.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <img
-                src="/hifu-treatment-system-medical-equipment-in-modern-.jpg"
-                alt="HIFU Treatment System"
-                className="w-full h-80 object-cover rounded-xl shadow-lg mb-6"
-              />
-
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
-                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
-                  Precise Energy Delivery Mechanism
-                </h3>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  HIFU uses converging ultrasound waves to raise temperature ~90°C at the focal point while sparing
-                  intervening tissue. Only at the focal spot (size of a rice grain) is intensity high enough to induce
-                  rapid heating and coagulative necrosis.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-semibold mb-6" style={{ color: "var(--color-medical-green)" }}>
-                Role in Focal Therapy Platform
+          {/* PCL Service Model */}
+          <section className="mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
+                Complete HIFU Service Package
               </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Access state-of-the-art HIFU technology without ownership burden — equipment, expertise, and support when you need it.
+              </p>
+            </div>
 
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Multi-Modal Precision Platform</h3>
-                  <p className="text-gray-600 text-sm">
-                    HIFU complements other focal modalities (like cryotherapy or IRE), allowing clinicians to tailor the
-                    energy source to tumor location and patient needs. HIFU's transrectal approach makes it well-suited
-                    for posterior or mid-gland tumors.
-                  </p>
-                </div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Pre-Procedure Planning</h3>
+                      <p className="text-gray-600 text-sm">
+                        Dr Allen's expert MRI contouring and target delineation delivered before your procedure day.
+                      </p>
+                    </div>
+                  </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">MRI-Ultrasound Fusion Integration</h3>
-                  <p className="text-gray-600 text-sm">
-                    Often combined with MRI-ultrasound fusion guidance for planning and real-time alignment, ensuring
-                    ultrasound energy is delivered exactly to the intended region with computer-controlled precision.
-                  </p>
-                </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Equipment Setup & Calibration</h3>
+                      <p className="text-gray-600 text-sm">
+                        Sonablate HIFU system delivered, installed, and calibrated by our Application Specialists.
+                      </p>
+                    </div>
+                  </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Real-Time Monitoring and Safety</h3>
-                  <p className="text-gray-600 text-sm">
-                    Modern HIFU platforms employ MRI or Doppler ultrasound feedback to monitor treatment progress with
-                    thermal mapping and automatic safety shut-offs for each pulse.
-                  </p>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">On-Site Technical Support</h3>
+                      <p className="text-gray-600 text-sm">
+                        Real-time guidance throughout procedure — thermal monitoring, fusion alignment, and system management.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Post-Procedure Reporting</h3>
+                      <p className="text-gray-600 text-sm">
+                        Detailed treatment maps and documentation for your clinical records and follow-up planning.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Excellent Cancer Control
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Only ~9% of men had significant cancer persisting in ablated areas on 2-year follow-up biopsies. High
-                overall survival (&gt;98%) and low progression rates across global series.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Minimal Side Effects
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Preservation of erectile function and continence in majority of cases. Far fewer side-effects than
-                whole-gland treatments with targeted cancer control and minimal collateral damage.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Outpatient Repeatability
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Can be delivered as an outpatient procedure with repeatability if needed. Positioned for
-                intermediate-risk disease that is confined and visible on imaging.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-8 mb-12">
-            <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Premium HIFU Technology Without Ownership Burden
-            </h2>
-            <p className="text-gray-700 mb-4">
-              A leading surgeon wanted to perform HIFU procedures for prostate cancer at their private hospital, but
-              only had 5-10 suitable cases per year. Purchasing a HIFU system outright would be impractical. Instead,
-              they partnered with our on-demand service – gaining access to state-of-the-art HIFU only when needed.
-            </p>
-            <p className="text-gray-700 text-sm">
-              The result? Access to the latest technology with full support, without the burden of owning expensive
-              equipment that sits idle most of the year.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <img
-                src="/hifu-treatment-system-medical-equipment-in-modern-.jpg"
-                alt="HIFU Treatment System"
-                className="w-full h-80 object-cover rounded-xl shadow-lg mb-6"
-              />
-
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
-                <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-medical-green)" }}>
-                  Minimally Invasive Excellence
+              <div className="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 rounded-2xl p-8 border border-orange-200">
+                <h3 className="text-2xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
+                  Why Hospitals Choose PCL for HIFU
                 </h3>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  HIFU provides precise, non-invasive treatment with reduced side effects and faster recovery times. Our
-                  service ensures optimal outcomes through expert guidance and premium equipment.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-semibold mb-6" style={{ color: "var(--color-medical-green)" }}>
-                Latest Technology, Only When You Need It
-              </h2>
-
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Hospital-Grade Equipment On-Demand</h3>
-                  <p className="text-gray-600 text-sm">
-                    We bring premium HIFU systems directly to your operating theatre, scheduled for the exact days you
-                    plan specialist procedures. When not in use, it's not taking up space or budget.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Expert Clinical Support</h3>
-                  <p className="text-gray-600 text-sm">
-                    Our Clinical Technology Specialists set up the device, perform safety checks, and remain present
-                    during procedures to provide real-time guidance and ensure smooth operation.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">Comprehensive Training Included</h3>
-                  <p className="text-gray-600 text-sm">
-                    In-person training for surgeons, anesthetists, and nurses. Refresher guidance on latest features
-                    ensures your team stays sharp between cases.
-                  </p>
+                <div className="space-y-4 text-gray-700">
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm"><strong>No capital investment</strong> — access premium technology without ownership burden</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm"><strong>Flexible scheduling</strong> — use as frequently or sparingly as your caseload demands</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm"><strong>Zero maintenance</strong> — we handle all calibration, updates, and servicing</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm"><strong>Expert support</strong> — Application Specialists present for every procedure</span>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-sm"><strong>Complete coordination</strong> — single point of contact manages entire workflow</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Zero Maintenance Costs
-              </h3>
-              <p className="text-gray-600 text-sm">
-                We handle all maintenance, calibration, and software updates off-site. Equipment arrives in optimal
-                condition, ready to go, with no surprise maintenance bills.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Flexible Scalable Usage
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Use as often or sparingly as needed – 5 cases or 50. The program scales with your demand, accommodating
-                more frequent sessions seamlessly as your caseload grows.
-              </p>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 className="text-lg font-semibold mb-3" style={{ color: "var(--color-medical-green)" }}>
-                Improved Patient Care
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Offer cutting-edge HIFU procedures locally that you might otherwise refer to larger centers. Patients
-                get timely access to advanced treatments in your facility.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gray-50 rounded-xl p-8 text-center mb-40">
-            <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Ready to Expand Your HIFU Capabilities?
-            </h2>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              Join surgical teams who are staying at the cutting edge without overextending resources. Premium HIFU
-              solutions delivered with precision and clinical excellence.
+          {/* CTA Section */}
+          <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Offer HIFU at Your Facility?</h2>
+            <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
+              Join surgical teams across the UK who are delivering precision focal therapy without capital investment. Premium HIFU solutions with expert support.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all">
-                Schedule Consultation
-              </button>
-              <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all">
-                View Case Studies
-              </button>
+              <a 
+                href="/contact"
+                className="inline-block bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all"
+              >
+                Contact Us
+              </a>
+              <a 
+                href="/about/pcl"
+                className="inline-block border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all"
+              >
+                Learn More About PCL
+              </a>
             </div>
-          </div>
+          </section>
+
         </div>
       </main>
       <Footer />

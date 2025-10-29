@@ -16,117 +16,6 @@ export default function AboutPCLPage() {
 
         <div className="container-custom">
 
-          {/* Why Top Urologists Trust Us Behind the Scenes */}
-          <div className="bg-gradient-to-r from-red-900 via-orange-900 to-amber-900 text-white rounded-2xl p-12 mb-16 border-4 border-orange-500">
-            <h2 className="text-3xl font-bold text-center mb-6">
-              🔑 Why Top Urologists Trust Us Behind the Scenes
-            </h2>
-            <p className="text-center text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-amber-100">
-              Even leading urologists use us for their most complex cases. It's not just the software — it's the <strong>expert technical setup and real-time guidance</strong> that makes fusion and ablation systems work reliably.
-            </p>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border-2 border-amber-400">
-              <h3 className="text-2xl font-bold mb-4 text-center text-amber-300">
-                The Precise Chain of Precision: TARGET → PROBE → FIELD
-              </h3>
-              <p className="text-center text-lg text-amber-100 mb-4">
-                <strong>The precise matching of MRI target → probe position → ultrasound field</strong> is what makes or breaks fusion accuracy.
-              </p>
-              <p className="text-center text-amber-50">
-                <strong>Your expertise is clinical judgment. Our expertise is the technical foundation that supports it.</strong> From Dr. Allen's virtual probe contouring, to millimeter-perfect equipment setup, to real-time software guidance during the procedure — we handle the infrastructure so you can focus on decision-making.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">⚙️</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">Complex Technical Setup</h3>
-                <p className="text-sm text-amber-100 mb-3">
-                  The EX3 stepper + MicroTouch + cradle + water balloon + drape system requires <strong>precise assembly and calibration</strong>.
-                </p>
-                <p className="text-sm text-amber-50">
-                  Miss one adjustment and your probe alignment drifts 2-3mm — enough to miss a lesion or compromise treatment accuracy. That's why urologists rely on our on-site specialists who've perfected this setup across hundreds of procedures.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">🧠</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">Geometric Consistency Is Critical</h3>
-                <p className="text-sm text-amber-100 mb-3">
-                  If you contour in MIM and then fuse in BK, that fusion is only as accurate as your <strong>probe axis and balloon fill</strong>.
-                </p>
-                <p className="text-sm text-amber-50">
-                  Without precise stabiliser setup, your 3D registration collapses. We ensure mechanical reproducibility across every procedure.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">🧩</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">The Setup Expertise You Need (But Don't See)</h3>
-                <p className="text-sm text-amber-100 mb-3">
-                  Having software licenses is different from achieving accurate, reproducible fusion in theatre.
-                </p>
-                <p className="text-sm text-amber-50">
-                  <strong>Across 100+ surgeons and 95 hospitals, we've refined the critical setup discipline:</strong> probe geometry, sterile draping without compromising alignment, balloon fill technique, grid calibration and cooling protocols. From hundreds of theatres, we know what goes wrong when these details are missed.
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">🔬</div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">Why Centres Outsource It</h3>
-                <p className="text-sm text-amber-100 mb-3">
-                  It's risky to do wrong:
-                </p>
-                <ul className="text-xs text-amber-50 space-y-1.5">
-                  <li>• Probe over-compression → gland deformation → mis-targeted lesion</li>
-                  <li>• Air in the balloon → acoustic shadowing</li>
-                  <li>• Wrong stand or drape tension → probe drift during ablation</li>
-                  <li>• Missed "step" in the EX3 → probe slips 5mm mid-case</li>
-                </ul>
-                <p className="text-sm text-amber-50 mt-3">
-                  A radiologist can contour a perfect target, but if those errors happen, the precision is lost.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-emerald-500 to-orange-500 rounded-xl p-8 border-2 border-white/30">
-              <h3 className="text-2xl font-bold mb-4 text-center">💡 That's Why We Remain Invisible But Indispensable</h3>
-              <p className="text-center text-white mb-4 leading-relaxed">
-                Clinics keep us behind the scenes, because we're a <strong>facilitator service</strong> — not a competing clinic.
-              </p>
-              <p className="text-center text-lg font-semibold text-yellow-100">
-                "The reason you don't see our name on the theatre list is because everything already works when you walk in."
-              </p>
-              
-              <div className="mt-6 grid md:grid-cols-3 gap-4 text-center">
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl mb-2">🎨</div>
-                  <p className="text-sm font-bold mb-1">Pre-Fusion Contouring</p>
-                  <p className="text-xs text-yellow-50">Dr Allen's expert radiologist planning</p>
-                </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl mb-2">⚙️</div>
-                  <p className="text-sm font-bold mb-1">On-Site Technical Execution</p>
-                  <p className="text-xs text-yellow-50">Millimeter-perfect setup & calibration</p>
-                </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-3xl mb-2">🎯</div>
-                  <p className="text-sm font-bold mb-1">Theatre Confidence</p>
-                  <p className="text-xs text-yellow-50">Urologist focuses on clinical decisions</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 bg-white/20 rounded-xl p-6 border-2 border-yellow-400">
-              <p className="text-center font-bold text-2xl mb-3 text-yellow-300">
-                We Bridge Radiology → Fusion → Theatre Where Others Can't
-              </p>
-              <p className="text-center text-amber-100">
-                That's the operational excellence that separates theoretical precision from reproducible clinical outcomes. Top teams know it. That's why they call us.
-              </p>
-            </div>
-          </div>
-
           {/* Statistics Section */}
           <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8 mb-16 border border-emerald-200">
             <h2 className="text-3xl font-bold text-center mb-8" style={{ color: "var(--color-medical-green)" }}>
@@ -280,7 +169,7 @@ export default function AboutPCLPage() {
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 max-w-3xl mx-auto">
                 <div className="mb-6">
                   <Image
-                    src="/NEW/onsiteteam.png"
+                    src="/images/team.png"
                     alt="On-site Application Specialists"
                     width={800}
                     height={400}

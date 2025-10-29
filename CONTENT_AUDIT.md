@@ -39,7 +39,14 @@
 
 ### 2. **ABOUT > About PCL** (`/about/pcl`)
 **Status:** ⚠️ **INCOMPLETE**
-
+Coordinated MRI contouring, fusion biopsy, HIFU, and follow-up
+                  </h1>
+                  <p className="text-xl sm:text-2xl mb-4 leading-relaxed">
+                    Complete with theatre equipment setup and take down,
+                  </p>
+                  <p className="text-lg sm:text-xl leading-relaxed">
+                    Application assistant support for image alignment and technical onsite expertise
+                  
 **Content:**
 - EvolutionTabs component (appears to be placeholder)
 - "Why Top Urologists Trust Us" section with emoji-heavy design

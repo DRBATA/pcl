@@ -1,25 +1,19 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Prostate Care Limited | Specialist Equipment & Managed Services',
-  description: 'Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.',
-  keywords: 'prostate biopsy, HIFU, ultrasound rental, MRI fusion, bkFusion, Navigo, Sonablate, Ablatherm, surgical equipment',
-  openGraph: {
-    title: 'Prostate Care Limited | Specialist Equipment & Managed Services',
-    description: 'Advanced ultrasound and HIFU equipment rental for healthcare providers',
-    type: 'website',
-  },
-}
 
 export default function LandingPage() {
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('section:nth-of-type(2)')
+    nextSection?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <>
       <Header />
-      <main className="h-screen overflow-y-auto md:snap-y md:snap-proximity">
+      <main className="h-screen overflow-y-auto md:snap-y md:snap-mandatory">
         
         {/* Hero Section with Image */}
         <section className="relative snap-start h-screen flex flex-col overflow-hidden">
@@ -42,7 +36,7 @@ export default function LandingPage() {
               <div className="container-custom">
                 <div className="max-w-4xl text-left text-white">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                    Coordinated MRI contouring, fusion biopsy, HIFU, and follow-up
+                    Co-ordinated MRI contouring, fusion biopsy, HIFU, and follow-up
                   </h1>
                   <p className="text-xl sm:text-2xl mb-4 leading-relaxed">
                     Complete with theatre equipment setup and take down,
@@ -57,17 +51,13 @@ export default function LandingPage() {
           </div>
           
           {/* Scroll Indicator */}
-          <button
-            onClick={() => {
-              document.querySelector('section:nth-of-type(2)')?.scrollIntoView({ 
-                behavior: 'smooth' 
-              })
-            }}
-            className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hover:scale-110 transition-transform cursor-pointer"
+          <button 
+            onClick={scrollToNextSection}
+            className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer hover:scale-110 transition-transform"
             aria-label="Scroll to next section"
           >
             <div className="flex flex-col items-center gap-1">
-              <svg className="w-6 h-6 text-white opacity-80 hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -78,7 +68,7 @@ export default function LandingPage() {
         </section>
 
         {/* Section 1: About & How It Works - DARK */}
-        <section className="relative snap-start min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20">
+        <section className="relative snap-start min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20 scroll-mt-20 lg:scroll-mt-24">
           <div className="container-custom flex-1">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -147,7 +137,7 @@ export default function LandingPage() {
         </section>
 
         {/* Section 2: Clinicians & Equipment - LIGHT */}
-        <section className="relative snap-start min-h-screen bg-gradient-to-br from-slate-50 to-white flex items-center py-20">
+        <section className="relative snap-start min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center py-20 border-t border-gray-200 scroll-mt-20 lg:scroll-mt-24">
           <div className="container-custom flex-1">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -219,13 +209,13 @@ export default function LandingPage() {
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">bkFusion, Navigo, bk5000 ultrasound systems</span>
+                      <span className="text-gray-700">Parity Medical Cart, Civco Micro Touch Stabiliser, bk300 ultrasound systems</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">Ablatherm & Sonablate HIFU technology</span>
+                      <span className="text-gray-700">Sonablate HIFU technology</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -258,19 +248,13 @@ export default function LandingPage() {
         </section>
 
         {/* Section 3: End-to-End Service - DARK (Footer Style) */}
-        <section className="snap-start min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20 border-t border-emerald-600/30">
+        <section className="snap-start min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20 border-t border-emerald-600/30 scroll-mt-20 lg:scroll-mt-24">
           <div className="container-custom flex-1">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <div className="inline-block px-4 py-2 bg-emerald-600/20 rounded-full mb-6">
-                  <span className="text-emerald-400 font-semibold text-sm uppercase tracking-wider">Complete Solution</span>
-                </div>
                 <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
                   End-to-End Managed Service
                 </h2>
-                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                  From MRI contouring to follow-up coordination, we manage every step of the patient journey
-                </p>
               </div>
 
               {/* Service Steps */}
