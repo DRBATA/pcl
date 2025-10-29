@@ -22,7 +22,7 @@ export default function LandingPage() {
       <main className="h-screen overflow-y-auto md:snap-y md:snap-proximity">
         
         {/* Hero Section with Image */}
-        <section className="relative snap-start min-h-screen flex flex-col">
+        <section className="relative snap-start h-screen flex flex-col overflow-hidden">
           <div className="relative flex-1 flex flex-col">
             {/* Hero Image */}
             <div className="absolute inset-0">
@@ -57,16 +57,24 @@ export default function LandingPage() {
           </div>
           
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+          <button
+            onClick={() => {
+              document.querySelector('section:nth-of-type(2)')?.scrollIntoView({ 
+                behavior: 'smooth' 
+              })
+            }}
+            className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hover:scale-110 transition-transform cursor-pointer"
+            aria-label="Scroll to next section"
+          >
             <div className="flex flex-col items-center gap-1">
-              <svg className="w-6 h-6 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-6 h-6 text-white opacity-80 hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
-          </div>
+          </button>
           
           {/* Green bottom border matching header */}
-          <div className="h-1 bg-emerald-600" style={{ backgroundColor: "var(--color-medical-green)" }} />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-600" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
         {/* Section 1: About & How It Works - DARK */}
