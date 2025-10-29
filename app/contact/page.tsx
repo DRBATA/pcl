@@ -43,6 +43,8 @@ export default function ContactPage() {
                     <p className="text-slate-600 text-lg leading-relaxed">
                       Milton Park Innovation Centre
                       <br />
+                      99 Park Drive
+                      <br />
                       Abingdon
                       <br />
                       OX14 4RY
@@ -76,7 +78,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form action="mailto:info@prostatecare.co.uk" method="post" encType="text/plain" className="space-y-6">
                 {/* Name inputs */}
                 <div className="grid grid-cols-3 gap-3">
                   <input
@@ -96,10 +98,10 @@ export default function ContactPage() {
                   />
                 </div>
                 
-                {/* Secretary email */}
+                {/* Email */}
                 <input
                   type="email"
-                  placeholder="Your Secretary's Email"
+                  placeholder="Email"
                   required
                   className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm"
                 />
@@ -113,7 +115,7 @@ export default function ContactPage() {
                 </button>
                 
                 <p className="text-center text-sm text-slate-500 mt-4">
-                  We'll contact your secretary within 24 hours to arrange everything
+                  We'll contact you within 24 hours to arrange everything
                 </p>
               </form>
             </div>

@@ -142,7 +142,7 @@ export default function BiopsyPlanPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                   <Image
-                    src="/precision_biopsy/combined.png"
+                    src="/biopsy/planning2.png"
                     alt="MRI fusion planning and contouring process"
                     width={1200}
                     height={800}
@@ -351,61 +351,6 @@ export default function BiopsyPlanPage() {
               </div>
             </div>
           </div>
-
-          {/* Clinical Evidence */}
-          <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 mb-20">
-            <h2 className="text-3xl font-bold text-center mb-4">Clinical Evidence: Precision vs Systematic Sampling</h2>
-            <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
-              Traditional prostate biopsy involved systematic sampling across the gland. MRI fusion enables precision targeting of identified lesions with significantly improved detection rates.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-emerald-400/30">
-                <div className="text-5xl font-bold text-center mb-3 text-emerald-400">50% vs 35%</div>
-                <h3 className="text-lg font-bold text-center mb-3">Detection Rate</h3>
-                <p className="text-sm text-slate-200 text-center">
-                  MRI fusion biopsy achieves <strong>50% detection rate for clinically significant prostate cancer</strong> vs 35% for systematic biopsy alone (PI-RADSv2 ≥3)
-                </p>
-                <p className="text-xs text-slate-400 text-center mt-2">
-                  SpringerLink study, 1,229 biopsy sessions
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30">
-                <div className="text-5xl font-bold text-center mb-3 text-blue-400">+41%</div>
-                <h3 className="text-lg font-bold text-center mb-3">High-Risk Detection</h3>
-                <p className="text-sm text-slate-200 text-center">
-                  Targeted MRI fusion biopsy diagnoses <strong>41% more high-risk prostate cancers</strong> compared to standard systematic biopsy (RR=1.41)
-                </p>
-                <p className="text-xs text-gray-500 text-center mt-2">
-                  Meta-analysis: 26 studies, 5,831 patients
-                </p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-purple-400/30">
-                <div className="text-5xl font-bold text-center mb-3 text-purple-400">86%</div>
-                <h3 className="text-lg font-bold text-center mb-3">Avoid Unnecessary Biopsies</h3>
-                <p className="text-sm text-slate-200 text-center">
-                  In men with <strong>negative MRI, 86% safely avoided biopsy</strong> over 3 years with only 4% developing clinically significant cancer
-                </p>
-                <p className="text-xs text-gray-500 text-center mt-2">
-                  JAMA Oncology cohort: 593 biopsy-naïve men
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-emerald-600/20 to-blue-600/20 rounded-xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold mb-4 text-center">Improved Differentiation = Better Treatment Decisions</h3>
-              <div className="grid md:grid-cols-2 gap-6 text-sm text-slate-200">
-                <p>
-                  <strong>Aggressive vs Indolent Tumors:</strong> High-resolution mpMRI imaging enables clearer distinction between cancers requiring immediate treatment and slow-growing ones suitable for active surveillance.
-                </p>
-                <p>
-                    <strong>Reduced Over-Treatment:</strong> Avoiding treatment for slow-growing tumors that may never require intervention, while ensuring aggressive cancers are caught early and treated appropriately.
-                  </p>
-                </div>
-              </div>
-          </section>
 
           {/* What Makes This Planning Special */}
           <div className="bg-gradient-to-br from-blue-900 to-emerald-900 text-white rounded-2xl p-12 mb-16">

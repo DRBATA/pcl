@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export default function ServicesPage() {
   const services = [
@@ -72,54 +73,7 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-br from-green-900 to-emerald-800 text-white py-20">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl"
-            >
-              <h1 className="text-5xl font-bold mb-6">How It Works</h1>
-              <p className="text-xl text-green-100 leading-relaxed">
-                Our streamlined process makes it easy to access world-class equipment and expert clinical support. From booking to breakdown, we handle everything so you can focus on patient care.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Services Grid */}
         <div className="container-custom py-20">
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
-              >
-                <div className="mb-6">
-                  <div className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
-                    {service.cases2025}
-                  </div>
-                  <div className="text-sm text-gray-500 font-medium">Cases in 2025</div>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all"
-                  style={{ color: "var(--color-medical-green)" }}
-                >
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Process Overview Section */}
           <div className="mb-20">
             <motion.div
@@ -221,112 +175,67 @@ export default function ServicesPage() {
             </motion.div>
           </div>
 
-          {/* Complete MRI Fusion Workflow */}
-          <div className="bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 rounded-2xl p-12 mb-20 border-2 border-indigo-200">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-                🌍 The Complete MRI Fusion Workflow: Geographically Separated, Seamlessly Integrated
+          {/* Post-Procedure Report: Targeting Accuracy */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-2xl p-8 mb-16 border-2 border-emerald-200">
+              <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
+                📊 Your Targeting Accuracy Report
               </h2>
-              <p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto">
-                Modern MRI fusion allows each step to happen in the most efficient location - MRI acquisition, radiologist contouring, and procedure execution can all be geographically separated while maintaining perfect integration.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white rounded-xl p-6 shadow-md border-2 border-purple-200">
-                  <div className="text-4xl mb-3 text-center">🧲</div>
-                  <h3 className="text-lg font-bold text-center mb-3 text-purple-900">Step 1: MRI Acquisition</h3>
-                  <p className="text-sm text-gray-700 text-center mb-3">
-                    Patient receives multiparametric MRI scan at their local imaging center or hospital
+              
+              <div className="grid lg:grid-cols-2 gap-8 mb-8 items-start">
+                <div>
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    After each procedure, surgeons receive a detailed report showing <strong>exactly how well they met their targets</strong> - quantifying accuracy, documenting sampling coverage, and providing objective evidence of diagnostic quality.
                   </p>
-                  <div className="bg-purple-50 rounded-lg p-3">
-                    <p className="text-xs text-purple-900 font-semibold">
-                      📍 Location: Any MRI facility nationwide
-                    </p>
-                  </div>
                 </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-md border-2 border-blue-200">
-                  <div className="text-4xl mb-3 text-center">🎨</div>
-                  <h3 className="text-lg font-bold text-center mb-3 text-blue-900">Step 2: Expert Contouring</h3>
-                  <p className="text-sm text-gray-700 text-center mb-3">
-                    Dr Clare Allen reviews images remotely and creates detailed target contours and fusion plan
-                  </p>
-                  <div className="bg-blue-50 rounded-lg p-3">
-                    <p className="text-xs text-blue-900 font-semibold">
-                      📍 Location: Done offline - saves theater time
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-md border-2 border-emerald-200">
-                  <div className="text-4xl mb-3 text-center">🏥</div>
-                  <h3 className="text-lg font-bold text-center mb-3 text-emerald-900">Step 3: Procedure Day</h3>
-                  <p className="text-sm text-gray-700 text-center mb-3">
-                    Application Specialist loads pre-planned targets, real-time fusion guides your biopsy
-                  </p>
-                  <div className="bg-emerald-50 rounded-lg p-3">
-                    <p className="text-xs text-emerald-900 font-semibold">
-                      📍 Location: Your theater - plan ready to go
-                    </p>
-                  </div>
+                
+                <div className="rounded-xl overflow-hidden shadow-lg border border-emerald-200">
+                  <Image
+                    src="/report.png"
+                    alt="Your Targeting Accuracy Report showing target hit rate, grid coverage, and lesion coordinates"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-xl p-8 text-white mb-8">
-                <h3 className="text-2xl font-bold mb-6 text-center">⚡ Why Geographic Separation Transforms Efficiency</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white/20 rounded-lg p-4">
-                    <h4 className="font-bold mb-2 text-cyan-100">🕐 No Theater Time Wasted</h4>
-                    <p className="text-sm text-cyan-50">
-                      Radiologist contouring happens offline - days before your procedure. Walk into theater with targets already planned and ready to load.
-                    </p>
-                  </div>
-                  <div className="bg-white/20 rounded-lg p-4">
-                    <h4 className="font-bold mb-2 text-cyan-100">📍 Expert Access Anywhere</h4>
-                    <p className="text-sm text-cyan-50">
-                      MRI could be done in Manchester, reported in London, biopsy in Edinburgh - geographic barriers eliminated.
-                    </p>
-                  </div>
-                  <div className="bg-white/20 rounded-lg p-4">
-                    <h4 className="font-bold mb-2 text-cyan-100">🎯 Streamlined Procedures</h4>
-                    <p className="text-sm text-cyan-50">
-                      More patients per session without rushing. Pre-planning + real-time fusion = faster, more accurate targeting.
-                    </p>
-                  </div>
-                  <div className="bg-white/20 rounded-lg p-4">
-                    <h4 className="font-bold mb-2 text-cyan-100">☁️ Cloud-Based Integration</h4>
-                    <p className="text-sm text-cyan-50">
-                      Plans stored in the cloud, accessible from any location. Complete flexibility without operational complexity.
-                    </p>
-                  </div>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 className="text-lg font-bold mb-3 text-emerald-900">📍 What's Included</h3>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li>• <strong>Target Hit Rate:</strong> Percentage of MRI targets successfully sampled</li>
+                    <li>• <strong>Grid Coverage Map:</strong> Visual confirmation of systematic sampling</li>
+                    <li>• <strong>Lesion Coordinates:</strong> A1, B3, etc. - reproducible for follow-up</li>
+                    <li>• <strong>3D Spatial Visualization:</strong> MRI fusion overlay with needle paths</li>
+                    <li>• <strong>Core-by-Core Documentation:</strong> Depth, angle, target accuracy per sample</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 border border-gray-200">
+                  <h3 className="text-lg font-bold mb-3 text-cyan-900">🎯 Why It Matters</h3>
+                  <ul className="text-sm text-gray-700 space-y-2">
+                    <li>• <strong>Patient Communication:</strong> Show patients exactly what was sampled</li>
+                    <li>• <strong>MDT Evidence:</strong> Objective data for multidisciplinary discussions</li>
+                    <li>• <strong>Quality Assurance:</strong> Track targeting performance over time</li>
+                    <li>• <strong>Audit Trail:</strong> Complete documentation for clinical governance</li>
+                    <li>• <strong>Reproducibility:</strong> Future biopsies can reference exact locations</li>
+                  </ul>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
-                <h3 className="text-xl font-bold mb-4 text-center" style={{ color: "var(--color-medical-green)" }}>
-                  📋 The Learning Curve Is Minimal
-                </h3>
-                <p className="text-sm text-gray-700 text-center max-w-2xl mx-auto mb-4">
-                  Urologists report the transition to MRI fusion biopsy takes <strong>just 1-2 cases</strong>. The target is on the ultrasound screen - your existing ultrasound skills are what matter. The MRI interpretation is already done for you.
+              <div className="mt-6 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-xl p-4">
+                <p className="text-center text-sm font-semibold">
+                  ✨ No guesswork. No assumptions. Just objective evidence of diagnostic excellence.
                 </p>
-                <div className="grid md:grid-cols-2 gap-4 text-xs">
-                  <div className="bg-emerald-50 rounded-lg p-3 text-center">
-                    <p className="font-semibold text-emerald-900 mb-1">Before MRI Fusion</p>
-                    <p className="text-emerald-700">Cognitive targeting - "Is this the right spot based on the MRI I reviewed yesterday?"</p>
-                  </div>
-                  <div className="bg-blue-50 rounded-lg p-3 text-center">
-                    <p className="font-semibold text-blue-900 mb-1">With MRI Fusion</p>
-                    <p className="text-blue-700">Visual overlay - "The target is right there on my ultrasound screen, guided in real-time"</p>
-                  </div>
-                </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* CTA Section */}
           <motion.div

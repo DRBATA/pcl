@@ -55,15 +55,15 @@ export default function EquipmentServicesPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-br from-green-900 to-emerald-800 text-white py-20">
-          <div className="container-custom">
+      <main className="pb-20">
+        {/* Hero Section with Equipment Provided - Unified */}
+        <div className="bg-gradient-to-b from-green-900 via-emerald-800 to-white pt-32 sm:pt-36 lg:pt-40">
+          <div className="container-custom pb-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl"
+              className="max-w-4xl text-white mb-20"
             >
               <h1 className="text-5xl font-bold mb-6">Equipment & Technology Partners</h1>
               <p className="text-xl text-green-100 leading-relaxed mb-6">
@@ -85,23 +85,19 @@ export default function EquipmentServicesPage() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
 
-        {/* Equipment By Service */}
-        <div className="container-custom py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Equipment Provided</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive equipment packages for each service, delivered and managed by our expert team.
-            </p>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16 pt-20"
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Equipment Provided</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive equipment packages for each service, delivered and managed by our expert team.
+              </p>
+            </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             {equipmentByService.map((item, index) => (
@@ -125,6 +121,7 @@ export default function EquipmentServicesPage() {
               </motion.div>
             ))}
           </div>
+        </div>
         </div>
 
         {/* Technology Partners Grid */}

@@ -288,7 +288,7 @@ export function Header() {
                                 : "bg-gradient-to-br from-white/40 via-transparent to-white/40"
                             )} />
                             <Image
-                              src="/images/team.png"
+                              src="/headernew.png"
                               alt="Prostate Care Team"
                               width={400}
                               height={300}
@@ -320,8 +320,8 @@ export function Header() {
                   >
                     <div className="container-custom pt-20 pb-12">
                       <div className="grid grid-cols-12 gap-8">
-                        {/* Left Column - Links */}
-                        <div className="col-span-7">
+                        {/* Left Column - First 2 Services */}
+                        <div className="col-span-3">
                           <h3
                             className={cn(
                               "text-sm font-semibold uppercase tracking-wider mt-7 mb-6",
@@ -330,86 +330,74 @@ export function Header() {
                           >
                             Our Services
                           </h3>
-                          <div className="grid grid-cols-2 gap-6">
-                            <div className="space-y-4">
-                              <Link
-                                href="/services/biopsy-plan"
-                                className={cn(
-                                  "block group",
-                                  isScrolled ? "text-slate-300" : "text-slate-700"
-                                )}
-                              >
-                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
-                                  Biopsy Planning
-                                </div>
-                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
-                                  Expert radiologist contouring
-                                </p>
-                              </Link>
-                              <Link
-                                href="/services/freehand-fusion"
-                                className={cn(
-                                  "block group",
-                                  isScrolled ? "text-slate-300" : "text-slate-700"
-                                )}
-                              >
-                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
-                                  MR/US Fusion Biopsy
-                                </div>
-                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
-                                  Precision diagnostic imaging
-                                </p>
-                              </Link>
-                              <Link
-                                href="/services/hifu"
-                                className={cn(
-                                  "block group",
-                                  isScrolled ? "text-slate-300" : "text-slate-700"
-                                )}
-                              >
-                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
-                                  HIFU Treatment
-                                </div>
-                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
-                                  Advanced focal therapy
-                                </p>
-                              </Link>
-                            </div>
-                            <div className="space-y-4">
-                              <Link
-                                href="/services/patient-referral"
-                                className={cn(
-                                  "block group",
-                                  isScrolled ? "text-slate-300" : "text-slate-700"
-                                )}
-                              >
-                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
-                                  Patient Referral
-                                </div>
-                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
-                                  Seamless care coordination
-                                </p>
-                              </Link>
-                              <Link
-                                href="/services"
-                                className={cn(
-                                  "block group",
-                                  isScrolled ? "text-slate-300" : "text-slate-700"
-                                )}
-                              >
-                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
-                                  How It Works
-                                </div>
-                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
-                                  Our service process
-                                </p>
-                              </Link>
-                            </div>
+                          <div className="space-y-4">
+                            <Link
+                              href="/services/biopsy-plan"
+                              className={cn(
+                                "block group",
+                                isScrolled ? "text-slate-300" : "text-slate-700"
+                              )}
+                            >
+                              <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
+                                Biopsy Planning
+                              </div>
+                              <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
+                                Expert radiologist contouring
+                              </p>
+                            </Link>
+                            <Link
+                              href="/services/freehand-fusion"
+                              className={cn(
+                                "block group",
+                                isScrolled ? "text-slate-300" : "text-slate-700"
+                              )}
+                            >
+                              <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
+                                MR/US Fusion Biopsy
+                              </div>
+                              <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
+                                Precision diagnostic imaging
+                              </p>
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* Middle Column - Next 2 Services */}
+                        <div className="col-span-3">
+                          <div className="space-y-4 mt-18">
+                            <Link
+                              href="/services/hifu"
+                              className={cn(
+                                "block group",
+                                isScrolled ? "text-slate-300" : "text-slate-700"
+                              )}
+                            >
+                              <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
+                                HIFU Treatment
+                              </div>
+                              <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
+                                Advanced focal therapy
+                              </p>
+                            </Link>
+                            <Link
+                              href="/services"
+                              className={cn(
+                                "block group",
+                                isScrolled ? "text-slate-300" : "text-slate-700"
+                              )}
+                            >
+                              <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
+                                How It Works
+                              </div>
+                              <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
+                                Our service process
+                              </p>
+                            </Link>
                           </div>
                         </div>
 
                         {/* Right Column - Team Image */}
-                        <div className="col-span-5 flex items-center justify-end pr-8">
+                        <div className="col-span-6 flex items-center justify-end pr-8">
                           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             {/* Gradient overlay to blend white edges */}
                             <div className={cn(
@@ -419,7 +407,7 @@ export function Header() {
                                 : "bg-gradient-to-br from-white/40 via-transparent to-white/40"
                             )} />
                             <Image
-                              src="/images/team.png"
+                              src="/headernew.png"
                               alt="Prostate Care Team"
                               width={400}
                               height={300}
@@ -560,16 +548,6 @@ export function Header() {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       HIFU
-                    </Link>
-                    <Link
-                      href="/services/patient-referral"
-                      className={cn(
-                        "block text-[14px] py-1",
-                        isScrolled ? "text-slate-400" : "text-slate-600"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Patient Referral
                     </Link>
                     <Link
                       href="/services"
