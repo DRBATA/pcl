@@ -137,20 +137,17 @@ export default function BiopsyPlanPage() {
                 </div>
               </div>
 
-              {/* Right: MRI Planning Video */}
+              {/* Right: MRI Planning Image */}
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                  <Image
+                    src="/precision_biopsy/combined.png"
+                    alt="MRI fusion planning and contouring process"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto"
-                  >
-                    <source src="/biopsy-planning.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  />
                 </div>
               </div>
             </div>

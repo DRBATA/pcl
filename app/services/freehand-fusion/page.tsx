@@ -250,18 +250,20 @@ export default function FreehandFusionPage() {
                 </div>
               </div>
 
-              {/* Right: Fusion Biopsy Image */}
+              {/* Right: Fusion Biopsy Video */}
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl blur-xl"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                  <Image
-                    src="/fusion-biopsy/hero.png"
-                    alt="MRI/US Fusion Biopsy Equipment and Setup"
-                    width={800}
-                    height={600}
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-auto"
-                    priority
-                  />
+                  >
+                    <source src="/fusion-biopsy/hero.png" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
