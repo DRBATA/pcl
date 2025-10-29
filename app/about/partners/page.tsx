@@ -101,6 +101,70 @@ export default function PartnersPage() {
             ))}
           </section>
 
+          {/* The Complete Service Package: Equipment & Logistics */}
+          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 text-white rounded-2xl p-12 border-4 border-amber-600">
+            <h2 className="text-3xl font-bold mb-6 text-center text-amber-400">
+              🔧 The Complete Technical Package
+            </h2>
+            <p className="text-center text-lg mb-8 max-w-4xl mx-auto leading-relaxed">
+              Our Application Specialists handle the <strong>complex technical setup, equipment calibration, and real-time support</strong> so you can focus entirely on clinical decision-making and patient care.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-amber-500">
+                <h3 className="text-xl font-bold mb-4 text-amber-300">💪 What We Handle For You</h3>
+                <ul className="space-y-3 text-sm text-gray-200">
+                  <li className="flex gap-3">
+                    <span className="text-amber-400">•</span>
+                    <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, breakdown for every procedure</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-amber-400">•</span>
+                    <span><strong>Precision calibration</strong> - 6-degree-of-freedom positioning, probe alignment, field matching</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-amber-400">•</span>
+                    <span><strong>Real-time technical support</strong> - Software optimization, hardware management, fusion accuracy</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-amber-400">•</span>
+                    <span><strong>Sterile technique support</strong> - Draping, probe preparation, maintaining aseptic field</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-emerald-500">
+                <h3 className="text-xl font-bold mb-4 text-emerald-300">🎯 Our Service Values</h3>
+                <ul className="space-y-3 text-sm text-gray-200">
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    <span><strong>Meticulous attention to detail</strong> - Every setup verified, every target confirmed, every core documented</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    <span><strong>Partnership approach</strong> - Supporting your clinical excellence with technical expertise</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    <span><strong>Technical expertise</strong> - Years of experience with fusion software, ultrasound physics, MRI interpretation</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-400">✓</span>
+                    <span><strong>Consistent reliability</strong> - On-time, every time, with comprehensive preparation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-white/20 rounded-lg p-6 border border-white/30">
+              <p className="text-center font-semibold text-lg mb-2">
+                💎 Why Surgeons Choose to Work With Us
+              </p>
+              <p className="text-center text-sm text-gray-200">
+                Our team's specialized expertise in equipment logistics, technical troubleshooting, and precision calibration means you can concentrate on what you do best - clinical judgment and patient outcomes. We handle the complexity, you deliver exceptional care.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
