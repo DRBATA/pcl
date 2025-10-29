@@ -19,7 +19,7 @@ export default function LandingPage() {
   return (
     <>
       <Header />
-      <main className="snap-y snap-mandatory h-screen overflow-y-auto">
+      <main className="h-screen overflow-y-auto md:snap-y md:snap-proximity">
         
         {/* Hero Section with Image */}
         <section className="relative snap-start min-h-screen flex flex-col">
