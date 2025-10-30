@@ -227,7 +227,7 @@ export default function HifuPage() {
                 <div className="text-5xl font-bold text-center mb-4 text-cyan-400">✓</div>
                 <h3 className="text-xl font-bold text-center mb-4">Good Disease Control</h3>
                 <p className="text-sm text-slate-200 text-center mb-4">
-                  Majority of patients showed no progression or recurrence within several years
+                  Majority of patients showed no progression or recurrence within several years with focused patient selection
                 </p>
                 <a 
                   href="https://www.eu-focus.europeanurology.com/article/S2405-4569(25)00174-9/abstract"
