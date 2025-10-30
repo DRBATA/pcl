@@ -57,8 +57,21 @@ export default function EquipmentServicesPage() {
       <Header />
       <main className="pb-20">
         {/* Hero Section with Equipment Provided - Unified */}
-        <div className="bg-gradient-to-b from-green-900 via-emerald-800 to-white pt-32 sm:pt-36 lg:pt-40">
-          <div className="container-custom pb-0">
+        <div className="relative bg-gradient-to-b from-green-900 via-emerald-800 to-white pt-32 sm:pt-36 lg:pt-40 overflow-hidden">
+          {/* Surgery Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/4.png"
+              alt="Surgical Theatre"
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-green-900/60 via-emerald-800/50 to-white/30"></div>
+          </div>
+
+          <div className="container-custom pb-0 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,16 +84,16 @@ export default function EquipmentServicesPage() {
                 for precision prostate care.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-8 max-w-3xl">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">💰 Zero Capital Investment</span> – Access premium tech without purchasing equipment</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">🔧 No Maintenance Burden</span> – No servicing costs or idle equipment between procedures</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">📊 Specialized Procedures Viable</span> – Offer advanced treatments without major capital commitment</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">🚚 Mobile Service Model</span> – Equipment delivered, set up, and managed by our expert team</p>
                 </div>
               </div>

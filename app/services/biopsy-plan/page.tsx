@@ -380,46 +380,6 @@ export default function BiopsyPlanPage() {
             </div>
           </div>
 
-          {/* Post-Procedure Report: Targeting Accuracy */}
-          <div className="bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-2xl p-8 mb-16 border-2 border-emerald-200">
-            <h2 className="text-2xl font-bold text-center mb-6" style={{ color: "var(--color-medical-green)" }}>
-              📊 Your Targeting Accuracy Report
-            </h2>
-            <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
-              After each procedure, surgeons receive a detailed report showing <strong>exactly how well they met their targets</strong> - quantifying accuracy, documenting sampling coverage, and providing objective evidence of diagnostic quality.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-bold mb-3 text-emerald-900">📍 What's Included</h3>
-                <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• <strong>Target Hit Rate:</strong> Percentage of MRI targets successfully sampled</li>
-                  <li>• <strong>Grid Coverage Map:</strong> Visual confirmation of systematic sampling</li>
-                  <li>• <strong>Lesion Coordinates:</strong> A1, B3, etc. - reproducible for follow-up</li>
-                  <li>• <strong>3D Spatial Visualization:</strong> MRI fusion overlay with needle paths</li>
-                  <li>• <strong>Core-by-Core Documentation:</strong> Depth, angle, target accuracy per sample</li>
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 border border-gray-200">
-                <h3 className="text-lg font-bold mb-3 text-cyan-900">🎯 Why It Matters</h3>
-                <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• <strong>Patient Communication:</strong> Show patients exactly what was sampled</li>
-                  <li>• <strong>MDT Evidence:</strong> Objective data for multidisciplinary discussions</li>
-                  <li>• <strong>Quality Assurance:</strong> Track targeting performance over time</li>
-                  <li>• <strong>Audit Trail:</strong> Complete documentation for clinical governance</li>
-                  <li>• <strong>Reproducibility:</strong> Future biopsies can reference exact locations</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-6 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-xl p-4">
-              <p className="text-center text-sm font-semibold">
-                ✨ No guesswork. No assumptions. Just objective evidence of diagnostic excellence.
-              </p>
-            </div>
-          </div>
-
           {/* CTA */}
           <div className="text-center">
             <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>

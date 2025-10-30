@@ -6,8 +6,26 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 export default function ServicesPage() {
+  const [currentReportView, setCurrentReportView] = useState(0)
+
+  const reportViews = [
+    { image: "biopsy/left.png" },
+    { image: "biopsy/posterior-anterior.png" },
+    { image: "biopsy/right.png" },
+    { image: "biopsy/a.png" },
+    { image: "biopsy/view.png" },
+  ]
+
+  // Auto-cycle through report views every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentReportView((prev) => (prev + 1) % reportViews.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
   const services = [
     {
       title: "MR/US Fusion Biopsy",
@@ -195,13 +213,37 @@ export default function ServicesPage() {
                 </div>
                 
                 <div className="rounded-xl overflow-hidden shadow-lg border border-emerald-200">
-                  <Image
-                    src="/report.png"
-                    alt="Your Targeting Accuracy Report showing target hit rate, grid coverage, and lesion coordinates"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto"
-                  />
+                  <div className="relative w-full h-[400px] bg-white">
+                    {reportViews.map((view, idx) => (
+                      <div
+                        key={idx}
+                        className="absolute inset-0 transition-opacity duration-1000"
+                        style={{ opacity: idx === currentReportView ? 1 : 0 }}
+                      >
+                        <Image
+                          src={view.image}
+                          alt={`Targeting Report View ${idx + 1}`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ))}
+                    
+
+                    {/* Progress Dots */}
+                    <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {reportViews.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentReportView(idx)}
+                          className={`h-2 rounded-full transition-all ${
+                            idx === currentReportView ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
+                          }`}
+                          aria-label={`View ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -213,7 +255,7 @@ export default function ServicesPage() {
                     <li>• <strong>Grid Coverage Map:</strong> Visual confirmation of systematic sampling</li>
                     <li>• <strong>Lesion Coordinates:</strong> A1, B3, etc. - reproducible for follow-up</li>
                     <li>• <strong>3D Spatial Visualization:</strong> MRI fusion overlay with needle paths</li>
-                    <li>• <strong>Core-by-Core Documentation:</strong> Depth, angle, target accuracy per sample</li>
+                    <li>• <strong>Core-by-Core Visualisation:</strong> Depth, angle, target accuracy per sample</li>
                   </ul>
                 </div>
 
@@ -231,7 +273,7 @@ export default function ServicesPage() {
 
               <div className="mt-6 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-xl p-4">
                 <p className="text-center text-sm font-semibold">
-                  ✨ No guesswork. No assumptions. Just objective evidence of diagnostic excellence.
+                  ✨ Helpful guide to dicuss with patients about their diagnostic and onward planning.
                 </p>
               </div>
             </div>

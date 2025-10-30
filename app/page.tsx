@@ -6,9 +6,17 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function LandingPage() {
-  const scrollToNextSection = () => {
-    const nextSection = document.querySelector('section:nth-of-type(2)')
-    nextSection?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToSection = (sectionNumber: number) => {
+    const section = document.querySelector(`section:nth-of-type(${sectionNumber})`)
+    if (section) {
+      const header = document.querySelector('header')
+      const headerHeight = header?.getBoundingClientRect().height || 80
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: 'smooth'
+      })
+    }
   }
   return (
     <>
@@ -52,7 +60,7 @@ export default function LandingPage() {
           
           {/* Scroll Indicator */}
           <button 
-            onClick={scrollToNextSection}
+            onClick={() => scrollToSection(2)}
             className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer hover:scale-110 transition-transform"
             aria-label="Scroll to next section"
           >
@@ -68,7 +76,7 @@ export default function LandingPage() {
         </section>
 
         {/* Section 1: End-to-End Service - DARK */}
-        <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20 border-t border-emerald-600/30">
+        <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center pt-20 pb-10 border-t border-emerald-600/30">
           <div className="container-custom flex-1">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -185,12 +193,27 @@ export default function LandingPage() {
                   </Link>
                 </div>
               </div>
+              
+              {/* Scroll to next section arrow */}
+              <div className="flex justify-center mt-16">
+                <button 
+                  onClick={() => scrollToSection(3)}
+                  className="animate-bounce cursor-pointer hover:scale-110 transition-transform"
+                  aria-label="Scroll to next section"
+                >
+                  <div className="flex flex-col items-center gap-1">
+                    <svg className="w-6 h-6 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Section 2: Clinicians & Equipment - LIGHT */}
-        <section className="relative min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center py-20 border-t border-gray-200">
+        <section className="relative min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 flex items-center pt-20 pb-32 border-t border-gray-200">
           <div className="container-custom flex-1">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -293,11 +316,15 @@ export default function LandingPage() {
           </div>
           
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <button 
+            onClick={() => scrollToSection(4)}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"
+            aria-label="Scroll to next section"
+          >
             <svg className="w-6 h-6 opacity-60" style={{ color: "var(--color-medical-green)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-          </div>
+          </button>
         </section>
 
         {/* Section 3: About & How It Works - DARK */}

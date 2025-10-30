@@ -74,47 +74,19 @@ export default function AboutPCLPage() {
             </div>
           </section>
 
-          {/* 2. Clinical Team - Scrolling images t1-t5 */}
+          {/* 2. Meet the Team */}
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Clinical Team
+              Meet the Team
             </h2>
             <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Expert radiologists providing multiparametric MRI contouring and precision targeting
+              Expert radiologists and dedicated support specialists working together to deliver exceptional care
             </p>
 
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-200">
-              {/* Scrolling Images */}
-              <div className="relative w-full h-[500px] mb-8">
-                {clinicalTeamImages.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="absolute inset-0 transition-opacity duration-1000"
-                    style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
-                  >
-                    <Image
-                      src={img}
-                      alt={`Clinical Team ${idx + 1}`}
-                      fill
-                      className="object-contain rounded-xl"
-                    />
-                  </div>
-                ))}
-                {/* Progress Dots */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {clinicalTeamImages.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className={`h-2 rounded-full transition-all ${
-                        idx === currentTeamImage ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Dr Clare Allen Info */}
-              <div className="bg-white rounded-xl p-6">
+            {/* BOTH Radiologists at Top - 2 Column Grid */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Dr Clare Allen */}
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-200">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-emerald-200">
                     <Image
@@ -144,6 +116,72 @@ export default function AboutPCLPage() {
                   <p className="text-gray-700 leading-relaxed text-sm">
                     <strong>Locations:</strong> UCLH | The Princess Grace Hospital | King Edward VII's Hospital | The London Clinic
                   </p>
+                </div>
+              </div>
+
+              {/* Dr Francesco Giganti */}
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 border border-blue-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-200">
+                    <Image
+                      src="/fg.png"
+                      alt="Dr Francesco Giganti"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Dr Francesco Giganti</h3>
+                    <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
+                      Radiologist & Associate Professor UCL
+                    </p>
+                    <p className="text-sm text-gray-600"> University College London</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <p className="text-gray-700 leading-relaxed text-sm">
+                    Dr Francesco Giganti's research involves the application of MRI in prostate cancer. During his PhD at UCL, he was able to conduct research on the application of MRI in patients on active surveillance for prostate cancer (PRECISE score) & on the tools to improve MRI quality (PI-QUAL score).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Scrolling Team Images - Away Days / Team Culture */}
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-200 mb-8">
+              <h3 className="text-2xl font-bold text-center mb-4 text-gray-900">
+                Our Team in Action
+              </h3>
+              <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                Building connections and team spirit beyond the theatre
+              </p>
+              
+              <div className="relative w-full h-[500px]">
+                {clinicalTeamImages.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="absolute inset-0 transition-opacity duration-1000"
+                    style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Team ${idx + 1}`}
+                      fill
+                      className="object-contain rounded-xl"
+                    />
+                  </div>
+                ))}
+                {/* Progress Dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {clinicalTeamImages.map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`h-2 rounded-full transition-all ${
+                        idx === currentTeamImage ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
