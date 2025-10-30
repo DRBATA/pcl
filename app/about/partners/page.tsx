@@ -14,19 +14,19 @@ export default function PartnersPage() {
         "The Prostate Care team take all the fuss out of fusion. Without having to do any extra preparation, I am able to provide the highest standard of prostate biopsy service for my patients. The Application Specialists bring the fusion software and the pre-prepared biopsy plans with them and manage the software throughout the procedure. They are a pleasure to work with.",
       image: "/surgeons/ml.png",
     },
+     {
+      name: "Mr Raj Nigam",
+      title: "Consultant Urological Surgeon",
+      quote:
+        "The Application Specialists are a highly professional team. An accurate fusion is vital for the procedure and their expertise in achieving this is invaluable. The biopsies are tracked and a graphic report is provided, which helps the patients understand their diagnosis and treatment options.",
+      image: "/surgeons/rn.png",
+    },
     {
       name: "Professor Richard Hindley",
       title: "Consultant Urological Surgeon",
       quote:
         "The Prostate Care contouring service is what makes the difference. All I need to do is ask my secretary to book the service and the Prostate Care operations team arrange for the patient MRI scans to be transferred via IEP, ready for contouring by Dr Clare Allen. This, in my opinion, is the optimal standard of care for my private patients.",
       image: "/surgeons/rh.png",
-    },
-    {
-      name: "Mr Raj Nigam",
-      title: "Consultant Urological Surgeon",
-      quote:
-        "The Application Specialists are a highly professional team. An accurate fusion is vital for the procedure and their expertise in achieving this is invaluable. The biopsies are tracked and a graphic report is provided, which helps the patients understand their diagnosis and treatment options.",
-      image: "/surgeons/rn.png",
     },
   ]
 
