@@ -57,7 +57,7 @@ export default function PartnersPage() {
               style={{
                 backgroundImage: 'url(/images/team.png)',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundPosition: 'center top',
                 backgroundRepeat: 'no-repeat',
                 opacity: 0.4
               }}
