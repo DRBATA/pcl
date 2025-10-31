@@ -16,6 +16,35 @@ export const metadata: Metadata = {
     "Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.",
   keywords: "prostate biopsy, HIFU, ultrasound rental, MRI fusion, bkFusion, Navigo, Sonablate, Ablatherm, surgical equipment",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+      {
+        rel: "mask-icon",
+        url: "/favicon.ico",
+      },
+    ],
+  },
+  manifest: "/site.webmanifest",
   alternates: {
     canonical: "https://prostatecare.co.uk/",
   },
