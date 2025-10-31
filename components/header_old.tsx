@@ -148,7 +148,7 @@ export function Header() {
                       Biopsy Planning
                     </Link>
                     <Link
-                      href="/services/freehand-fusion"
+                      href="/services/mr-us-fusion-biopsy"
                       className="block px-6 py-3.5 hover:bg-muted/50 text-primary hover:text-primary/80 font-medium text-[14px] tracking-wide transition-all duration-200"
                     >
                       MR/US Fusion Biopsy

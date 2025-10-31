@@ -10,13 +10,13 @@ export function Footer() {
   const footerLinks = {
     Services: [
       { name: "Biopsy Planning", href: "/services/biopsy-plan" },
-      { name: "MR/US Fusion Biopsy", href: "/services/freehand-fusion" },
+      { name: "MR/US Fusion Biopsy", href: "/services/mr-us-fusion-biopsy" },
       { name: "HIFU Treatment", href: "/services/hifu" },
       { name: "How It Works", href: "/services" },
     ],
     Company: [
       { name: "About PCL", href: "/about/pcl" },
-      { name: "Clinician Experience", href: "/about/partners" },
+      { name: "Clinician Experience", href: "/about/clinician-experience" },
       { name: "Equipment & Technology", href: "/about/equipment-services" },
       { name: "Privacy Statement", href: "/about/privacy" },
     ],

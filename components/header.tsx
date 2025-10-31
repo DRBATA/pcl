@@ -244,7 +244,7 @@ export function Header() {
                                 </p>
                               </Link>
                               <Link
-                                href="/about/partners"
+                                href="/about/clinician-experience"
                                 className={cn(
                                   "block group",
                                   isScrolled ? "text-slate-300" : "text-slate-700"
@@ -346,7 +346,7 @@ export function Header() {
                               </p>
                             </Link>
                             <Link
-                              href="/services/freehand-fusion"
+                              href="/services/mr-us-fusion-biopsy"
                               className={cn(
                                 "block group",
                                 isScrolled ? "text-slate-300" : "text-slate-700"
@@ -488,7 +488,7 @@ export function Header() {
                       About PCL
                     </Link>
                     <Link
-                      href="/about/partners"
+                      href="/about/clinician-experience"
                       className={cn(
                         "block text-[14px] py-1",
                         isScrolled ? "text-slate-400" : "text-slate-600"
@@ -530,7 +530,7 @@ export function Header() {
                       Biopsy Planning
                     </Link>
                     <Link
-                      href="/services/freehand-fusion"
+                      href="/services/mr-us-fusion-biopsy"
                       className={cn(
                         "block text-[14px] py-1",
                         isScrolled ? "text-slate-400" : "text-slate-600"

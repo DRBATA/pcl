@@ -16,7 +16,7 @@ const heroStages = [
     description: "Your surgical environment ready for precision diagnostics",
     textPosition: "top" as const,
     ctas: [
-      { text: "Clinician Experience", href: "/about/partners", primary: true },
+      { text: "Clinician Experience", href: "/about/clinician-experience", primary: true },
       { text: "Theatre Requirements", href: "/about/pcl", primary: false },
     ],
   },
@@ -44,7 +44,7 @@ const heroStages = [
     description: "Real-time radiology contouring for pinpoint accuracy",
     textPosition: "top" as const,
     ctas: [
-      { text: "Real-time Radiology", href: "/services/freehand-fusion", primary: true },
+      { text: "Real-time Radiology", href: "/services/mr-us-fusion-biopsy", primary: true },
       { text: "Meet the Team", href: "/about/pcl", primary: false },
     ],
   },

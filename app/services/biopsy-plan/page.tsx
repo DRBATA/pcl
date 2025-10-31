@@ -52,7 +52,7 @@ function MultiparametricMRIViewer() {
             {mriSequences.map((seq, idx) => (
               <div 
                 key={idx} 
-                className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 cursor-grab active:cursor-grabbing"
+                className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
                 style={{ opacity: idx === currentIndex ? 1 : 0 }}
               >
                 <Image
@@ -60,7 +60,6 @@ function MultiparametricMRIViewer() {
                   alt={seq.title}
                   fill
                   className="object-contain"
-                  draggable
                 />
               </div>
             ))}

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://prostatecare.co.uk/",
     images: [
       {
-        url: "/og-image-prostate-care.jpg",
+        url: "/smallpcl.png",
         alt: "Prostate Care Limited | Specialist Equipment & Managed Services",
         width: 1200,
         height: 630,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Advanced ultrasound and HIFU equipment rental for healthcare providers. Fully managed MRI/US fusion biopsy and focal therapy services with on-site support.",
     images: [
       {
-        url: "/og-image-prostate-care.jpg",
+        url: "/smallpcl.png",
         alt: "Prostate Care Limited | Specialist Equipment & Managed Services",
       },
     ],
