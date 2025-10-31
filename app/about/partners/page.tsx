@@ -2,10 +2,17 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
+import { useRef } from "react"
 
 export default function PartnersPage() {
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const surgeonTestimonials = [
     {
       name: "Mr Marc Laniado",
@@ -33,19 +40,43 @@ export default function PartnersPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+      <main className="pb-20">
         
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
-          <div className="container-custom">
+        {/* Hero Section with Parallax */}
+        <section 
+          ref={sectionRef}
+          className="relative text-white py-32 overflow-hidden min-h-[600px] flex items-center mt-20"
+        >
+          {/* Parallax Background */}
+          <motion.div
+            style={{ y }}
+            className="absolute inset-0 z-0"
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'url(/images/team.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                opacity: 0.4
+              }}
+            />
+          </motion.div>
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-800/75 to-slate-900/70 z-5"></div>
+
+          {/* Content */}
+          <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6">Clinician Experience</h1>
-              <p className="text-xl text-slate-300 leading-relaxed">
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6">Clinician Experience</h1>
+              <p className="text-xl text-slate-200 leading-relaxed">
                 Trusted by leading urological surgeons across the UK. We provide the technical expertise and support that allows you to focus on what matters most - delivering exceptional patient care.
               </p>
             </motion.div>
@@ -104,7 +135,7 @@ export default function PartnersPage() {
           {/* The Complete Service Package: Equipment & Logistics */}
           <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 text-white rounded-2xl p-12 border-4 border-amber-600">
             <h2 className="text-3xl font-bold mb-6 text-center text-amber-400">
-              🔧 The Complete Technical Package
+              The Complete Technical Package
             </h2>
             <p className="text-center text-lg mb-8 max-w-4xl mx-auto leading-relaxed">
               Our Application Specialists handle the <strong>complex technical setup, equipment calibration, and real-time support</strong> so you can focus entirely on clinical decision-making and patient care.
@@ -112,11 +143,11 @@ export default function PartnersPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-amber-500">
-                <h3 className="text-xl font-bold mb-4 text-amber-300">💪 What We Handle For You</h3>
+                <h3 className="text-xl font-bold mb-4 text-amber-300">What We Handle For You</h3>
                 <ul className="space-y-3 text-sm text-gray-200">
                   <li className="flex gap-3">
                     <span className="text-amber-400">•</span>
-                    <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, breakdown for every procedure</span>
+                    <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, disassembly for every procedure</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-amber-400">•</span>
@@ -134,7 +165,7 @@ export default function PartnersPage() {
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-emerald-500">
-                <h3 className="text-xl font-bold mb-4 text-emerald-300">🎯 Our Service Values</h3>
+                <h3 className="text-xl font-bold mb-4 text-emerald-300">Our Service Values</h3>
                 <ul className="space-y-3 text-sm text-gray-200">
                   <li className="flex gap-3">
                     <span className="text-emerald-400">✓</span>
@@ -158,7 +189,7 @@ export default function PartnersPage() {
 
             <div className="mt-8 bg-white/20 rounded-lg p-6 border border-white/30">
               <p className="text-center font-semibold text-lg mb-2">
-                💎 Why Surgeons Choose to Work With Us
+                Why Surgeons Choose to Work With Us
               </p>
               <p className="text-center text-sm text-gray-200">
                 Our team's specialized expertise in equipment logistics, technical troubleshooting, and precision calibration means you can concentrate on what you do best - clinical judgment and patient outcomes. We handle the complexity, you deliver exceptional care.

@@ -81,9 +81,9 @@ export default function ServicesPage() {
     },
     {
       number: "06",
-      title: "Equipment Breakdown",
+      title: "Equipment Disassembly",
       description:
-        "Our team handles all equipment breakdown and removal. No maintenance costs or storage requirements for your facility.",
+        "Our team handles all equipment disassembly and removal. No maintenance costs or storage requirements for your facility.",
     },
   ]
 
@@ -124,6 +124,29 @@ export default function ServicesPage() {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                 </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Scrolling Services Images Strip */}
+          <div className="mb-20 overflow-hidden">
+            <div className="flex gap-6 animate-scroll-left">
+              {[...Array(2)].map((_, setIndex) => (
+                <div key={setIndex} className="flex gap-6 flex-shrink-0">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
+                    <div
+                      key={`${setIndex}-${num}`}
+                      className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden"
+                    >
+                      <Image
+                        src={`/ss${num}.jpg`}
+                        alt={`Service showcase ${num}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
@@ -185,7 +208,7 @@ export default function ServicesPage() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-600 mt-1">✓</span>
-                      <span>Complete equipment breakdown and removal</span>
+                      <span>Complete equipment disassembly and removal</span>
                     </li>
                   </ul>
                 </div>

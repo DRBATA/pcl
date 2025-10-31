@@ -48,11 +48,11 @@ function MultiparametricMRIViewer() {
 
       <div className="relative w-full max-w-5xl mx-auto">
         <div className="bg-white rounded-xl p-4 border-2 border-gray-200">
-          <div className="relative w-full h-[600px]">
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[600px]">
             {mriSequences.map((seq, idx) => (
               <div 
                 key={idx} 
-                className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000"
+                className="absolute inset-0 flex items-center justify-center transition-opacity duration-1000 cursor-grab active:cursor-grabbing"
                 style={{ opacity: idx === currentIndex ? 1 : 0 }}
               >
                 <Image
@@ -60,6 +60,7 @@ function MultiparametricMRIViewer() {
                   alt={seq.title}
                   fill
                   className="object-contain"
+                  draggable
                 />
               </div>
             ))}
@@ -357,21 +358,18 @@ export default function BiopsyPlanPage() {
             <h2 className="text-3xl font-bold mb-8 text-center">Why Expert Pre-Procedure Planning Matters</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">🎨</div>
                 <h3 className="text-xl font-bold mb-3">Expert Radiologist Contouring</h3>
                 <p className="text-sm text-blue-100">
                   Dr. Clare Allen - UK pioneer in mpMRI for prostate cancer - interprets multiparametric sequences and contours targets with 20+ years of specialized expertise.
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">🔗</div>
                 <h3 className="text-xl font-bold mb-3">Virtual Fusion Pre-Alignment</h3>
                 <p className="text-sm text-blue-100">
                   Targets aligned to virtual ultrasound probe and template grid BEFORE your procedure day - no rushing, no cognitive guesswork in theatre.
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="text-4xl mb-3">📐</div>
                 <h3 className="text-xl font-bold mb-3">Ready-to-Use Targeting Plan</h3>
                 <p className="text-sm text-blue-100">
                   Walk into theatre with precise coordinates already calculated. Your Application Specialist loads the plan - you proceed straight to sampling.

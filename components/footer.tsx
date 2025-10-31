@@ -12,7 +12,6 @@ export function Footer() {
       { name: "Biopsy Planning", href: "/services/biopsy-plan" },
       { name: "MR/US Fusion Biopsy", href: "/services/freehand-fusion" },
       { name: "HIFU Treatment", href: "/services/hifu" },
-      { name: "Patient Referral", href: "/services/patient-referral" },
       { name: "How It Works", href: "/services" },
     ],
     Company: [

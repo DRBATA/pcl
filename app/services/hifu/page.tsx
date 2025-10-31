@@ -277,6 +277,48 @@ export default function HifuPage() {
           </section>
 
           {/* CTA Section */}
+          {/* Expert Videos Section */}
+          <section className="mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Learn From Leading Experts</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Video 1: Tim Dudderidge */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-gray-900">Mr Tim Dudderidge: How Successful is HIFU?</h3>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/7fqsX9FCs-A?si=kiqV_HhynpEK49UW"
+                    title="Mr Tim Dudderidge: How successful is HIFU"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+
+              {/* Video 2: Raj Nigam */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-gray-900">Mr Raj Nigam: Does Focal Therapy Work?</h3>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/ilSy7GK2bxU?si=P3ZWnTCbLR5uh3Ns"
+                    title="Mr Raj Nigam: Does Focal Therapy work?"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Offer HIFU at Your Facility?</h2>
             <p className="text-slate-300 mb-8 max-w-2xl mx-auto">

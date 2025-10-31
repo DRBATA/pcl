@@ -44,13 +44,13 @@ export default function LandingPage() {
               <div className="container-custom">
                 <div className="max-w-4xl text-left text-white">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                    Co-ordinated MRI contouring, fusion biopsy, HIFU, and follow-up
+                    Co-ordinated mpMRI contouring, MRI/US fusion biopsy and HIFU
                   </h1>
                   <p className="text-xl sm:text-2xl mb-4 leading-relaxed">
-                    Complete with theatre equipment setup and take down,
+                    Complete with theatre equipment setup and disassembly
                   </p>
                   <p className="text-lg sm:text-xl leading-relaxed">
-                    Application assistant support for image alignment and technical onsite expertise
+                    Onsite application assistant support for image alignment and technical expertise
                   </p>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">Post-Procedure</h3>
                   <p className="text-slate-400 text-sm">
-                    Equipment teardown, follow-up coordination & comprehensive documentation
+                    Equipment disassembly, follow-up coordination & comprehensive documentation
                   </p>
                 </div>
               </div>
@@ -218,10 +218,10 @@ export default function LandingPage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-                  Advanced Resources for Healthcare Professionals
+                  Precision and Nuanced Care, Accessible to Every Surgeon
                 </h2>
                 <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                  Supporting surgical teams with expert clinicians and state-of-the-art medical equipment
+                  Empowering hospitals nationwide with expert clinicians and advanced imaging technologies for minimally invasive precision treatment.
                 </p>
               </div>
 

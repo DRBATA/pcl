@@ -128,7 +128,7 @@ function SetupChecklist() {
       ]
     },
     {
-      title: "Post-Procedure Breakdown",
+      title: "Post-Procedure Disassembly",
       duration: "5 min",
       steps: [
         "Loosen knob and retract from patient",

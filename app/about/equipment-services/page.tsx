@@ -85,16 +85,16 @@ export default function EquipmentServicesPage() {
               </p>
               <div className="grid md:grid-cols-2 gap-4 mt-8 max-w-3xl">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <p className="text-green-50 text-sm"><span className="font-bold">💰 Zero Capital Investment</span> – Access premium tech without purchasing equipment</p>
+                  <p className="text-green-50 text-sm"><span className="font-bold">Zero Capital Investment</span> – Access premium tech without purchasing equipment</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <p className="text-green-50 text-sm"><span className="font-bold">🔧 No Maintenance Burden</span> – No servicing costs or idle equipment between procedures</p>
+                  <p className="text-green-50 text-sm"><span className="font-bold">No Maintenance Burden</span> – No servicing costs or idle equipment between procedures</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <p className="text-green-50 text-sm"><span className="font-bold">📊 Specialized Procedures Viable</span> – Offer advanced treatments without major capital commitment</p>
+                  <p className="text-green-50 text-sm"><span className="font-bold">Specialized Procedures Viable</span> – Offer advanced treatments without major capital commitment</p>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                  <p className="text-green-50 text-sm"><span className="font-bold">🚚 Mobile Service Model</span> – Equipment delivered, set up, and managed by our expert team</p>
+                  <p className="text-green-50 text-sm"><span className="font-bold">Mobile Service Model</span> – Equipment delivered, set up, and managed by our expert team</p>
                 </div>
               </div>
             </motion.div>

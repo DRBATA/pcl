@@ -10,11 +10,12 @@ export default function AboutPCLPage() {
   const [currentTeamImage, setCurrentTeamImage] = useState(0)
 
   const clinicalTeamImages = [
-    "/aboutus/t1.png",
-    "/aboutus/t2.png",
-    "/aboutus/t3.png",
-    "/aboutus/t4.png",
-    "/aboutus/t5.png"
+    "/team/1.jpg",
+    "/team/2.jpg",
+    "/team/3.jpg",
+    "/team/4.jpg",
+    "/team/5.jpg",
+    "/team/6.jpg"
   ]
 
   // Auto-cycle through clinical team images
@@ -247,7 +248,6 @@ export default function AboutPCLPage() {
 
             <div className="bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl shadow-lg p-8 max-w-3xl mx-auto text-white">
               <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="text-5xl">🚛</div>
                 <h3 className="text-3xl font-bold">Precision Equipment Logistics</h3>
               </div>
 

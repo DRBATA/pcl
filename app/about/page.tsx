@@ -349,7 +349,7 @@ export default function AboutPage() {
                 <ul className="space-y-3 text-sm text-gray-200">
                   <li className="flex gap-3">
                     <span className="text-amber-400">•</span>
-                    <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, breakdown for every procedure</span>
+                    <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, disassembly for every procedure</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-amber-400">•</span>

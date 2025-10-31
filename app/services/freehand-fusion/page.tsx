@@ -73,7 +73,6 @@ export default function FreehandFusionPageV2() {
               {/* Freehand Approach */}
               <div className="bg-white rounded-xl p-6 border-2 border-blue-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-3xl">🎯</div>
                   <h3 className="text-xl font-bold text-blue-900">Freehand (TP Pivot Pro)</h3>
                 </div>
                 
@@ -137,7 +136,6 @@ export default function FreehandFusionPageV2() {
               {/* Stepper Approach */}
               <div className="bg-white rounded-xl p-6 border-2 border-emerald-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-3xl">📐</div>
                   <h3 className="text-xl font-bold text-emerald-900">Stepper (EX3 Grid)</h3>
                 </div>
                 
@@ -223,21 +221,18 @@ export default function FreehandFusionPageV2() {
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="text-3xl">🎯</div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">MRI Fusion Overlay</h3>
                       <p className="text-sm text-gray-600">Pre-planned targets (red contours) overlaid on live ultrasound</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="text-3xl">📐</div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Grid Coordinates</h3>
                       <p className="text-sm text-gray-600">Systematic sampling pattern with documented locations</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="text-3xl">💉</div>
                     <div>
                       <h3 className="font-bold text-lg mb-1">Needle Path Visualization</h3>
                       <p className="text-sm text-gray-600">See the trajectory before sampling - no guesswork</p>
@@ -246,7 +241,7 @@ export default function FreehandFusionPageV2() {
                 </div>
                 
                 <div className="mt-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-4">
-                  <p className="text-sm font-semibold mb-2">✨ The Application Specialist Manages This</p>
+                  <p className="text-sm font-semibold mb-2">The Application Specialist Manages This</p>
                   <p className="text-xs text-purple-50">
                     Our Application Specialist performs an initial fusion alignment check and displays the plan on screen. Your surgical team reviews the targets and confirms they're satisfied before proceeding.
                   </p>
