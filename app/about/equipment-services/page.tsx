@@ -27,13 +27,6 @@ const partners = [
       "MIM Software Inc. provides practical imaging solutions in the fields of radiation oncology, radiology, nuclear medicine, neuroimaging, and cardiac imaging. MIM offers solutions for PC and Mac® workstations, as well as mobile iOS and cloud-based platforms. MIM is a privately held company that sells its products globally.",
     specialization: "Medical Imaging Software Solutions",
   },
-  {
-    name: "AngioDynamics",
-    logo: "/logos/angiogynamics.jpeg",
-    description:
-      "AngioDynamics is a leading provider of innovative, minimally invasive medical devices for vascular access, peripheral vascular disease, and oncology. The NanoKnife® System uses proprietary Irreversible Electroporation (IRE) technology to ablate soft tissue while helping preserve vital structures in and around the treatment zone.",
-    specialization: "IRE/NanoKnife Technology",
-  },
 ]
 
 const equipmentByService = [
@@ -44,10 +37,6 @@ const equipmentByService = [
   {
     service: "On-Site HIFU",
     equipment: ["Sonablate HIFU Machine", "BK 3000 Ultrasound", "MIM Fusion Software"],
-  },
-  {
-    service: "IRE (NanoKnife)",
-    equipment: ["Nanoknife Machine", "BK 3000 Ultrasound", "MIM Fusion Software"],
   },
 ]
 

@@ -210,7 +210,7 @@ export default function AboutPCLPage() {
                   On-Site Application Specialists
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-3">
-                  Our Application Specialists are the backbone of every procedure. They arrive early to set up the 6-degree-of-freedom stepper system, calibrate the MRI fusion overlay, and manage the technical complexity throughout your biopsy session.
+                  Our Application Specialists are the backbone of every procedure. Their training spans both fusion software platforms and theatre equipment systems, ensuring seamless alignment, workflow continuity, and procedural precision. They arrive early to set up the 6-degree-of-freedom stepper system, calibrate the MRI fusion overlay, and manage the technical complexity throughout your biopsy session.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
                   From loading Dr Allen's pre-planned targets to handling the sophisticated equipment so you can focus entirely on the patient.

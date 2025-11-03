@@ -180,73 +180,160 @@ export default function HifuPage() {
             </div>
           </section>
 
-          {/* Clinical Outcomes - Reduced Complications */}
+          {/* Clinical Outcomes - Evidence-Based Results */}
           <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 mb-20">
-            <h2 className="text-3xl font-bold text-center mb-4">Clinical Outcomes: Reduced Complications</h2>
-            <p className="text-center text-slate-300 mb-12 max-w-3xl mx-auto">
-              MRI-guided focal HIFU delivers effective cancer control with significantly lower rates of erectile dysfunction and incontinence compared to traditional treatments.
-            </p>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">One Year Outcomes After MRI-Fusion HIFU</h2>
+              <p className="text-slate-300 max-w-3xl mx-auto mb-2">
+                Evidence from retrospective clinical audit of 265 consecutive patients treated between 2016-2022
+              </p>
+              <p className="text-slate-400 text-sm">
+                Based on The Focal Therapy Clinic audit data; individual results vary; consult your healthcare provider
+              </p>
+            </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {/* Urinary Incontinence */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-emerald-400/30">
-                <div className="text-5xl font-bold text-center mb-4 text-emerald-400">~2%</div>
-                <h3 className="text-xl font-bold text-center mb-4">Urinary Incontinence</h3>
-                <p className="text-sm text-slate-200 text-center mb-4">
-                  Multi-centre study with ~5-year median follow-up in localized prostate cancer
+            {/* Key Outcomes Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {/* Cancer Control */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-emerald-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-emerald-400">90%</div>
+                <h3 className="text-lg font-bold text-center mb-2">Cancer-Free at 1 Year</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  238/265 patients in clinical remission following single MRI-fusion HIFU treatment
                 </p>
-                <a 
-                  href="https://www.europeanurology.com/article/S0302-2838%2818%2930431-7/fulltext"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-emerald-400 hover:text-emerald-300 underline"
-                >
-                  European Urology Study
-                </a>
               </div>
 
-              {/* Effective Cancer Treatment */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-blue-400/30">
-                <div className="text-5xl font-bold text-center mb-4 text-blue-400">✓</div>
-                <h3 className="text-xl font-bold text-center mb-4">Safe & Effective</h3>
-                <p className="text-sm text-slate-200 text-center mb-4">
-                  MRI-guided focused ultrasound safely and effectively treats Grade Group 2-3 prostate cancer
+              {/* Continence */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-blue-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-blue-400">97%</div>
+                <h3 className="text-lg font-bold text-center mb-2">Full Continence</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  257/265 patients pad-free at one year (7 used pads; 1 required sling)
                 </p>
-                <a 
-                  href="https://urology.stanford.edu/content/dam/sm/urology/JJimages/publications/High%20intensity%20focused%20ultrasound%20hifu%20can%20control%20prostate%20cancer%20fewer%20side%20effects.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-blue-400 hover:text-blue-300 underline"
-                >
-                  Stanford Urology Research
-                </a>
               </div>
 
-              {/* Good Disease Control */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-cyan-400/30">
-                <div className="text-5xl font-bold text-center mb-4 text-cyan-400">✓</div>
-                <h3 className="text-xl font-bold text-center mb-4">Good Disease Control</h3>
-                <p className="text-sm text-slate-200 text-center mb-4">
-                  Majority of patients showed no progression or recurrence within several years with focused patient selection
+              {/* Erectile Function */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-cyan-400">97%</div>
+                <h3 className="text-lg font-bold text-center mb-2">Erectile Function</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  257/265 patients maintained function (8 used intracavernosal injections)
                 </p>
-                <a 
-                  href="https://www.eu-focus.europeanurology.com/article/S2405-4569(25)00174-9/abstract"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-cyan-400 hover:text-cyan-300 underline"
-                >
-                  EU-FOCUS Study
-                </a>
+              </div>
+
+              {/* PSA Reduction */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-purple-400/30">
+                <div className="text-5xl font-bold text-center mb-3 text-purple-400">4.6</div>
+                <h3 className="text-lg font-bold text-center mb-2">Mean PSA Drop</h3>
+                <p className="text-sm text-slate-200 text-center">
+                  From 6.6 to 2.0 ng/mL (mean reduction 4.62 ng/mL) at one year
+                </p>
               </div>
             </div>
 
-            {/* Erectile Dysfunction Comparison */}
+            {/* Treatment Protocol */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 mb-8">
+              <h3 className="text-2xl font-bold text-center mb-6">MRI-Fusion HIFU Protocol</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 text-emerald-400">Patient Selection</h4>
+                  <ul className="space-y-2 text-sm text-slate-200">
+                    <li className="flex items-start gap-2">
+                      <span className="text-emerald-400 mt-1">•</span>
+                      <span>Multiparametric MRI scanning</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-emerald-400 mt-1">•</span>
+                      <span>Targeted and systematic biopsies</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-emerald-400 mt-1">•</span>
+                      <span>Multidisciplinary team (MDT) review</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-emerald-400 mt-1">•</span>
+                      <span>Expert uroradiologist contouring</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 text-blue-400">Treatment Details</h4>
+                  <ul className="space-y-2 text-sm text-slate-200">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Device: Sonablate HIFU system</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Software: MIM Symphony for MRI-US fusion</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Margins: 6-10mm around identified lesions</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 mt-1">•</span>
+                      <span>Setting: Day-case procedure under general anaesthetic</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <h4 className="text-lg font-semibold mb-4 text-center text-cyan-400">Gleason Score Distribution</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-cyan-400">8%</div>
+                    <div className="text-sm text-slate-300">Gleason 3+3</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-cyan-400">69%</div>
+                    <div className="text-sm text-slate-300">Gleason 3+4</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-cyan-400">21%</div>
+                    <div className="text-sm text-slate-300">Gleason 4+3</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-cyan-400">2%</div>
+                    <div className="text-sm text-slate-300">Gleason ≥8</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Retreatment Data */}
             <div className="bg-gradient-to-r from-emerald-600/20 to-teal-600/20 rounded-xl p-8 border border-white/20 mb-8">
-              <h3 className="text-2xl font-bold text-center mb-6">Erectile Dysfunction: Substantially Lower Risk</h3>
-              <div className="grid md:grid-cols-3 gap-6">
+              <h3 className="text-2xl font-bold text-center mb-6">Further Treatment Required (10%)</h3>
+              <div className="grid md:grid-cols-2 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-emerald-400 mb-2">24%</div>
-                  <p className="text-sm text-slate-200">Focal HIFU</p>
+                  <div className="text-4xl font-bold text-emerald-400 mb-3">5%</div>
+                  <h4 className="text-lg font-semibold mb-2">In-Field Recurrence</h4>
+                  <p className="text-sm text-slate-200">
+                    13 patients with in-field recurrence, all retreated with repeat focal therapy
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-amber-400 mb-3">5%</div>
+                  <h4 className="text-lg font-semibold mb-2">Out-of-Field Recurrence</h4>
+                  <p className="text-sm text-slate-200">
+                    14 patients: 7 radical prostatectomy, 4 radiotherapy + ADT, 3 ADT ± chemotherapy
+                  </p>
+                </div>
+              </div>
+              <p className="text-center text-slate-300 text-sm mt-6">
+                Focal therapy preserves future treatment options including radical and systemic therapies
+              </p>
+            </div>
+
+            {/* Functional Outcomes Comparison */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 mb-8">
+              <h3 className="text-2xl font-bold text-center mb-6">Erectile Dysfunction: Substantially Lower Risk</h3>
+              <div className="grid md:grid-cols-3 gap-6 items-center">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-emerald-400 mb-2">3%</div>
+                  <p className="text-sm text-slate-200 mb-2">MRI-Fusion HIFU</p>
+                  <p className="text-xs text-slate-400">(requiring interventions beyond oral medication)</p>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl text-slate-400 mb-2">vs</div>
@@ -256,22 +343,106 @@ export default function HifuPage() {
                   <p className="text-sm text-slate-200">Traditional Prostatectomy or Radiotherapy</p>
                 </div>
               </div>
-              <p className="text-center text-slate-300 text-sm mt-6">
-                Focal HIFU demonstrates a substantially lower risk of sexual side-effects compared to traditional treatments, though not zero.
-              </p>
-              <a 
-                href="https://www.nature.com/articles/s41391-024-00921-0.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-emerald-400 hover:text-emerald-300 underline block text-center mt-4"
-              >
-                Nature Reviews Urology
-              </a>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <p className="text-center text-slate-100">
-                <strong>The PCL Advantage:</strong> MRI-guided focal HIFU combines effective cancer control with functional preservation — delivering superior outcomes for patients seeking treatment with minimal impact on quality of life.
+            {/* Clinical Summary */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-8">
+              <p className="text-center text-slate-100 leading-relaxed">
+                <strong>Clinical Evidence:</strong> In carefully selected men with localised prostate cancer assessed by MDT, MRI-guided focal HIFU achieved 90% one-year cancer control with 97% continence and 97% erectile function preservation. Results reflect specialist imaging, MRI-US fusion technology, and delivery by experienced consultants within an MDT framework.
+              </p>
+            </div>
+
+            {/* References Section */}
+            <div className="border-t border-white/20 pt-8">
+              <h3 className="text-xl font-bold mb-4 text-center">Supporting Evidence</h3>
+              <div className="space-y-3 text-sm text-slate-300">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">Focal Therapy Clinic Audit (2016-2022):</strong> Retrospective clinical audit of 265 consecutive patients treated with MRI-fusion HIFU.
+                  </p>
+                  <a 
+                    href="https://bjuicompass.com/article/10.1002/bco2.70000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    Rokan N, Reddy D. BJUI Compass. 2025;6(2):e70000
+                  </a>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">Multi-Institute 15-Year Experience:</strong> Cancer control outcomes following focal therapy using HIFU in 1,379 men with nonmetastatic prostate cancer.
+                  </p>
+                  <a 
+                    href="https://www.europeanurology.com/article/S0302-2838(22)00031-5/fulltext"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    Reddy D, Peters M, Shah TT, et al. Eur Urol. 2022;81(4):407-413
+                  </a>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">NICE Guidance:</strong> Focal therapy using high-intensity focused ultrasound for localised prostate cancer (IPG756).
+                  </p>
+                  <a 
+                    href="https://www.nice.org.uk/guidance/ipg756"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    NICE IPG756, April 2023
+                  </a>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">Lancet Oncology Development Study:</strong> Focal therapy for localised unifocal and multifocal prostate cancer: a prospective development study.
+                  </p>
+                  <a 
+                    href="https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(12)70121-3/fulltext"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    Ahmed HU, Hindley RG, Dickinson L, et al. Lancet Oncol. 2012;13(6):622-632
+                  </a>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">MRI-US Fusion Platform:</strong> HIFU focal therapy for localized prostate cancer with MRI-US fusion platform.
+                  </p>
+                  <a 
+                    href="https://www.hindawi.com/journals/au/2021/7157973/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    Yee CH, Chiu PK, Teoh JY, et al. Adv Urol. 2021;2021:7157973
+                  </a>
+                </div>
+
+                <div className="bg-white/5 rounded-lg p-4">
+                  <p className="mb-2">
+                    <strong className="text-white">ProtecT Trial:</strong> Fifteen-year outcomes after monitoring, surgery, or radiotherapy for prostate cancer.
+                  </p>
+                  <a 
+                    href="https://www.nejm.org/doi/full/10.1056/NEJMoa2214122"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-400 hover:text-emerald-300 underline text-xs"
+                  >
+                    Hamdy FC, Donovan JL, Lane JA, et al. N Engl J Med. 2023;388(17):1547-1558
+                  </a>
+                </div>
+              </div>
+
+              <p className="text-xs text-slate-400 text-center mt-6">
+                Based on retrospective data from specialist focal therapy centres; individual results vary; outcomes depend on patient selection, technique, and centre experience.
               </p>
             </div>
           </section>

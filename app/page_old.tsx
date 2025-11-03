@@ -29,7 +29,7 @@ export default function LandingPage() {
             {/* Hero Image */}
             <div className="absolute inset-0">
               <Image
-                src="/reassuring/public.png"
+                src="/landing/hero.png"
                 alt="Medical equipment and healthcare professionals"
                 fill
                 className="object-cover"
@@ -44,13 +44,13 @@ export default function LandingPage() {
               <div className="container-custom">
                 <div className="max-w-4xl text-left text-white">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                    Precision you can see. Confidence you can trust.
+                    Co-ordinated mpMRI contouring, MRI/US fusion biopsy and HIFU
                   </h1>
                   <p className="text-xl sm:text-2xl mb-4 leading-relaxed">
-                    Integrated mpMRI contouring, fusion-guided biopsy, and focal therapy — supported by live image alignment and validated procedural reporting.
+                    Complete with theatre equipment setup and disassembly
                   </p>
                   <p className="text-lg sm:text-xl leading-relaxed">
-                    Every biopsy documented, reviewed, and visualised — ensuring clarity for clinicians and reassurance for patients.
+                    Onsite application assistant support for image alignment and technical expertise
                   </p>
                 </div>
               </div>
@@ -93,7 +93,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">Pre-Procedure</h3>
                   <p className="text-slate-400 text-sm">
-                    Co-ordinated mpMRI contouring, image alignment with MRI/US fusion, equipment delivery & theatre setup
+                    MRI contouring, image alignment, equipment delivery & theatre setup
                   </p>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
@@ -102,7 +102,7 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">During Procedure</h3>
                   <p className="text-slate-400 text-sm">
-                    On-site software and equipment technical support, with application assistant for real-time image allingment & troubleshooting
+                    On-site technical support, application assistance & real-time troubleshooting
                   </p>
                 </div>
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
@@ -235,30 +235,30 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Specialist Clinicians</h3>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    Our integrated clinical team unites radiologists, application technicians, and backend support to deliver precision at every stage. Expert contouring and fusion alignment guide accurate lesion targeting, while on-site technical specialists ensure seamless workflow and comprehensive reporting.
+                    Access to experienced application specialists and clinical experts who provide on-site support, training, and technical guidance throughout procedures.
                   </p>
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">World Class MRI contouring & image alignment expertise</span>
+                      <span className="text-gray-700">MRI contouring & image alignment expertise</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">Highly trained application technicians with hands-on experience in over 1,000 MRI/US fusion-guided biopsies each year, skilled across fusion software and theatre systems</span>
+                      <span className="text-gray-700">On-site technical support during procedures</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">Our coordination team handle scheduling, data transfer, and reporting</span>
+                      <span className="text-gray-700">Training and workflow optimization</span>
                     </div>
                   </div>
                   <Link 
-                    href="/about/pcl/"
+                    href="/clinicians"
                     className="inline-flex items-center gap-2 font-medium group/link"
                     style={{ color: "var(--color-medical-green)" }}
                   >
@@ -278,26 +278,26 @@ export default function LandingPage() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Cutting-Edge Equipment</h3>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    Comprehensive range of ultrasound systems, HIFU devices, and MRI/US fusion technology available for rental or managed service arrangements. Full setup, maintenance and support included.
+                    Comprehensive range of ultrasound systems, HIFU devices, and MRI/US fusion technology available for rental or managed service arrangements.
                   </p>
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">Parity Medical Cart, Civco Micro Touch Stabiliser, bk300 ultrasound systems and Sonablate HIFU technology</span>
+                      <span className="text-gray-700">Parity Medical Cart, Civco Micro Touch Stabiliser, bk300 ultrasound systems</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700"> Backed by MIM Symphony Dx: advanced visualization, seamless data transfer across PACS, cloud and theatre systems — allowing radiologists and urologists to precisely identify, align and report lesions for fusion-guided biopsies and focal therapy.</span>
+                      <span className="text-gray-700">Sonablate HIFU technology</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-700">The outcome: improved reporting and enhanced patient confidence.</span>
+                      <span className="text-gray-700">Full setup, maintenance, and support included</span>
                     </div>
                   </div>
                   <Link 

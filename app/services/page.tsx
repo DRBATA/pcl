@@ -230,8 +230,18 @@ export default function ServicesPage() {
               
               <div className="grid lg:grid-cols-2 gap-8 mb-8 items-start">
                 <div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    After each procedure, surgeons receive a detailed report showing <strong>exactly how well they met their targets</strong> - quantifying accuracy, documenting sampling coverage, and providing objective evidence of diagnostic quality.
+                  <p className="text-gray-700 mb-8 leading-relaxed space-y-4">
+                   After each procedure, surgeons receive a detailed report showing 
+                    <strong> exactly how well they met their targets</strong> — 
+                   quantifying accuracy, documenting sampling coverage, and providing 
+                    objective evidence of diagnostic quality.
+                  </p>
+
+                  <p className="text-gray-700 mb-8 leading-relaxed space-y-4">
+                    This visualisation also provides <strong>clear reassurance for patients</strong>, 
+                    demonstrating that the precise area of concern has been accurately sampled, 
+                    and that every biopsy can be directly correlated with its histopathology result 
+                    for complete transparency and peace of mind.
                   </p>
                 </div>
                 
