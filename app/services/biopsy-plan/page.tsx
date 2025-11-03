@@ -142,7 +142,7 @@ export default function BiopsyPlanPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                   <Image
-                    src="/biopsy/cont.png"
+                    src="/biopsy/mrifusionbiopsytop.png"
                     alt="MRI fusion planning and contouring process"
                     width={1200}
                     height={800}
