@@ -24,7 +24,7 @@ export default function LandingPage() {
       <main className="overflow-y-auto">
         
         {/* Hero Section with Image */}
-        <section className="relative h-screen flex flex-col overflow-hidden">
+        <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col overflow-hidden">
           <div className="relative flex-1 flex flex-col">
             {/* Hero Image */}
             <div className="absolute inset-0">
@@ -40,16 +40,16 @@ export default function LandingPage() {
             </div>
 
             {/* Hero Content */}
-            <div className="relative h-full flex items-center py-12 pt-32">
+            <div className="relative h-full flex items-center py-8 pt-28 sm:py-12 sm:pt-32">
               <div className="container-custom">
                 <div className="max-w-4xl text-left text-white">
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
                     Empowering precision your patients can see
                   </h1>
-                  <p className="text-xl sm:text-2xl mb-4 leading-relaxed drop-shadow-md">
+                  <p className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 leading-relaxed drop-shadow-md">
                     With World Class mpMRI contoured US fusion, experience precision biopsy and focal therapy, assisted by onsite image alignment and equipment support.
                   </p>
-                  <p className="text-lg sm:text-xl leading-relaxed drop-shadow-md">
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-md">
                     The Result? Unparalleled reassurance with detailed reports visualising every biopsy with granular histopathology
                   </p>
                 </div>
@@ -61,7 +61,7 @@ export default function LandingPage() {
           {/* Scroll Indicator */}
           <button 
             onClick={() => scrollToSection(2)}
-            className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer hover:scale-110 transition-transform"
+            className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer hover:scale-110 transition-transform"
             aria-label="Scroll to next section"
           >
             <div className="flex flex-col items-center gap-1">
