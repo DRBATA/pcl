@@ -8,15 +8,33 @@ import React, { useState, useEffect } from "react"
 
 export default function AboutPCLPage() {
   const [currentTeamImage, setCurrentTeamImage] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const clinicalTeamImages = [
-    "/team/1.jpg",
-    "/team/2.jpg",
-    "/team/3.jpg",
-    "/team/4.jpg",
-    "/team/5.jpg",
-    "/team/6.jpg"
-  ]
+  // Detect mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Portrait images for mobile, landscape for desktop
+  const clinicalTeamImages = isMobile
+    ? [
+        "/team/portrait/team_portrait_1.png",
+        "/team/portrait/team_portrait_2.png",
+        "/team/portrait/team_portrait_3.png",
+        "/team/portrait/team_portrait_4.png",
+        "/team/portrait/team_portrait_5.png",
+        "/team/1.jpg", // fallback if portrait5 doesn't exist
+      ]
+    : [
+        "/team/landscape/team_landscape_1.png",
+        "/team/landscape/team_landscape_2.png",
+        "/team/landscape/team_landscape_3.png",
+        "/team/landscape/team_landscape_4.png",
+        "/team/landscape/team_landscape_5.png"
+      ]
 
   // Auto-cycle through clinical team images
   useEffect(() => {
@@ -162,14 +180,14 @@ export default function AboutPCLPage() {
                 {clinicalTeamImages.map((img, idx) => (
                   <div
                     key={idx}
-                    className="absolute inset-0 transition-opacity duration-1000"
+                    className="absolute inset-0 overflow-hidden rounded-3xl transition-opacity duration-1000"
                     style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
                   >
                     <Image
                       src={img}
                       alt={`Team ${idx + 1}`}
                       fill
-                      className="object-contain rounded-xl"
+                      className="object-contain"
                     />
                   </div>
                 ))}
