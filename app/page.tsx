@@ -29,7 +29,7 @@ export default function LandingPage() {
             {/* Hero Image */}
             <div className="absolute inset-0">
               <Image
-                src="/reassuring/public.png"
+                src="/u/hero_new.png"
                 alt="Medical equipment and healthcare professionals"
                 fill
                 className="object-cover"
@@ -43,14 +43,14 @@ export default function LandingPage() {
             <div className="relative h-full flex items-center py-12 pt-32">
               <div className="container-custom">
                 <div className="max-w-4xl text-left text-white">
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                    Precision you can see. Confidence you can trust.
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
+                    Empowering precision your patients can see
                   </h1>
-                  <p className="text-xl sm:text-2xl mb-4 leading-relaxed">
-                    Integrated mpMRI contouring, fusion-guided biopsy, and focal therapy — supported by live image alignment and validated procedural reporting.
+                  <p className="text-xl sm:text-2xl mb-4 leading-relaxed drop-shadow-md">
+                    With World Class mpMRI contoured US fusion, experience precision biopsy and focal therapy, assisted by onsite image alignment and equipment support.
                   </p>
-                  <p className="text-lg sm:text-xl leading-relaxed">
-                    Every biopsy documented, reviewed, and visualised — ensuring clarity for clinicians and reassurance for patients.
+                  <p className="text-lg sm:text-xl leading-relaxed drop-shadow-md">
+                    The Result? Unparalleled reassurance with detailed reports visualising every biopsy with granular histopathology
                   </p>
                 </div>
               </div>
