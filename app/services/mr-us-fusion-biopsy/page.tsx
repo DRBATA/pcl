@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+import { FusionVideoPlayer } from "./FusionVideoPlayer"
 
 export default function FreehandFusionPageV2() {
   return (
@@ -44,19 +45,8 @@ export default function FreehandFusionPageV2() {
                 </div>
               </div>
 
-              {/* Right: Fusion Biopsy Image */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl blur-xl"></div>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                  <Image
-                    src="/biopsy/heroBX.png"
-                    alt="MRI/US Fusion Biopsy"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
+              {/* Right: Fusion Videos */}
+              <FusionVideoPlayer musicPath="/path/to/your/music.mp3" />
             </div>
           </div>
         </section>
