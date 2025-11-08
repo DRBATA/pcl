@@ -15,14 +15,14 @@ const partners = [
   },
   {
     name: "BK Medical",
-    logo: "/logos/bkmediclbigger.png",
+    logo: "/logos/bkmedical.jpg",
     description:
       "For more than 40 years, BK Medical solutions have played a central role in procedure-driven markets that include urology, surgery and point-of-care. With award-winning systems and unique transducer designs, BK directly addresses the specialized needs and clinical challenges of physicians worldwide, offering innovative ultrasound solutions.",
     specialization: "Ultrasound Solutions & Transducers",
   },
   {
     name: "MIM Software",
-    logo: "/logos/mim_radiology_page.webp",
+    logo: "/logos/m.png",
     description:
       "MIM Software Inc. provides practical imaging solutions in the fields of radiation oncology, radiology, nuclear medicine, neuroimaging, and cardiac imaging. MIM offers solutions for PC and Mac® workstations, as well as mobile iOS and cloud-based platforms. MIM is a privately held company that sells its products globally.",
     specialization: "Medical Imaging Software Solutions",
@@ -46,33 +46,44 @@ export default function EquipmentServicesPage() {
       <Header />
       <main className="pb-20">
         {/* Hero Section with Equipment Provided - Unified */}
-        <div className="relative bg-gradient-to-b from-green-900 via-emerald-800 to-white pt-32 sm:pt-36 lg:pt-40 overflow-hidden">
+        <div className="relative bg-gradient-to-b from-green-900 via-emerald-800 to-emerald-700 min-h-screen flex flex-col overflow-hidden">
           {/* Surgery Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/4.png"
+              src="/logos/herokit.png"
               alt="Surgical Theatre"
               fill
               className="object-cover opacity-30"
               priority
             />
             {/* Gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-green-900/60 via-emerald-800/50 to-white/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-green-900/70 via-emerald-800/60 to-emerald-700/50"></div>
           </div>
 
-          <div className="container-custom pb-0 relative z-10">
+          <div className="container-custom relative z-10 flex-1 flex flex-col justify-center py-32">
+            {/* Title */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl text-white mb-20"
+              className="text-center text-white mt-32"
             >
-              <h1 className="text-5xl font-bold mb-6">Equipment & Technology Partners</h1>
-              <p className="text-xl text-green-100 leading-relaxed mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-12">Equipment & Technology Partners</h1>
+              <p className="text-lg sm:text-xl text-green-100 leading-relaxed max-w-3xl mx-auto">
                 World-class medical equipment and strategic technology partnerships delivering cutting-edge solutions
                 for precision prostate care.
               </p>
-              <div className="grid md:grid-cols-2 gap-4 mt-8 max-w-3xl">
+            </motion.div>
+
+            {/* 2 Column Layout: Benefits (Left) + Equipment (Right) */}
+            <div className="grid lg:grid-cols-3 gap-8 mt-16">
+              {/* Left Column: 4 Benefit Cards Stacked */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="lg:col-span-1 space-y-4"
+              >
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">Zero Capital Investment</span> – Access premium tech without purchasing equipment</p>
                 </div>
@@ -85,45 +96,34 @@ export default function EquipmentServicesPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                   <p className="text-green-50 text-sm"><span className="font-bold">Mobile Service Model</span> – Equipment delivered, set up, and managed by our expert team</p>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16 pt-20"
-            >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Equipment Provided</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive equipment packages for each service, delivered and managed by our expert team.
-              </p>
-            </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {equipmentByService.map((item, index) => (
-              <motion.div
-                key={item.service}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
-              >
-                <h3 className="text-2xl font-bold mb-6 text-gray-900">{item.service}</h3>
-                <ul className="space-y-3">
-                  {item.equipment.map((equip, i) => (
-                    <li key={i} className="text-gray-600 flex items-start gap-3">
-                      <span className="text-green-600 mt-1 font-bold">✓</span>
-                      <span>{equip}</span>
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
-            ))}
+
+              {/* Right Column: 2 Equipment Cards Side by Side */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="lg:col-span-2 grid md:grid-cols-2 gap-6"
+              >
+                {equipmentByService.map((item, index) => (
+                  <div
+                    key={item.service}
+                    className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-xl border border-white/50"
+                  >
+                    <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900">{item.service}</h3>
+                    <ul className="space-y-2">
+                      {item.equipment.map((equip, i) => (
+                        <li key={i} className="text-gray-700 flex items-start gap-3">
+                          <span className="text-green-600 mt-1 font-bold">✓</span>
+                          <span>{equip}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
         </div>
 
         {/* Technology Partners Grid */}
@@ -195,7 +195,7 @@ export default function EquipmentServicesPage() {
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 w-full flex items-center justify-center min-h-[120px]">
                 <div className="text-center">
                   <Image
-                    src="/logos/civo-logo-dark.png"
+                    src="/logos/cc.png"
                     alt="Civco Medical Solutions"
                     width={150}
                     height={60}
@@ -207,7 +207,7 @@ export default function EquipmentServicesPage() {
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 w-full flex items-center justify-center min-h-[120px]">
                 <div className="text-center">
                   <Image
-                    src="/logos/paritymedical_small_whbg.jpg"
+                    src="/logos/pm.png"
                     alt="Parity Medical"
                     width={150}
                     height={60}
