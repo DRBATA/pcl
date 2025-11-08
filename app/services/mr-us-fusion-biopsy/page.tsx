@@ -46,7 +46,7 @@ export default function FreehandFusionPageV2() {
               </div>
 
               {/* Right: Fusion Videos */}
-              <FusionVideoPlayer musicPath="/path/to/your/music.mp3" />
+              <FusionVideoPlayer musicPath="u/cm.mp3" />
             </div>
           </div>
         </section>

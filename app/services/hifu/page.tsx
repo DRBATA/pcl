@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+import { HifuVideoPlayer } from "./HifuVideoPlayer"
 
 export default function HifuPage() {
   return (
@@ -42,19 +43,8 @@ export default function HifuPage() {
                 </div>
               </div>
 
-              {/* Right: HIFU Image */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/hifuvids/herohifu.png"
-                    alt="HIFU High Intensity Focused Ultrasound procedure"
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
+              {/* Right: HIFU Explanation Video */}
+              <HifuVideoPlayer />
             </div>
           </div>
         </section>

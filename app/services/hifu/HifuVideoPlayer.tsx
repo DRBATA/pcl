@@ -3,98 +3,44 @@
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
-interface FusionVideoPlayerProps {
-  musicPath?: string
-}
-
-export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
+export function HifuVideoPlayer() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
-
-  const videos = [
-    { src: "/u/fusion/fusion.mp4", name: "Fusion" },
-    { src: "/u/margin/adding_magins.mp4", name: "Adding Margins" }
-  ]
 
   // Customizable markers - EDIT THESE!
   const markers = [
-    // Video 1: Fusion
-    { time: 0, label: "Start Fusion", videoIndex: 0 },
-    { time: 5, label: "Alignment", videoIndex: 0 },
-    { time: 17, label: "Targeting", videoIndex: 0 },
-    // Video 2: Margins
-    { time: 0, label: "Start Margin", videoIndex: 1 },
-    { time: 4, label: "Adding Margins", videoIndex: 1 },
-    { time: 15, label: "Verification", videoIndex: 1 }
+    { time: 0, label: "Introduction" },
+    { time: 30, label: "MRI Fusion" },
+    { time: 60, label: "HIFU Process" }
   ]
 
   useEffect(() => {
     const video = videoRef.current
-    const audio = audioRef.current
     if (!video) return
 
     const updateTime = () => setCurrentTime(video.currentTime)
     const updateDuration = () => setDuration(video.duration)
     
-    const handleVideoEnd = () => {
-      if (currentVideoIndex < videos.length - 1) {
-        setCurrentVideoIndex(prev => prev + 1)
-        setCurrentTime(0)
-      } else {
-        setCurrentVideoIndex(0)
-        setCurrentTime(0)
-      }
-    }
-
-    // Loop music at 30 seconds
-    const handleAudioTimeUpdate = () => {
-      if (audio && audio.currentTime >= 30) {
-        audio.currentTime = 0
-      }
-    }
-    
     video.addEventListener('timeupdate', updateTime)
     video.addEventListener('loadedmetadata', updateDuration)
-    video.addEventListener('ended', handleVideoEnd)
-    if (audio) {
-      audio.addEventListener('timeupdate', handleAudioTimeUpdate)
-    }
-
-    // Sync music
-    if (audio && video && !isMuted && isPlaying) {
-      if (audio.paused) {
-        audio.play().catch(() => {})
-      }
-    }
 
     return () => {
       video.removeEventListener('timeupdate', updateTime)
       video.removeEventListener('loadedmetadata', updateDuration)
-      video.removeEventListener('ended', handleVideoEnd)
-      if (audio) {
-        audio.removeEventListener('timeupdate', handleAudioTimeUpdate)
-      }
     }
-  }, [currentVideoIndex, isPlaying, isMuted])
+  }, [])
 
   const togglePlay = () => {
     const video = videoRef.current
-    const audio = audioRef.current
     
     if (video) {
       if (isPlaying) {
         video.pause()
-        audio?.pause()
       } else {
         video.play()
-        if (audio && !isMuted) {
-          audio.play().catch(() => {})
-        }
       }
       setIsPlaying(!isPlaying)
     }
@@ -102,19 +48,10 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
 
   const toggleMute = () => {
     const video = videoRef.current
-    const audio = audioRef.current
     
     if (video) {
       video.muted = !isMuted
       setIsMuted(!isMuted)
-      
-      if (audio) {
-        if (!isMuted) {
-          audio.pause()
-        } else if (isPlaying) {
-          audio.play().catch(() => {})
-        }
-      }
     }
   }
 
@@ -126,38 +63,10 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
     }
   }
 
-  const jumpToMarker = (time: number, videoIndex: number) => {
-    if (currentVideoIndex !== videoIndex) {
-      setCurrentVideoIndex(videoIndex)
-      setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.currentTime = time
-          setCurrentTime(time)
-        }
-      }, 100)
-    } else if (videoRef.current) {
+  const jumpToMarker = (time: number) => {
+    if (videoRef.current) {
       videoRef.current.currentTime = time
       setCurrentTime(time)
-    }
-  }
-
-  const skipToNext = () => {
-    if (currentVideoIndex < videos.length - 1) {
-      setCurrentVideoIndex(prev => prev + 1)
-      setCurrentTime(0)
-    } else {
-      setCurrentVideoIndex(0)
-      setCurrentTime(0)
-    }
-  }
-
-  const skipToPrevious = () => {
-    if (currentVideoIndex > 0) {
-      setCurrentVideoIndex(prev => prev - 1)
-      setCurrentTime(0)
-    } else {
-      setCurrentVideoIndex(videos.length - 1)
-      setCurrentTime(0)
     }
   }
 
@@ -174,11 +83,9 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
     }
   }
 
-  const currentMarkers = markers.filter(m => m.videoIndex === currentVideoIndex)
-
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl blur-xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -187,39 +94,25 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
       >
         <video
           ref={videoRef}
-          key={currentVideoIndex}
           autoPlay
+          loop
           muted={isMuted}
           playsInline
           className="w-full h-auto"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >
-          <source src={videos[currentVideoIndex].src} type="video/mp4" />
+          <source src="/u/mri_us_fusion_mr_lanaido.mp4" type="video/mp4" />
         </video>
-
-        {/* Background Music */}
-        {musicPath && (
-          <audio ref={audioRef} loop>
-            <source src={musicPath} type="audio/mpeg" />
-          </audio>
-        )}
-
-        {/* Video Label */}
-        <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-lg">
-          <span className="text-white text-sm font-medium">
-            {videos[currentVideoIndex].name} ({currentVideoIndex + 1}/{videos.length})
-          </span>
-        </div>
 
         {/* Custom Video Controls */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
           {/* Markers */}
           <div className="flex flex-wrap gap-2 mb-2 px-1">
-            {currentMarkers.map((marker, idx) => (
+            {markers.map((marker, idx) => (
               <button
                 key={idx}
-                onClick={() => jumpToMarker(marker.time, marker.videoIndex)}
+                onClick={() => jumpToMarker(marker.time)}
                 className="text-[10px] text-white/70 hover:text-white transition-colors px-2 py-1 rounded bg-white/10 hover:bg-white/20"
               >
                 {marker.label}
@@ -236,28 +129,17 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
             onChange={handleSeek}
             className="w-full h-1 bg-white/30 rounded-lg appearance-none cursor-pointer mb-3"
             style={{
-              background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(currentTime / duration) * 100}%, rgba(255,255,255,0.3) ${(currentTime / duration) * 100}%, rgba(255,255,255,0.3) 100%)`
+              background: `linear-gradient(to right, #10b981 0%, #10b981 ${(currentTime / duration) * 100}%, rgba(255,255,255,0.3) ${(currentTime / duration) * 100}%, rgba(255,255,255,0.3) 100%)`
             }}
           />
 
           {/* Control Buttons */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Skip to Previous */}
-              <button
-                onClick={skipToPrevious}
-                className="text-white hover:text-blue-400 transition-colors"
-                title="Previous video"
-              >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
-                </svg>
-              </button>
-
               {/* Play/Pause */}
               <button
                 onClick={togglePlay}
-                className="text-white hover:text-blue-400 transition-colors"
+                className="text-white hover:text-emerald-400 transition-colors"
               >
                 {isPlaying ? (
                   <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -270,21 +152,10 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
                 )}
               </button>
 
-              {/* Skip to Next */}
-              <button
-                onClick={skipToNext}
-                className="text-white hover:text-blue-400 transition-colors"
-                title="Next video"
-              >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
-                </svg>
-              </button>
-
               {/* Mute/Unmute */}
               <button
                 onClick={toggleMute}
-                className="text-white hover:text-blue-400 transition-colors"
+                className="text-white hover:text-emerald-400 transition-colors"
               >
                 {isMuted ? (
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -305,7 +176,7 @@ export function FusionVideoPlayer({ musicPath }: FusionVideoPlayerProps) {
             {/* Fullscreen Button */}
             <button
               onClick={toggleFullscreen}
-              className="text-white hover:text-blue-400 transition-colors"
+              className="text-white hover:text-emerald-400 transition-colors"
               title="Toggle fullscreen"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
