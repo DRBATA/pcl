@@ -2,7 +2,7 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { EvolutionTabs } from "@/components/EvolutionTabs"
+import { EvolutionTabs } from "@/components/EvolutionTabs_old"
 import { motion } from "framer-motion"
 import Image from "next/image"
 

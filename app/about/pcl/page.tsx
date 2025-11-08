@@ -25,8 +25,7 @@ export default function AboutPCLPage() {
         "/team/portrait/team_portrait_2.png",
         "/team/portrait/team_portrait_3.png",
         "/team/portrait/team_portrait_4.png",
-        "/team/portrait/team_portrait_5.png",
-        "/team/1.jpg", // fallback if portrait5 doesn't exist
+        "/team/portrait/team_portrait_5.png"// fallback if portrait5 doesn't exist
       ]
     : [
         "/team/landscape/team_landscape_1.png",
@@ -167,14 +166,77 @@ export default function AboutPCLPage() {
               </div>
             </div>
 
-            {/* Scrolling Team Images - Away Days / Team Culture */}
-            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-200 mb-8">
+            {/* Scrolling Services Images Strip */}
+            <div className="mb-12 overflow-hidden">
+              <div className="flex gap-6 animate-scroll-left">
+                {[...Array(2)].map((_, setIndex) => (
+                  <div key={setIndex} className="flex gap-6 flex-shrink-0">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
+                      <div
+                        key={`${setIndex}-${num}`}
+                        className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden"
+                      >
+                        <Image
+                          src={`/ss${num}.jpg`}
+                          alt={`Service showcase ${num}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* 3. Application Team and Coordination Team - Side by Side (no images) */}
+          <section className="mb-20">
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* On-Site Application Specialists */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
+                  On-Site Application Specialists
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  Our Application Specialists are the backbone of every procedure. Their meticulous training spans Sonablate, Nanoknife, and MIM MRI/Ultrasound Fusion Software platforms, as well as theatre equipment systems including Civco Biopsy Hardware and BK Trans-rectal Ultrasound — ensuring seamless alignment, workflow continuity, and procedural precision.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                 With experience across more than 1,000 cases each year, our team sets up your chosen sampling equipment, guiding the initial image alignment and calibration of the MRI fusion overlay. The managed technical complexity throughout your biopsy session — from loading Dr Allen’s pre-planned targets to handling sophisticated equipment — allows you to focus better on the patient.
+                </p>
+              </div>
+
+              {/* Coordination & Administration */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
+                  Coordination & Administration
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  All your secretary needs to do is call us. Our coordination team handles imaging transfer, schedules Dr Allen's contouring, arranges on-site specialist deployment, and ensures everything is ready before you step into theatre.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  After the procedure, they coordinate the post-procedure targeting accuracy report - delivering complete documentation to support your clinical records.
+                </p>
+              </div>
+            </div>
+
+            {/* Our Team in Action - Moved here from after radiologists */}
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-200 mt-12">
               <h3 className="text-2xl font-bold text-center mb-4 text-gray-900">
-                Our Team in Action
+                Building team spirit in and out of theatre
               </h3>
-              <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                Building connections and team spirit beyond the theatre
-              </p>
+              
               
               <div className="relative w-full h-[500px]">
                 {clinicalTeamImages.map((img, idx) => (
@@ -202,55 +264,6 @@ export default function AboutPCLPage() {
                     />
                   ))}
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 3. Application Team and Coordination Team - Side by Side (no images) */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Our Support Team
-            </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-              Expert application specialists and coordinators ensuring seamless service delivery
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* On-Site Application Specialists */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
-                  On-Site Application Specialists
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
-                  Our Application Specialists are the backbone of every procedure. Their training spans both fusion software platforms and theatre equipment systems, ensuring seamless alignment, workflow continuity, and procedural precision. They arrive early to set up the 6-degree-of-freedom stepper system, calibrate the MRI fusion overlay, and manage the technical complexity throughout your biopsy session.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  From loading Dr Allen's pre-planned targets to handling the sophisticated equipment so you can focus entirely on the patient.
-                </p>
-              </div>
-
-              {/* Coordination & Administration */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
-                  Coordination & Administration
-                </h3>
-                <p className="text-gray-700 leading-relaxed mb-3">
-                  All your secretary needs to do is call us. Our coordination team handles imaging transfer, schedules Dr Allen's contouring, arranges on-site specialist deployment, and ensures everything is ready before you step into theatre.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  After the procedure, they coordinate the post-procedure targeting accuracy report - delivering complete documentation to support your clinical records.
-                </p>
               </div>
             </div>
           </section>
