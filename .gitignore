@@ -25,6 +25,12 @@ yarn-error.log*
 # experimental
 /public/experimentaltesting
 
+# ai folder
+/app/ai
+
+# supabase folder
+/supabase
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

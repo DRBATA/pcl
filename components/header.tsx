@@ -273,6 +273,20 @@ export function Header() {
                                   Our technology partners
                                 </p>
                               </Link>
+                              <Link
+                                href="/about/targeting-accuracy-report"
+                                className={cn(
+                                  "block group",
+                                  isScrolled ? "text-slate-300" : "text-slate-700"
+                                )}
+                              >
+                                <div className="font-semibold text-[15px] mb-1 group-hover:text-teal-500 transition-colors">
+                                  Targeting Accuracy Report
+                                </div>
+                                <p className={cn("text-sm", isScrolled ? "text-slate-400" : "text-slate-600")}>
+                                  Precision diagnostic visualization
+                                </p>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -506,6 +520,16 @@ export function Header() {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Equipment & Technology Partners
+                    </Link>
+                    <Link
+                      href="/about/targeting-accuracy-report"
+                      className={cn(
+                        "block text-[14px] py-1",
+                        isScrolled ? "text-slate-400" : "text-slate-600"
+                      )}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Targeting Accuracy Report
                     </Link>
                   </div>
                 </div>
