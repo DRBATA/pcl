@@ -1,9 +1,11 @@
+'use client';
+
+export const dynamic = 'force-dynamic';
+
 /**
  * Patient Waiting Pool - Join anonymously to get matched with surgeons
  * Patients enter their clinical data and get matched to available theatre slots
  */
-
-'use client';
 
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';

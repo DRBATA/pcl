@@ -1,9 +1,11 @@
+'use client';
+
+export const dynamic = 'force-dynamic';
+
 /**
  * Surgeon Cases Dashboard
  * Shows all cases for the logged-in surgeon with status bubbles
  */
-
-'use client';
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';

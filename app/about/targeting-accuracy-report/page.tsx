@@ -20,11 +20,11 @@ export default function TargetingAccuracyReportPage() {
 
   // Section 3 carousel images (existing biopsy images)
   const section3Images = [
+    { image: "/biopsy/view.png" },
     { image: "/biopsy/left.png" },
     { image: "/biopsy/posterior-anterior.png" },
     { image: "/biopsy/right.png" },
     { image: "/biopsy/a.png" },
-    { image: "/biopsy/view.png" },
   ]
 
   // Section 4 carousel images
