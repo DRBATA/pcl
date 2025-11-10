@@ -31,6 +31,9 @@ yarn-error.log*
 # supabase folder
 /supabase
 
+# npm lockfile (using pnpm)
+package-lock.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
