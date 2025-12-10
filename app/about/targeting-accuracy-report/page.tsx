@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 
 // Hero image with blur placeholder
-import heroReportSharing from "@/public/hero/report_sharing.png"
+import heroReportSharing from "@/public/hero/report_sharing_2.png"
 import heroReportWelcome from "@/public/hero/report_welcome.png"
 
 export default function TargetingAccuracyReportPageNew() {

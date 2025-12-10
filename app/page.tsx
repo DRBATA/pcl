@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 // Hero images with blur placeholders
-import heroReportSharing from "@/public/hero/report_sharing.png"
+import heroReportSharing from "@/public/hero/report_sharing_2.png"
 import heroRadiologist from "@/public/hero/radiologist.png"
 import heroTheatre from "@/public/hero/theatre_one.png"
 import heroHarley from "@/public/hero/harley.png"
