@@ -1,5 +1,40 @@
 # PCL Website Changelog
 
+## December 10, 2025 - Parallax Hero Pages (Whirling Dervish Sprint)
+
+### All 3 Target Pages Now Match Gold Standard Pattern
+
+**Pattern Applied:**
+- ✅ Parallax vanishing card hero (fades on scroll = progressive disclosure)
+- ✅ Hero IMAGE same as homepage carousel (visual continuity)
+- ✅ Hook reiteration from carousel
+- ✅ Key stat for persona (surgeons/theatre managers/directors)
+- ✅ Scroll CTA to reveal content below
+
+**Files Changed:**
+
+1. `/services/biopsy-plan/page.tsx` (NEW)
+   - Hero: `radiologist.png` + "Confidence in every contour."
+   - Stat: "24-48hrs - Plans delivered before procedure day"
+   - Old version archived to `page_old.tsx`
+
+2. `/services/how-it-works/page.tsx` (NEW)  
+   - Hero: `section3_updated.png` + "Every list. Close to clockwork."
+   - Stat: "1,000+ procedures supported annually"
+   - Old version archived to `page_old.tsx`
+
+3. `/about/pcl/page.tsx` (NEW)
+   - Hero: `harley.png` + "What the great centres already do."
+   - Stat: "20+ years enabling precision diagnostics"
+   - Old version archived to `page_old.tsx`
+
+**Plan Files Created:**
+- `app/services/biopsy-plan/plan_biopsy_plan.md`
+- `app/services/how-it-works/plan_how_it_works.md`
+- `app/about/pcl/plan_pcl.md`
+
+---
+
 ## December 10, 2025 - Snagging Implementation
 
 ### Phase 1: Quick Wins

@@ -3,8 +3,12 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+
+// Hero image - same as homepage carousel
+import heroRadiologist from "@/public/hero/radiologist.png"
 
 function MultiparametricMRIViewer() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,7 +31,6 @@ function MultiparametricMRIViewer() {
     }
   ]
 
-  // Auto-cycle through images every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % mriSequences.length)
@@ -44,7 +47,7 @@ function MultiparametricMRIViewer() {
         <strong>Traditional approach:</strong> Surgeons review a single MRI scan and estimate biopsy targets.
       </p>
       <p className="text-center text-gray-700 text-sm mb-8 max-w-4xl mx-auto">
-        <strong>With PCL:</strong> Dr. Allen accesses <strong>six different MRI sequence views</strong> of the same anatomical plane - T2-weighted, ADC, diffusion, vascularity patterns - to contour lesions with millimeter precision. The plan is ready, no cognitive estimation needed.
+        <strong>With PCL:</strong> Dr. Allen accesses <strong>six different MRI sequence views</strong> of the same anatomical plane - T2-weighted, ADC, diffusion, vascularity patterns - to contour lesions with millimeter precision.
       </p>
 
       <div className="relative w-full max-w-5xl mx-auto">
@@ -67,7 +70,6 @@ function MultiparametricMRIViewer() {
           </div>
         </div>
 
-        {/* Progress Indicator */}
         <div className="mt-6">
           <div className="flex items-center justify-center gap-2 mb-3">
             {mriSequences.map((_, idx) => (
@@ -86,14 +88,6 @@ function MultiparametricMRIViewer() {
           </div>
         </div>
       </div>
-
-      <div className="mt-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-4">
-        <p className="text-sm font-semibold mb-2">Why Multiparametric MRI Matters</p>
-        <p className="text-xs text-purple-50">
-          <strong>Vascularity patterns</strong> distinguish active cancer (new chaotic blood vessels) from old scar tissue or previous ablation sites. 
-          Combined with ADC maps and T2-weighted images, Dr. Allen precisely identifies and contours targets - giving you millimeter-accurate biopsy coordinates.
-        </p>
-      </div>
     </div>
   )
 }
@@ -105,24 +99,20 @@ function ContouringVideoPlayer() {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
 
-  // Video markers (timestamps in seconds)
   const markers = [
     { time: 0, label: "Start" },
     { time: 35, label: "Contouring" },
     { time: 60, label: "Planning" },
-    { time: 154, label: "Biopsy coordinates" }
+    { time: 154, label: "Coordinates" }
   ]
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
-
     const updateTime = () => setCurrentTime(video.currentTime)
     const updateDuration = () => setDuration(video.duration)
-    
     video.addEventListener('timeupdate', updateTime)
     video.addEventListener('loadedmetadata', updateDuration)
-
     return () => {
       video.removeEventListener('timeupdate', updateTime)
       video.removeEventListener('loadedmetadata', updateDuration)
@@ -131,11 +121,8 @@ function ContouringVideoPlayer() {
 
   const togglePlay = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
+      if (isPlaying) videoRef.current.pause()
+      else videoRef.current.play()
       setIsPlaying(!isPlaying)
     }
   }
@@ -184,9 +171,7 @@ function ContouringVideoPlayer() {
           <source src="/u/contouring_dr_allen.mp4" type="video/mp4" />
         </video>
 
-        {/* Custom Video Controls */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-          {/* Markers */}
           <div className="flex justify-between mb-2 px-1">
             {markers.map((marker) => (
               <button
@@ -199,7 +184,6 @@ function ContouringVideoPlayer() {
             ))}
           </div>
 
-          {/* Scrubber */}
           <input
             type="range"
             min="0"
@@ -212,42 +196,23 @@ function ContouringVideoPlayer() {
             }}
           />
 
-          {/* Control Buttons */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <button
-                onClick={togglePlay}
-                className="text-white hover:text-emerald-400 transition-colors"
-              >
+              <button onClick={togglePlay} className="text-white hover:text-emerald-400 transition-colors">
                 {isPlaying ? (
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                  </svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" /></svg>
                 ) : (
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                 )}
               </button>
-
-              <button
-                onClick={toggleMute}
-                className="text-white hover:text-emerald-400 transition-colors"
-              >
+              <button onClick={toggleMute} className="text-white hover:text-emerald-400 transition-colors">
                 {isMuted ? (
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                  </svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /></svg>
                 ) : (
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                  </svg>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" /></svg>
                 )}
               </button>
-
-              <span className="text-white text-sm">
-                {Math.floor(currentTime)}s / {Math.floor(duration)}s
-              </span>
+              <span className="text-white text-sm">{Math.floor(currentTime)}s / {Math.floor(duration)}s</span>
             </div>
           </div>
         </div>
@@ -256,73 +221,201 @@ function ContouringVideoPlayer() {
   )
 }
 
-export default function BiopsyPlanPage() {
+export default function BiopsyPlanPageNew() {
+  // Parallax scroll state for vanishing card
+  const [scrollY, setScrollY] = useState(0)
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect()
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY)
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Calculate card opacity and transform based on scroll
+  const cardOpacity = Math.max(0, 1 - scrollY / 300)
+  const cardTranslateY = Math.min(scrollY * 0.3, 100)
+  const gradientOpacity = Math.max(0.3, 0.7 - scrollY / 500)
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      const header = document.querySelector('header')
+      const headerHeight = header?.getBoundingClientRect().height || 80
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <>
       <Header />
-      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+      <main className="overflow-y-auto">
         
-        {/* Hero Section - Split Layout with Hook Reiteration */}
-        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
+        {/* Hero Section with Parallax Vanishing Card */}
+        <section ref={heroRef} className="relative min-h-[90vh] lg:min-h-screen flex flex-col overflow-hidden">
+          <div className="relative flex-1 flex flex-col">
+            {/* Hero Image - Radiologist (same as carousel) */}
+            <div className="absolute inset-0">
+              <Image
+                src={heroRadiologist}
+                alt="Expert radiologist reviewing prostate MRI scans"
+                fill
+                className="object-cover"
+                priority
+                placeholder="blur"
+              />
+              {/* Gradient that fades as you scroll */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent transition-opacity duration-100"
+                style={{ opacity: gradientOpacity }}
+              />
+            </div>
+
+            {/* Hero Content - Parallax vanishing card */}
+            <div className="absolute bottom-16 left-0 right-0">
+              <div className="container-custom">
+                <div className="max-w-xl">
+                  <div 
+                    className="bg-white rounded-tr-3xl rounded-br-3xl p-8 md:p-10 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
+                    style={{ 
+                      opacity: cardOpacity,
+                      transform: `translateY(-${cardTranslateY}px)`,
+                      pointerEvents: cardOpacity < 0.3 ? 'none' : 'auto'
+                    }}
+                  >
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                      Confidence in every{" "}
+                      <span style={{ color: "var(--color-medical-green)" }}>contour.</span>
+                    </h1>
+                    <p className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">
+                      Expert radiologist-led targeting plans delivered <strong>before your procedure day</strong>. 
+                      No interpretation required—just millimeter-accurate coordinates ready to use.
+                    </p>
+                    
+                    {/* Key Stat - Surgeon-focused */}
+                    <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl p-4 mb-6 border border-emerald-200">
+                      <p className="text-sm text-gray-700">
+                        <span className="text-2xl font-bold" style={{ color: "var(--color-medical-green)" }}>24-48hrs</span>{" "}
+                        Plans delivered before your procedure day—<strong>walk in ready</strong>.
+                      </p>
+                    </div>
+
+                    <Link
+                      href="#expert-process"
+                      onClick={(e) => { e.preventDefault(); scrollToSection('expert-process'); }}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+                    >
+                      See the process
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </Link>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-200">
+                      <Link
+                        href="/about/pcl"
+                        className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+                      >
+                        Meet Dr Clare Allen
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-600" style={{ backgroundColor: "var(--color-medical-green)" }} />
+        </section>
+
+        {/* Section 1: The Expert Process - with Video */}
+        <section id="expert-process" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center py-20">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Text Content */}
+              {/* Left: Text */}
               <div>
-                {/* Hook Reiteration - Paul's UX Rule */}
-                <p className="text-emerald-400 font-semibold mb-3 uppercase tracking-wide text-sm">Expert Radiology</p>
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-                  Confidence in every <span className="text-emerald-400">contour.</span>
-                </h1>
-                <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-slate-300">
-                  MRI Fusion Planning & Contouring
+                <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Expert Radiology</p>
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+                  Dr Clare Allen's Contouring Process
                 </h2>
-                <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                  Expert radiologist-led targeting plans delivered before your procedure day. Dr Clare Allen's multiparametric MRI analysis creates millimeter-accurate coordinates for fusion biopsy or HIFU.
+                <p className="text-slate-300 mb-6 leading-relaxed text-lg">
+                  Watch our lead radiologist contour lesions in real-time. Using multiparametric MRI sequences, 
+                  Dr Allen identifies and maps every target with millimeter precision—before your procedure day.
                 </p>
-                <div className="space-y-3 text-slate-200">
+                <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Consultant radiologist expertise with 20+ years in prostate mpMRI</span>
+                    <div className="w-8 h-8 bg-emerald-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold">20+ years prostate mpMRI expertise</p>
+                      <p className="text-slate-400 text-sm">UCL Lead, PROMISE Trial lead radiologist</p>
+                    </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Virtual fusion alignment and grid planning completed in advance</span>
+                    <div className="w-8 h-8 bg-emerald-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold">Six MRI sequences analyzed</p>
+                      <p className="text-slate-400 text-sm">T2, ADC, diffusion, vascularity patterns</p>
+                    </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Ready-to-use targeting coordinates for immediate procedure start</span>
+                    <div className="w-8 h-8 bg-emerald-600/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold">Ready-to-use coordinates</p>
+                      <p className="text-slate-400 text-sm">No interpretation needed in theatre</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right: Contouring Video Player */}
+              {/* Right: Video Player */}
               <ContouringVideoPlayer />
             </div>
           </div>
         </section>
 
-        <div className="container-custom py-16">
-
-          {/* Interactive MRI Viewer */}
-          <section className="mb-20">
+        {/* Section 2: MRI Viewer */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
             <MultiparametricMRIViewer />
-          </section>
+          </div>
+        </section>
 
-          {/* Dr Clare Allen - Lead Contouring Specialist */}
-          <div className="mb-16">
-            <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 md:p-12 shadow-lg border border-green-200">
+        {/* Section 3: Dr Clare Allen Profile */}
+        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+          <div className="container-custom">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-green-200">
               <h2 className="text-3xl font-bold text-center mb-8" style={{ color: "var(--color-medical-green)" }}>
                 Expert MRI Contouring by Dr Clare Allen
               </h2>
               <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                 <div className="lg:col-span-4">
-                  <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 shadow-lg">
                     <Image
                       src="/surgeons/ca.png"
                       alt="Dr Clare Allen"
@@ -332,9 +425,9 @@ export default function BiopsyPlanPage() {
                     />
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">Dr Clare Allen</h3>
                     <p className="text-lg font-medium mb-2" style={{ color: "var(--color-medical-green)" }}>
-                      Consultant Radiologist - Lead Contouring Specialist
+                      Consultant Radiologist
                     </p>
-                    <p className="text-sm text-gray-600 font-medium">Oxford Graduate, UCL Uro-Radiology Lead Consultant</p>
+                    <p className="text-sm text-gray-600 font-medium">Oxford Graduate, UCL Uro-Radiology Lead</p>
                   </div>
                 </div>
                 <div className="lg:col-span-8">
@@ -342,64 +435,29 @@ export default function BiopsyPlanPage() {
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-4">Background & Expertise</h4>
                       <p className="text-gray-700 leading-relaxed">
-                        Dr Allen qualified from Oxford and is the uro-radiology lead consultant at UCL. She has pioneered the use of mpMRI imaging for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK and internationally. She was lead radiologist on the Promise Trial which proved the efficacy of mpMRI for prostate cancer globally.
+                        Dr Allen qualified from Oxford and is the uro-radiology lead consultant at UCL. She has pioneered the use of mpMRI imaging for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK and internationally. She was lead radiologist on the PROMISE Trial which proved the efficacy of mpMRI for prostate cancer globally.
                       </p>
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-4">Contouring Process</h4>
-                      <p className="text-gray-700 leading-relaxed mb-4">
-                        Once our service is booked, Dr Clare Allen sets up the biopsy plans for each patient, prior to
-                        the procedure. Using the MRI report from your local radiologist, Dr Allen adds her expert
-                        knowledge to identify all areas of suspicion. The biopsy plan is then created using specialist
-                        contouring software.
+                    <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+                      <p className="text-gray-700 text-sm italic mb-4">
+                        "The fusion software allows me to view the T2, the dynamically enhanced and the high B value scans, plus the ADC map simultaneously. I can contour the targets using whichever images best show the lesion."
                       </p>
-                      <div className="bg-white rounded-xl p-6 border border-green-200">
-                        <p className="text-gray-700 text-sm italic mb-4">
-                          "The fusion software allows me to view the T2, the dynamically enhanced and the high B value
-                          scans, plus the ADC map simultaneously. I can contour the targets using whichever images
-                          best show the lesion. I create the biopsy plan, aligning the contouring with the virtual
-                          template and adjusting the angle to match the ultrasound probe position during the biopsy
-                          procedure."
-                        </p>
-                        <p className="text-sm font-medium text-gray-900">
-                          The plan is then sent to the Application Specialists, ready for use in theatres.
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-3">Key Expertise Areas</h4>
-                      <ul className="space-y-2">
-                        <li className="flex items-start gap-3">
-                          <span className="text-green-600 mt-1">✓</span>
-                          <span className="text-gray-700">Expert contouring using specialist software</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-green-600 mt-1">✓</span>
-                          <span className="text-gray-700">MRI report analysis and target identification</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-green-600 mt-1">✓</span>
-                          <span className="text-gray-700">Biopsy plan creation with virtual template alignment</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-green-600 mt-1">✓</span>
-                          <span className="text-gray-700">Ultrasound probe position matching during procedures</span>
-                        </li>
-                      </ul>
+                      <p className="text-sm font-medium text-emerald-800">— Dr Clare Allen</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* The Planning Workflow */}
-          <div className="mb-16">
+        {/* Section 4: Planning Workflow */}
+        <section className="py-20 bg-white">
+          <div className="container-custom">
             <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "var(--color-medical-green)" }}>
               Virtual Grid Alignment & Target Planning
             </h2>
 
-            {/* Part A: Virtual Probe & Grid Setup */}
             <div className="grid lg:grid-cols-2 gap-8 mb-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg">
@@ -414,77 +472,26 @@ export default function BiopsyPlanPage() {
               </div>
               <div className="order-1 lg:order-2">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 border border-blue-200">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                    </svg>
-                  </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
                     Part A: Virtual Probe Positioning
                   </h3>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    Dr. Allen positions a virtual ultrasound probe and biopsy grid in the MRI space. The cyan overlay shows the planned probe angle and grid coordinates for systematic sampling.
+                    Dr. Allen positions a virtual ultrasound probe and biopsy grid in the MRI space. The cyan overlay shows the planned probe angle and grid coordinates.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Green outline</strong> = Prostate gland boundary from MRI</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Cyan overlay</strong> = Virtual probe and biopsy grid</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Grid pattern</strong> = Systematic sampling coordinates</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
 
-            {/* Part B: MRI Fusion to Ultrasound */}
-            <div className="grid lg:grid-cols-2 gap-8 mb-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl p-8 border border-emerald-200">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                    <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg>
-                  </div>
                   <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
                     Part B: MRI Fusion to Virtual Ultrasound
                   </h3>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    The MRI-contoured targets are fused to the virtual ultrasound view. Green contours show the planned biopsy targets ready to be matched on procedure day.
+                    The MRI-contoured targets are fused to the virtual ultrasound view. Green contours show planned biopsy targets ready to be matched on procedure day.
                   </p>
-                  <ul className="space-y-2 text-sm text-gray-600">
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Green contours</strong> = MRI-identified lesions</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-gray-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Grayscale view</strong> = Virtual ultrasound field</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <svg className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span><strong>Cyan dots</strong> = Grid reference points for alignment</span>
-                    </li>
-                  </ul>
-                  <div className="mt-4 bg-emerald-100 rounded-lg p-3">
+                  <div className="bg-emerald-100 rounded-lg p-3">
                     <p className="text-xs text-emerald-900 font-semibold">
                       This fusion plan is created days before your procedure. On the day, our Application Specialist loads this plan and matches it to live ultrasound.
                     </p>
@@ -495,7 +502,7 @@ export default function BiopsyPlanPage() {
                 <div className="bg-white rounded-xl border-2 border-gray-200 overflow-hidden shadow-lg">
                   <Image
                     src="/NEW/MRI_to-US_fusion.png"
-                    alt="MRI targets fused to virtual ultrasound view showing green contoured lesions"
+                    alt="MRI targets fused to virtual ultrasound view"
                     width={1200}
                     height={800}
                     className="w-full h-auto"
@@ -504,15 +511,17 @@ export default function BiopsyPlanPage() {
               </div>
             </div>
           </div>
+        </section>
 
-          {/* What Makes This Planning Special */}
-          <div className="bg-gradient-to-br from-blue-900 to-emerald-900 text-white rounded-2xl p-12 mb-16">
+        {/* Section 5: Why It Matters */}
+        <section className="py-20 bg-gradient-to-br from-blue-900 to-emerald-900 text-white">
+          <div className="container-custom">
             <h2 className="text-3xl font-bold mb-8 text-center">Why Expert Pre-Procedure Planning Matters</h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
                 <h3 className="text-xl font-bold mb-3">Expert Radiologist Contouring</h3>
                 <p className="text-sm text-blue-100">
-                  Dr. Clare Allen - UK pioneer in mpMRI for prostate cancer - interprets multiparametric sequences and contours targets with 20+ years of specialized expertise.
+                  Dr. Clare Allen - UK pioneer in mpMRI for prostate cancer - interprets multiparametric sequences with 20+ years of specialized expertise.
                 </p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
@@ -529,31 +538,34 @@ export default function BiopsyPlanPage() {
               </div>
             </div>
           </div>
+        </section>
 
-          {/* CTA */}
-          <div className="text-center">
+        {/* CTA Section */}
+        <section className="py-20 bg-white">
+          <div className="container-custom text-center">
             <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
               All Your Secretary Needs to Do Is Call Us
             </h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              We handle imaging transfer, expert contouring, virtual fusion planning, and on-site technical support. You walk into theatre with the plan ready - no operational burden.
+              We handle imaging transfer, expert contouring, virtual fusion planning, and on-site technical support. You walk into theatre with the plan ready.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/contact"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all inline-block"
               >
                 Get Started
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/services/how-it-works"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
               >
                 See How It Works
-              </a>
+              </Link>
             </div>
           </div>
-        </div>
+        </section>
+
       </main>
       <Footer />
     </>

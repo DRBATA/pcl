@@ -2,112 +2,169 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import Link from "next/link"
+import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 
-export default function ServicesPage() {
-  const [currentReportView, setCurrentReportView] = useState(0)
+// Hero image - same as homepage carousel
+import heroTheatre from "@/public/hero/section3_updated.png"
 
-  const reportViews = [
-    { image: "biopsy/left.png" },
-    { image: "biopsy/posterior-anterior.png" },
-    { image: "biopsy/right.png" },
-    { image: "biopsy/a.png" },
-    { image: "biopsy/view.png" },
-  ]
+export default function HowItWorksPageNew() {
+  // Parallax scroll state for vanishing card
+  const [scrollY, setScrollY] = useState(0)
+  const heroRef = useRef<HTMLElement>(null)
 
-  // Auto-cycle through report views every 4 seconds
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentReportView((prev) => (prev + 1) % reportViews.length)
-    }, 4000)
-    return () => clearInterval(interval)
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect()
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY)
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  const services = [
-    {
-      title: "MR/US Fusion Biopsy",
-      description:
-        "State-of-the-art precision biopsy using MR/US fusion technology for accurate prostate cancer diagnosis.",
-      cases2025: "1,072",
-      link: "/services/freehand-fusion",
-    },
-    {
-      title: "On-Site HIFU",
-      description: "High-Intensity Focused Ultrasound treatment delivered with precision and expertise.",
-      cases2025: "209",
-      link: "/services/hifu",
-    },
-    {
-      title: "IRE (NanoKnife)",
-      description: "Irreversible Electroporation for precise focal therapy with minimal side effects.",
-      cases2025: "64",
-      link: "/services/patient-referral",
-    },
-  ]
+
+  const cardOpacity = Math.max(0, 1 - scrollY / 300)
+  const cardTranslateY = Math.min(scrollY * 0.3, 100)
+  const gradientOpacity = Math.max(0.3, 0.7 - scrollY / 500)
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      const header = document.querySelector('header')
+      const headerHeight = header?.getBoundingClientRect().height || 80
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY
+      window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   const processSteps = [
     {
       number: "01",
-      title: "Easy Booking",
-      description:
-        "Contact our operations team (Claire Lloyd or Jane Terry) to reserve equipment. We liaise directly with your hospital to coordinate scheduling.",
+      title: "Book Our Service",
+      description: "Your secretary calls to book. We handle scheduling, equipment logistics, and coordinate with your theatre team."
     },
     {
-      number: "02",
-      title: "Pre-Procedure Planning",
-      description:
-        "Dr Clare Allen reviews MRI scans and creates detailed biopsy plans using specialist contouring software. Plans are ready before procedure day.",
+      number: "02", 
+      title: "Imaging Transfer",
+      description: "We securely receive patient MRI scans and Dr Clare Allen contours targets using multiparametric analysis."
     },
     {
       number: "03",
-      title: "Equipment Delivery & Setup",
-      description:
-        "Our team arrives on-site with all equipment, performs setup and safety checks. Everything is ready when you need it.",
+      title: "Plan Delivery",
+      description: "Fusion-ready targeting plans delivered 24-48 hours before your procedure day. Walk in ready."
     },
     {
       number: "04",
-      title: "On-Site Support",
-      description:
-        "Application Specialists remain present throughout procedures, managing fusion software and providing real-time technical guidance.",
+      title: "Equipment Arrives",
+      description: "Our Application Specialist arrives with all equipment—Sonablate, Nanoknife, MIM, or BK systems as needed."
     },
     {
       number: "05",
-      title: "Post-Procedure Reporting",
-      description:
-        "Detailed graphic reports are provided showing biopsy tracking and results, helping patients understand their diagnosis and treatment options.",
+      title: "Theatre Support",
+      description: "We manage fusion, grid alignment, and software. Your team focuses entirely on the patient."
     },
     {
       number: "06",
-      title: "Equipment Disassembly",
-      description:
-        "Our team handles all equipment disassembly and removal. No maintenance costs or storage requirements for your facility.",
-    },
+      title: "Clean Exit",
+      description: "Equipment packed, theatre returned exactly as found. No storage, no maintenance, no capital burden."
+    }
   ]
 
   return (
     <>
       <Header />
-      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+      <main className="overflow-y-auto">
         
-        {/* Hook Reiteration Hero - Paul's UX Rule */}
-        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 mb-12">
-          <div className="container-custom text-center">
-            <p className="text-emerald-400 font-semibold mb-3 uppercase tracking-wide text-sm">Theatre Support</p>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Every list. <span className="text-emerald-400">Close to clockwork.</span>
-            </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.
-            </p>
+        {/* Hero Section with Parallax Vanishing Card */}
+        <section ref={heroRef} className="relative min-h-[90vh] lg:min-h-screen flex flex-col overflow-hidden">
+          <div className="relative flex-1 flex flex-col">
+            {/* Hero Image - Theatre/Sonablate (same as carousel) */}
+            <div className="absolute inset-0">
+              <Image
+                src={heroTheatre}
+                alt="PCL Application Specialist with surgeon reviewing Sonablate system"
+                fill
+                className="object-cover"
+                priority
+                placeholder="blur"
+              />
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent transition-opacity duration-100"
+                style={{ opacity: gradientOpacity }}
+              />
+            </div>
+
+            {/* Hero Content - Parallax vanishing card */}
+            <div className="absolute bottom-16 left-0 right-0">
+              <div className="container-custom">
+                <div className="max-w-xl">
+                  <div 
+                    className="bg-white rounded-tr-3xl rounded-br-3xl p-8 md:p-10 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
+                    style={{ 
+                      opacity: cardOpacity,
+                      transform: `translateY(-${cardTranslateY}px)`,
+                      pointerEvents: cardOpacity < 0.3 ? 'none' : 'auto'
+                    }}
+                  >
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                      Every list.{" "}
+                      <span style={{ color: "var(--color-medical-green)" }}>Close to clockwork.</span>
+                    </h1>
+                    <p className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">
+                      Our Application Specialists manage the <strong>fusion, grid alignment, and software</strong>—so 
+                      your surgeon and team can focus entirely on the patient.
+                    </p>
+                    
+                    {/* Key Stat - Theatre Manager focused */}
+                    <div className="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-xl p-4 mb-6 border border-emerald-200">
+                      <p className="text-sm text-gray-700">
+                        <span className="text-2xl font-bold" style={{ color: "var(--color-medical-green)" }}>1,000+</span>{" "}
+                        procedures supported annually—<strong>predictable, reliable, every time</strong>.
+                      </p>
+                    </div>
+
+                    <Link
+                      href="#process-steps"
+                      onClick={(e) => { e.preventDefault(); scrollToSection('process-steps'); }}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+                    >
+                      See the process
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </Link>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-200">
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+                      >
+                        Book our service
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-600" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
-        <div className="container-custom py-12">
-          {/* Process Overview Section */}
-          <div className="mb-20">
+        {/* Section 1: Process Steps */}
+        <section id="process-steps" className="py-20 bg-white">
+          <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -117,8 +174,8 @@ export default function ServicesPage() {
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-6">How It Works</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our streamlined process makes it easy to access state-of-the-art equipment and expert support without
-                the burden of ownership.
+                Our streamlined process makes it easy to access state-of-the-art equipment and expert support 
+                without the burden of ownership.
               </p>
             </motion.div>
 
@@ -132,220 +189,125 @@ export default function ServicesPage() {
                   viewport={{ once: true }}
                   className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border border-green-200"
                 >
-                  <div className="text-5xl font-bold mb-4 opacity-20" style={{ color: "var(--color-medical-green)" }}>
+                  <div className="text-5xl font-bold mb-4" style={{ color: "var(--color-medical-green)", opacity: 0.3 }}>
                     {step.number}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-gray-600">{step.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Scrolling Services Images Strip */}
-          <div className="mb-20 overflow-hidden">
-            <div className="flex gap-6 animate-scroll-left">
-              {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex gap-6 flex-shrink-0">
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((num) => (
-                    <div
-                      key={`${setIndex}-${num}`}
-                      className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden"
-                    >
-                      <Image
-                        src={`/ss${num}.jpg`}
-                        alt={`Service showcase ${num}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
+        {/* Section 2: What We Bring */}
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+          <div className="container-custom">
+            <h2 className="text-3xl font-bold text-center mb-12">What We Bring to Your Theatre</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-16 h-16 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
                 </div>
-              ))}
+                <h3 className="font-bold mb-2">Sonablate</h3>
+                <p className="text-sm text-slate-300">HIFU ablation system</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold mb-2">Nanoknife</h3>
+                <p className="text-sm text-slate-300">IRE ablation system</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                  </svg>
+                </div>
+                <h3 className="font-bold mb-2">MIM Software</h3>
+                <p className="text-sm text-slate-300">Fusion planning</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+                <div className="w-16 h-16 bg-cyan-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold mb-2">BK Systems</h3>
+                <p className="text-sm text-slate-300">Ultrasound & biopsy</p>
+              </div>
             </div>
-          </div>
-
-          {/* On the Day Support Section */}
-          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.02 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">On the Day Support</h2>
-              <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                "One of the major advantages of working with ProstateCare Ltd is how easy it is to book their service.
-                Their operations team reserve the equipment for us and then liaise directly with the private hospital. I
-                know they will be there on time and ready to start."
+            
+            <div className="mt-12 text-center">
+              <p className="text-slate-300 text-lg">
+                <strong className="text-white">No capital investment required.</strong> We bring everything, we take everything away.
               </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6 border border-gray-200">
-                  <h3 className="text-lg font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-                    What We Provide
-                  </h3>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Application Specialists on-site throughout procedure</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Real-time fusion software management</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Technical guidance and troubleshooting</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Biopsy tracking and documentation</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-200">
-                  <h3 className="text-lg font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-                    Post-Procedure
-                  </h3>
-                  <ul className="space-y-3 text-gray-600">
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Detailed graphic reports provided</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Biopsy tracking visualization</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Patient-friendly result documentation</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-600 mt-1">✓</span>
-                      <span>Complete equipment disassembly and removal</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
+        </section>
 
-          {/* Post-Procedure Report: Targeting Accuracy */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-2xl p-8 mb-16 border-2 border-emerald-200">
-              <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
-                📊 Your Targeting Accuracy Report
+        {/* Section 3: The Promise */}
+        <section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-8" style={{ color: "var(--color-medical-green)" }}>
+                We Arrive. We Run. We Leave.
               </h2>
+              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                Your theatre exactly as we found it. No equipment storage. No maintenance schedules. 
+                No training burden. Just reliable, expert support whenever you need it.
+              </p>
               
-              <div className="grid lg:grid-cols-2 gap-8 mb-8 items-start">
-                <div>
-                  <p className="text-gray-700 mb-8 leading-relaxed space-y-4">
-                   After each procedure, surgeons receive a detailed report showing 
-                    <strong> exactly how well they met their targets</strong> — 
-                   quantifying accuracy, documenting sampling coverage, and providing 
-                    objective evidence of diagnostic quality.
-                  </p>
-
-                  <p className="text-gray-700 mb-8 leading-relaxed space-y-4">
-                    This visualisation also provides <strong>clear reassurance for patients</strong>, 
-                    demonstrating that the precise area of concern has been accurately sampled, 
-                    and that every biopsy can be directly correlated with its histopathology result 
-                    for complete transparency and peace of mind.
-                  </p>
+              <div className="grid md:grid-cols-3 gap-6 mt-12">
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-emerald-200">
+                  <div className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>Zero</div>
+                  <p className="text-gray-600">Capital investment</p>
                 </div>
-                
-                <div className="rounded-xl overflow-hidden shadow-lg border border-emerald-200">
-                  <div className="relative w-full h-[400px] bg-white">
-                    {reportViews.map((view, idx) => (
-                      <div
-                        key={idx}
-                        className="absolute inset-0 transition-opacity duration-1000"
-                        style={{ opacity: idx === currentReportView ? 1 : 0 }}
-                      >
-                        <Image
-                          src={view.image}
-                          alt={`Targeting Report View ${idx + 1}`}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    ))}
-                    
-
-                    {/* Progress Dots */}
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {reportViews.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentReportView(idx)}
-                          className={`h-2 rounded-full transition-all ${
-                            idx === currentReportView ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
-                          }`}
-                          aria-label={`View ${idx + 1}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-emerald-200">
+                  <div className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>Zero</div>
+                  <p className="text-gray-600">Storage required</p>
                 </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 border border-gray-200">
-                  <h3 className="text-lg font-bold mb-3 text-emerald-900">📍 What's Included</h3>
-                  <ul className="text-sm text-gray-700 space-y-2">
-                    <li>• <strong>Target Hit Rate:</strong> Percentage of MRI targets successfully sampled</li>
-                    <li>• <strong>Grid Coverage Map:</strong> Visual confirmation of systematic sampling</li>
-                    <li>• <strong>Lesion Coordinates:</strong> A1, B3, etc. - reproducible for follow-up</li>
-                    <li>• <strong>3D Spatial Visualization:</strong> MRI fusion overlay with needle paths</li>
-                    <li>• <strong>Core-by-Core Visualisation:</strong> Depth, angle, target accuracy per sample</li>
-                  </ul>
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-emerald-200">
+                  <div className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>Zero</div>
+                  <p className="text-gray-600">Maintenance burden</p>
                 </div>
-
-                <div className="bg-white rounded-xl p-6 border border-gray-200">
-                  <h3 className="text-lg font-bold mb-3 text-cyan-900">🎯 Why It Matters</h3>
-                  <ul className="text-sm text-gray-700 space-y-2">
-                    <li>• <strong>Patient Communication:</strong> Show patients exactly what was sampled</li>
-                    <li>• <strong>MDT Evidence:</strong> Objective data for multidisciplinary discussions</li>
-                    <li>• <strong>Quality Assurance:</strong> Track targeting performance over time</li>
-                    <li>• <strong>Audit Trail:</strong> Complete documentation for clinical governance</li>
-                    <li>• <strong>Reproducibility:</strong> Future biopsies can reference exact locations</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-6 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-xl p-4">
-                <p className="text-center text-sm font-semibold">
-                  ✨ Helpful guide to dicuss with patients about their diagnostic and onward planning.
-                </p>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </section>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center bg-gradient-to-br from-green-900 to-emerald-800 text-white rounded-2xl p-12"
-          >
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-              Contact our operations team to book your service and experience the ProstateCare Ltd difference.
+        {/* CTA Section */}
+        <section className="py-20 bg-white">
+          <div className="container-custom text-center">
+            <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
+              Ready to Simplify Your Theatre Operations?
+            </h2>
+            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+              One call from your secretary starts the process. We handle everything else.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-green-900 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition-colors"
-            >
-              Book a Call <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all inline-block"
+              >
+                Book Our Service
+              </Link>
+              <Link
+                href="/services/biopsy-plan"
+                className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
+              >
+                See Biopsy Planning
+              </Link>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </>
