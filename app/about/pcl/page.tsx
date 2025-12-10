@@ -481,16 +481,16 @@ export default function AboutPCLPageNew() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/about/clinician-experience"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all inline-block"
               >
-                Partner With Us
+                Meet Our Clinicians
               </Link>
               <Link
-                href="/services/how-it-works"
+                href="/about/equipment-services"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
               >
-                See How It Works
+                See Our Equipment
               </Link>
             </div>
           </div>

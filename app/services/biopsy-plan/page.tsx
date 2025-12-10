@@ -628,23 +628,23 @@ export default function BiopsyPlanPageNew() {
         <section className="py-20 bg-white">
           <div className="container-custom text-center">
             <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-              All Your Secretary Needs to Do Is Call Us
+              See How We Execute the Plan in Theatre
             </h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              We handle imaging transfer, expert contouring, virtual fusion planning, and on-site technical support. You walk into theatre with the plan ready.
+              Now you've seen how we plan—see how we fuse. Our Application Specialists bring the plan to life with real-time MRI/ultrasound fusion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/services/mr-us-fusion-biopsy"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all inline-block"
               >
-                Get Started
+                See the Procedure
               </Link>
               <Link
-                href="/services/how-it-works"
+                href="/services/hifu"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
               >
-                See How It Works
+                Explore HIFU Treatment
               </Link>
             </div>
           </div>

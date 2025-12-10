@@ -481,22 +481,22 @@ export default function HifuPage() {
           </section>
 
           <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Offer HIFU at Your Facility?</h2>
+            <h2 className="text-3xl font-bold mb-4">See the Full Picture</h2>
             <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-              Join surgical teams across the UK who are delivering precision focal therapy without capital investment. Premium HIFU solutions with expert support.
+              From expert planning to precision delivery—discover how our complete service works, or explore our equipment and technology partnerships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="/contact"
+                href="/services/how-it-works"
                 className="inline-block bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-emerald-700 hover:to-emerald-800 transition-all"
               >
-                Contact Us
+                See How It Works
               </a>
               <a 
-                href="/about/pcl"
+                href="/about/equipment-services"
                 className="inline-block border border-white/30 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all"
               >
-                Learn More About PCL
+                Our Equipment Partners
               </a>
             </div>
           </section>

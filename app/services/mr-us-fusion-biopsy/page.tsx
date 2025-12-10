@@ -256,15 +256,15 @@ export default function FreehandFusionPageV2() {
 
           {/* CTA Section */}
           <div className="text-center bg-gradient-to-br from-green-900 to-emerald-800 text-white rounded-2xl p-12">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl font-bold mb-4">Explore Our Full Service Range</h2>
             <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-              Contact our operations team to discuss which MRI fusion approach suits your practice.
+              From precision biopsy to focal therapy—discover how HIFU treatment can complement your diagnostic pathway.
             </p>
             <a
-              href="/contact"
+              href="/services/hifu"
               className="inline-flex items-center gap-2 bg-white text-green-900 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition-colors"
             >
-              Book a Call
+              Explore HIFU Treatment
             </a>
           </div>
 
