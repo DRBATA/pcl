@@ -172,22 +172,28 @@ export default function HomePageNew() {
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
-        {/* Hospital Logos Strip - Seamless Scrolling Marquee */}
-        <section id="hospital-logos" className="bg-gray-50 overflow-hidden border-t border-gray-200">
-          <div className="relative h-20 flex items-center">
-            <div className="animate-marquee flex items-center gap-16">
-              {/* First set of logos */}
-              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0 invert" />
-              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
-              {/* Duplicate set for seamless loop */}
-              <Image src="/hero/HCA_logo_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-              <Image src="/hero/spire_logo_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-              <Image src="/hero/circle_logo_transparent.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
-              <Image src="/hero/liv_harley_trans.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0 invert" aria-hidden="true" />
-              <Image src="/hero/newfos_log_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+        {/* Hospital Logos Strip - Simple Static Display */}
+        <section id="hospital-logos" className="bg-white py-6 border-t border-b border-gray-200">
+          <div className="container-custom">
+            <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={120} height={50} className="max-h-10 w-auto object-contain" />
+              </div>
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={100} height={50} className="max-h-8 w-auto object-contain" />
+              </div>
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={100} height={50} className="max-h-8 w-auto object-contain" />
+              </div>
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={80} height={50} className="max-h-10 w-auto object-contain" />
+              </div>
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={120} height={50} className="max-h-10 w-auto object-contain brightness-0" />
+              </div>
+              <div className="flex items-center justify-center h-14 px-4">
+                <Image src="/hero/newfos_log_transparnt.png" alt="New Foscote" width={100} height={50} className="max-h-8 w-auto object-contain opacity-0" aria-hidden="true" />
+              </div>
             </div>
           </div>
         </section>
