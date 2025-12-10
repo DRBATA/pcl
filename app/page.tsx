@@ -172,28 +172,15 @@ export default function HomePageNew() {
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
-        {/* Hospital Logos Strip - Simple Static Display */}
-        <section id="hospital-logos" className="bg-white py-6 border-t border-b border-gray-200">
+        {/* Hospital Logos Strip - Clean Static Display */}
+        <section id="hospital-logos" className="bg-white py-8 border-t border-b border-gray-100">
           <div className="container-custom">
-            <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap">
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={120} height={50} className="max-h-10 w-auto object-contain" />
-              </div>
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={100} height={50} className="max-h-8 w-auto object-contain" />
-              </div>
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={100} height={50} className="max-h-8 w-auto object-contain" />
-              </div>
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={80} height={50} className="max-h-10 w-auto object-contain" />
-              </div>
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={120} height={50} className="max-h-10 w-auto object-contain brightness-0" />
-              </div>
-              <div className="flex items-center justify-center h-14 px-4">
-                <Image src="/hero/newfos_log_transparnt.png" alt="New Foscote" width={100} height={50} className="max-h-8 w-auto object-contain opacity-0" aria-hidden="true" />
-              </div>
+            <div className="flex items-center justify-between max-w-5xl mx-auto px-4">
+              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={140} height={60} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={120} height={60} className="h-8 md:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={120} height={60} className="h-8 md:h-10 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={100} height={60} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
+              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={140} height={60} className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100" />
             </div>
           </div>
         </section>
