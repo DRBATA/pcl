@@ -53,8 +53,12 @@ export default function AboutPCLPageNew() {
   const clinicalTeamImages = [
     { image: "/surgeons/jk.png", name: "John Kelly", role: "Managing Director" },
     { image: "/surgeons/ca.png", name: "Dr Clare Allen", role: "Lead Radiologist" },
+    { image: "/surgeons/fg.png", name: "Dr Francesco Giganti", role: "Consultant Radiologist" },
     { image: "/surgeons/aa.png", name: "Adam Anderson", role: "Application Specialist" }
   ]
+
+  // Scrolling images for procedures strip
+  const serviceImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -244,107 +248,228 @@ export default function AboutPCLPageNew() {
           </div>
         </section>
 
-        {/* Section 3: Why Choose PCL */}
+        {/* Section 3: Clinical Excellence - WHO PLANS */}
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <p className="text-emerald-600 font-semibold mb-2 uppercase tracking-wide text-sm">Clinical Excellence</p>
+              <h2 className="text-3xl font-bold text-gray-900">Who Plans Your Procedures</h2>
+              <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Expert radiologists whose expertise feeds directly into every fusion plan
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Dr Clare Allen */}
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-emerald-200">
+                    <Image
+                      src="/surgeons/ca.png"
+                      alt="Dr Clare Allen"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Dr Clare Allen</h3>
+                    <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
+                      Consultant Uroradiologist
+                    </p>
+                    <p className="text-sm text-gray-600">MBBS (Oxford) | GMC: 3108389</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-gray-700 leading-relaxed text-sm">
+                    Clare qualified from Oxford (MBBS, 1985) and is the uro-radiology lead consultant at University College London. She has pioneered the use of mpMRI for prostate cancer since 2000.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed text-sm">
+                    Lead radiologist on the <strong>PROMISE Trial</strong> which proved the efficacy of mpMRI for prostate cancer globally.
+                  </p>
+                </div>
+              </div>
+
+              {/* Dr Francesco Giganti */}
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-200">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-200">
+                    <Image
+                      src="/surgeons/fg.png"
+                      alt="Dr Francesco Giganti"
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">Dr Francesco Giganti</h3>
+                    <p className="text-lg font-medium" style={{ color: "var(--color-medical-green)" }}>
+                      Radiologist & Associate Professor UCL
+                    </p>
+                    <p className="text-sm text-gray-600">University College London</p>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-gray-700 leading-relaxed text-sm">
+                    Dr Francesco Giganti's research involves the application of MRI in prostate cancer. During his PhD at UCL, he conducted research on the application of MRI in patients on active surveillance for prostate cancer (<strong>PRECISE score</strong>) and on tools to improve MRI quality (<strong>PI-QUAL score</strong>).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/services/biopsy-plan"
+                className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
+              >
+                See the biopsy planning process
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: Operational Excellence - WHO DELIVERS */}
         <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-12 text-center">Why Choose Prostate Care Limited</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <div className="text-center mb-12">
+              <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Operational Excellence</p>
+              <h2 className="text-3xl font-bold">Who Delivers in Theatre</h2>
+              <p className="text-slate-300 mt-4 max-w-2xl mx-auto">
+                Application Specialists who work WITH the radiologist's plan to ensure seamless execution
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Expert Clinical Support</h3>
-                <p className="text-sm text-slate-300">
-                  Application Specialists handle setup, fusion alignment, and real-time guidance throughout procedures
+                <h3 className="text-xl font-bold mb-4 text-emerald-400">On-Site Application Specialists</h3>
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  Our Application Specialists are the backbone of every procedure. Their meticulous training spans <strong className="text-white">Sonablate, Nanoknife, and MIM MRI/Ultrasound Fusion Software</strong> platforms, as well as theatre equipment systems including Civco Biopsy Hardware and BK Trans-rectal Ultrasound.
+                </p>
+                <p className="text-slate-300 leading-relaxed">
+                  With experience across more than <strong className="text-white">1,000+ cases each year</strong>, our team sets up your chosen sampling equipment, guides the initial image alignment and calibration of the MRI fusion overlay—allowing you to focus better on the patient.
                 </p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
+
+              {/* Team Image Carousel */}
+              <div className="relative h-[400px] rounded-xl overflow-hidden">
+                {clinicalTeamImages.map((member, idx) => (
+                  <div
+                    key={idx}
+                    className="absolute inset-0 transition-opacity duration-1000"
+                    style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
+                  >
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                ))}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                  {clinicalTeamImages.map((_, idx) => (
+                    <div
+                      key={idx}
+                      className={`h-2 rounded-full transition-all ${
+                        idx === currentTeamImage ? 'w-8 bg-emerald-500' : 'w-2 bg-white/50'
+                      }`}
+                    />
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold mb-3">Radiologist-Led Contouring</h3>
-                <p className="text-sm text-slate-300">
-                  Specialist prostate MRI interpretation and target delineation by Dr Clare Allen
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3">Fully Managed Service</h3>
-                <p className="text-sm text-slate-300">
-                  No capital investment, no storage, no maintenance—we bring everything and take it away
-                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Section 4: The Team */}
-        <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        {/* Section 5: Coordination - WHO MAKES IT SEAMLESS */}
+        <section className="py-20 bg-white">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "var(--color-medical-green)" }}>
-              Our Clinical Team
-            </h2>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-200">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  {/* Team Image Carousel */}
-                  <div className="relative h-[400px]">
-                    {clinicalTeamImages.map((member, idx) => (
-                      <div
-                        key={idx}
-                        className="absolute inset-0 transition-opacity duration-1000"
-                        style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
-                      >
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-contain rounded-xl"
-                        />
-                      </div>
-                    ))}
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                      {clinicalTeamImages.map((_, idx) => (
-                        <div
-                          key={idx}
-                          className={`h-2 rounded-full transition-all ${
-                            idx === currentTeamImage ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Team Info */}
-                  <div>
-                    <div className="transition-opacity duration-500">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {clinicalTeamImages[currentTeamImage].name}
-                      </h3>
-                      <p className="text-lg font-medium mb-4" style={{ color: "var(--color-medical-green)" }}>
-                        {clinicalTeamImages[currentTeamImage].role}
-                      </p>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">
-                      Our team combines decades of clinical expertise with hands-on operational excellence. 
-                      From expert MRI contouring to real-time theatre support, we're with you at every step.
-                    </p>
-                  </div>
+            <div className="text-center mb-12">
+              <p className="text-emerald-600 font-semibold mb-2 uppercase tracking-wide text-sm">Seamless Coordination</p>
+              <h2 className="text-3xl font-bold text-gray-900">Who Makes It All Work</h2>
+              <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Admin and logistics that ENABLE the clinical work—so all your secretary needs to do is call us
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Coordination & Administration */}
+              <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-8 border border-emerald-200">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
                 </div>
+                <h3 className="text-xl font-bold mb-4" style={{ color: "var(--color-medical-green)" }}>
+                  Coordination & Administration
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  <strong>All your secretary needs to do is call us.</strong> Our coordination team handles imaging transfer, schedules Dr Allen's contouring, arranges on-site specialist deployment, and ensures everything is ready before you step into theatre.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  After the procedure, they coordinate the post-procedure targeting accuracy report—delivering complete documentation to support your clinical records.
+                </p>
+              </div>
+
+              {/* Parker Transport */}
+              <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-8 border border-orange-200">
+                <div className="flex items-center gap-4 mb-6">
+                  <Image
+                    src="/logos/parker&sonstransport.gif"
+                    alt="Parker & Son Transport"
+                    width={120}
+                    height={50}
+                    className="h-12 w-auto"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-orange-700">
+                  Equipment Transport & Logistics
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  <strong>Parker Medical Transport</strong> handles the complex logistics of ferrying our precision equipment—including 6DOF stepper systems, ultrasound units, cradles, and calibration tools—safely to your location and back.
+                </p>
+                <p className="text-sm text-gray-500 italic">
+                  Note: MRI images and planning data are transferred digitally via secure cloud-based systems—not by physical transport.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Scrolling Services Images Strip */}
+        <section className="py-8 bg-slate-100 overflow-hidden">
+          <div className="flex gap-6 animate-scroll-left">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-6 flex-shrink-0">
+                {serviceImages.map((num) => (
+                  <div
+                    key={`${setIndex}-${num}`}
+                    className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden"
+                  >
+                    <Image
+                      src={`/ss${num}.jpg`}
+                      alt={`Service showcase ${num}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        
         {/* CTA Section */}
         <section className="py-20 bg-white">
           <div className="container-custom text-center">

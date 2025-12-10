@@ -1,4 +1,4 @@
-# Biopsy Plan Page Redesign - Fibonacci Iteration Plan
+# Biopsy Plan Page Redesign - MERGED Fibonacci Plan
 
 ## Persona: Surgeons Who Demand Precision
 **Hook:** "Confidence in every contour."
@@ -6,7 +6,7 @@
 
 ---
 
-## Fibonacci Iterations (For/Against Analysis)
+## ORIGINAL Fibonacci Iterations (PRESERVED)
 
 ### Iteration 1: Basic Hero Image Addition
 **FOR:** Simple improvement, matches carousel pattern
@@ -49,6 +49,28 @@
 
 ---
 
+## ADDITIONAL ANALYSIS (Dec 2025)
+
+### Gold Standard Reference: `/about/targeting-accuracy-report`
+Key patterns: Parallax hero, alternating dark/light, evidence boxes, scroll arrows
+
+### Source Material Audit (from `page_old.tsx`)
+
+**Currently have (good):**
+- ContouringVideoPlayer ✓
+- MultiparametricMRIViewer ✓
+- Dr Clare Allen section with quote ✓
+- Virtual Grid Alignment Part A/B ✓
+- "Why Expert Pre-Procedure Planning Matters" 3-cards ✓
+
+**MISSING - ADD:**
+- **Dr Francesco Giganti** - second radiologist ← USER FLAGGED
+  - PI-QUAL / PRECISE score research
+  - Adds credibility depth
+  - Image exists: `/surgeons/fg.png`
+
+---
+
 ## Research: Surgeon Psychology
 
 ### What Surgeons Value:
@@ -87,6 +109,61 @@ The hero should create ANTICIPATION, then the content delivers.
 
 ---
 
-## Files to Create:
-- `page_new.tsx` - New version with parallax hero
-- Archive `page.tsx` → `page_old.tsx`
+## Fibonacci Iterations (RIGOROUS)
+
+### 1: Basic parallax hero only
+**FOR:** Matches carousel, visual continuity
+**AGAINST:** 
+- Source: Old page had rich components (video, MRI viewer) - not in hero
+- Research: Surgeons want "show don't tell" - hero is just telling
+- Links: No clear path to /services/how-it-works or /about/pcl
+**RATING: 3/10**
+
+### 2: Hero + Contouring Video Section
+**FOR:** Video shows real process - "demonstrating expertise"
+**AGAINST:**
+- Source: MRI viewer component still not prominent enough
+- Research: Missing "evidence box" format for Dr Allen credentials
+- Structure: Not matching gold standard dark/light alternation
+**RATING: 5/10**
+
+### 3: Hero + Video + MRI Viewer (alternating sections)
+**FOR:** Both interactive components now featured
+**AGAINST:**
+- Source: Dr Allen quote ("The fusion software allows me...") not restored
+- Research: No evidence box with citable credentials
+- Links: Still missing internal cross-links
+**RATING: 6/10**
+
+### 5: Above + Dr Allen Quote + Evidence Box
+**FOR:** 
+- Direct quote adds authenticity
+- Evidence box: "Oxford, UCL Lead, PROMISE Trial"
+**AGAINST:**
+- Source: "Why Multiparametric MRI Matters" explanation box lost
+- Visual: Virtual Grid Alignment legends too brief
+- Structure: Gold standard has scroll arrows between sections
+**RATING: 7/10**
+
+### 8: Above + Full Grid Legends + Scroll Arrows
+**FOR:**
+- Grid legends restore technical depth surgeons expect
+- Scroll arrows guide progressive disclosure
+**AGAINST:**
+- Links: /services/how-it-works and /about/pcl not linked
+- Research: "Peer validation" missing - no track record mention
+**RATING: 8/10**
+
+### 13 (SYNTHESIS): Full Implementation
+**FOR:**
+- Source material: All restored (video, MRI viewer, quote, legends)
+- Research: Evidence boxes, show-don't-tell, expert credentials
+- Links: To /services/how-it-works, /about/pcl, /contact
+**RATING: 9/10**
+
+---
+
+## Primary Link from This Page
+**→ /services/mr-us-fusion-biopsy** (the actual procedure) ← USER APPROVED
+
+Natural flow: Surgeon understands the PLANNING → wants to see the PROCEDURE itself
