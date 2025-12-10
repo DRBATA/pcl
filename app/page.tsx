@@ -30,9 +30,9 @@ export default function HomePageNew() {
     {
       id: "radiology",
       image: heroRadiologist,
-      headline: "Expert eyes on",
-      headlineAccent: "every scan.",
-      subline: "Subspecialist prostate MRI read by the radiologist who led the PROMISE Trial.",
+      headline: "Confidence in every",
+      headlineAccent: "contour.",
+      subline: "Expert radiologist-led targeting plans delivered before your procedure day.",
       cta: "Meet our radiologists",
       ctaLink: "/services/biopsy-plan",
       scrollTarget: "section-radiology",
@@ -41,8 +41,8 @@ export default function HomePageNew() {
     {
       id: "theatre",
       image: heroTheatre,
-      headline: "The list runs.",
-      headlineAccent: "You don't worry.",
+      headline: "Your theatre. Our specialist.",
+      headlineAccent: "Every time.",
       subline: "A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.",
       cta: "See how a list runs",
       ctaLink: "/services",
