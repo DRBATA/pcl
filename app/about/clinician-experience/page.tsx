@@ -392,8 +392,8 @@ export default function PartnersPage() {
           )}
 
           {/* The Complete Service Package: Equipment & Logistics */}
-          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 text-white rounded-2xl p-12 border-4 border-amber-600 mt-16">
-            <h2 className="text-3xl font-bold mb-6 text-center text-amber-400">
+          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-zinc-900 text-white rounded-2xl p-12 border-2 border-emerald-500/50 mt-16">
+            <h2 className="text-3xl font-bold mb-6 text-center text-emerald-400">
               The Complete Technical Package
             </h2>
             <p className="text-center text-lg mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -401,29 +401,29 @@ export default function PartnersPage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-amber-500">
-                <h3 className="text-xl font-bold mb-4 text-amber-300">What We Handle For You</h3>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-emerald-500/30">
+                <h3 className="text-xl font-bold mb-4 text-emerald-300">What We Handle For You</h3>
                 <ul className="space-y-3 text-sm text-gray-200">
                   <li className="flex gap-3">
-                    <span className="text-amber-400">•</span>
+                    <span className="text-emerald-400">•</span>
                     <span><strong>Equipment logistics</strong> - Nationwide delivery, setup, disassembly for every procedure</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-amber-400">•</span>
+                    <span className="text-emerald-400">•</span>
                     <span><strong>Precision calibration</strong> - 6-degree-of-freedom positioning, probe alignment, field matching</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-amber-400">•</span>
+                    <span className="text-emerald-400">•</span>
                     <span><strong>Real-time technical support</strong> - Software optimization, hardware management, fusion accuracy</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-amber-400">•</span>
+                    <span className="text-emerald-400">•</span>
                     <span><strong>Sterile technique support</strong> - Draping, probe preparation, maintaining aseptic field</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border-2 border-emerald-500">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-emerald-500/30">
                 <h3 className="text-xl font-bold mb-4 text-emerald-300">Our Service Values</h3>
                 <ul className="space-y-3 text-sm text-gray-200">
                   <li className="flex gap-3">
