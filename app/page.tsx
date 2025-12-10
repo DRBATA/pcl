@@ -56,7 +56,7 @@ export default function HomePageNew() {
       headline: "The moment they see",
       headlineAccent: "what you see.",
       subline: "3D reports that turn complex diagnostics into clear, confident decisions your patients can understand.",
-      cta: "See a patient-ready report",
+      cta: "For surgeons who explain",
       ctaLink: "/about/targeting-accuracy-report",
       scrollTarget: "section-report",
       position: "left" as const
@@ -67,7 +67,7 @@ export default function HomePageNew() {
       headline: "Confidence in every",
       headlineAccent: "contour.",
       subline: "Expert radiologist-led targeting plans delivered before your procedure day.",
-      cta: "Meet our radiologists",
+      cta: "For surgeons who demand precision",
       ctaLink: "/services/biopsy-plan",
       scrollTarget: "section-radiology",
       position: "right" as const
@@ -78,7 +78,7 @@ export default function HomePageNew() {
       headline: "Every list.",
       headlineAccent: "Close to clockwork.",
       subline: "Our Application Specialists manage the fusion and software—so your team can focus entirely on the patient.",
-      cta: "See how a list runs",
+      cta: "For theatre managers",
       ctaLink: "/services",
       scrollTarget: "section-theatre",
       position: "left" as const
@@ -89,7 +89,7 @@ export default function HomePageNew() {
       headline: "What the great centres",
       headlineAccent: "already do.",
       subline: "Expert mpMRI contouring, fusion biopsy and 3D reports—delivered as a fully managed service on your site.",
-      cta: "See our track record",
+      cta: "For hospital directors",
       ctaLink: "/about/pcl",
       scrollTarget: "section-prestige",
       position: "left" as const
@@ -145,13 +145,9 @@ export default function HomePageNew() {
                       </h1>
                       <p className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">{slide.subline}</p>
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <Link href={slide.ctaLink} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg transition-all">
+                        <button onClick={() => scrollToSection(slide.scrollTarget)} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg transition-all group">
                           {slide.cta}
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                        </Link>
-                        <button onClick={() => scrollToSection(slide.scrollTarget)} className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-300 bg-white/50 text-gray-700 font-semibold rounded-lg hover:bg-white/80 transition-all">
-                          Learn more
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                          <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
                         </button>
                       </div>
                     </div>
@@ -176,24 +172,22 @@ export default function HomePageNew() {
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
-        {/* Hospital Logos Strip - Scrolling Marquee on light background */}
+        {/* Hospital Logos Strip - Seamless Scrolling Marquee */}
         <section id="hospital-logos" className="bg-gray-50 overflow-hidden border-t border-gray-200">
-          <div className="relative flex items-center h-20">
-            {/* First set of logos */}
-            <div className="flex animate-marquee items-center gap-12 pr-12">
-              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0 invert" />
-              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-            </div>
-            {/* Duplicate set for seamless loop */}
-            <div className="flex animate-marquee items-center gap-12 pr-12" aria-hidden="true">
-              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
-              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0 invert" />
-              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+          <div className="relative h-20 flex items-center">
+            <div className="animate-marquee flex items-center gap-16">
+              {/* First set of logos */}
+              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0 invert" />
+              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" />
+              {/* Duplicate set for seamless loop */}
+              <Image src="/hero/HCA_logo_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+              <Image src="/hero/spire_logo_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+              <Image src="/hero/circle_logo_transparent.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
+              <Image src="/hero/liv_harley_trans.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0 invert" aria-hidden="true" />
+              <Image src="/hero/newfos_log_transparnt.png" alt="" width={180} height={70} className="h-12 w-auto object-contain flex-shrink-0" aria-hidden="true" />
             </div>
           </div>
         </section>
