@@ -546,7 +546,7 @@ export default function BiopsyPlanPage() {
                 Get Started
               </a>
               <a
-                href="/services"
+                href="/services/how-it-works"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
               >
                 See How It Works

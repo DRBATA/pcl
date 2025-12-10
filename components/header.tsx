@@ -394,7 +394,7 @@ export function Header() {
                               </p>
                             </Link>
                             <Link
-                              href="/services"
+                              href="/services/how-it-works"
                               className={cn(
                                 "block group",
                                 isScrolled ? "text-slate-300" : "text-slate-700"
@@ -574,7 +574,7 @@ export function Header() {
                       HIFU
                     </Link>
                     <Link
-                      href="/services"
+                      href="/services/how-it-works"
                       className={cn(
                         "block text-[14px] py-1",
                         isScrolled ? "text-slate-400" : "text-slate-600"

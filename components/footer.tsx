@@ -10,7 +10,7 @@ export function Footer() {
       { name: "Biopsy Planning", href: "/services/biopsy-plan" },
       { name: "MR/US Fusion Biopsy", href: "/services/mr-us-fusion-biopsy" },
       { name: "HIFU Treatment", href: "/services/hifu" },
-      { name: "How It Works", href: "/services" },
+      { name: "How It Works", href: "/services/how-it-works" },
     ],
     Company: [
       { name: "About PCL", href: "/about/pcl" },

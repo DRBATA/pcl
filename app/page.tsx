@@ -274,7 +274,7 @@ export default function HomePageNew() {
                   <li className="flex items-center gap-3 text-slate-300"><svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Sonablate, Nanoknife, MIM, BK systems</li>
                   <li className="flex items-center gap-3 text-slate-300"><svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> No capital investment required</li>
                 </ul>
-                <Link href="/services" className="inline-flex items-center gap-2 font-medium text-emerald-400 hover:text-emerald-300">
+                <Link href="/services/how-it-works" className="inline-flex items-center gap-2 font-medium text-emerald-400 hover:text-emerald-300">
                   See how it works <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                 </Link>
               </div>
