@@ -1,6 +1,63 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Phone, Mail, MapPin } from "lucide-react"
+import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
+
+function ContactForm() {
+  const searchParams = useSearchParams()
+  const enquiryType = searchParams.get('type')
+  
+  const getHeadline = () => {
+    if (enquiryType === 'equipment') return 'Request Equipment'
+    if (enquiryType === 'consultation') return 'Book a Consultation'
+    return 'Ready to Elevate Your Practice?'
+  }
+  
+  const getSubtext = () => {
+    if (enquiryType === 'equipment') return 'Tell us about your equipment needs'
+    if (enquiryType === 'consultation') return 'Schedule a call with our team'
+    return "Quick contact - we'll handle the rest"
+  }
+
+  return (
+    <div className="bg-white/40 backdrop-blur-xl rounded-3xl p-10 border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.5)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] transition-all duration-300">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-serif font-light text-slate-900 mb-3">
+          {enquiryType ? (
+            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">{getHeadline()}</span>
+          ) : (
+            <>Ready to <span className="italic bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Elevate</span> Your Practice?</>
+          )}
+        </h2>
+        <p className="text-slate-600 text-lg">{getSubtext()}</p>
+      </div>
+
+      <form action="mailto:info@prostatecare.co.uk" method="post" encType="text/plain" className="space-y-6">
+        {/* Name inputs */}
+        <div className="grid grid-cols-3 gap-3">
+          <input type="text" placeholder="Title" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
+          <input type="text" placeholder="First Name" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
+          <input type="text" placeholder="Surname" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
+        </div>
+        
+        {/* Email */}
+        <input type="email" placeholder="Email" required className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm" />
+
+        {/* Submit button */}
+        <button type="submit" className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]">
+          {enquiryType === 'equipment' ? 'Request Equipment' : enquiryType === 'consultation' ? 'Book Consultation' : 'Get Started'}
+        </button>
+        
+        <p className="text-center text-sm text-slate-500 mt-4">
+          We'll contact you within 24 hours to arrange everything
+        </p>
+      </form>
+    </div>
+  )
+}
 
 export default function ContactPage() {
   return (
@@ -68,58 +125,10 @@ export default function ContactPage() {
               </div>
             </div>
             
-            {/* Form Card - Glassmorphism */}
-            <div className="bg-white/40 backdrop-blur-xl rounded-3xl p-10 border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.5)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] transition-all duration-300">
-              <div className="text-center mb-10">
-                <h2 className="text-3xl font-serif font-light text-slate-900 mb-3">
-                  Ready to <span className="italic bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Elevate</span> Your Practice?
-                </h2>
-                <p className="text-slate-600 text-lg">
-                  Quick contact - we'll handle the rest
-                </p>
-              </div>
-
-              <form action="mailto:info@prostatecare.co.uk" method="post" encType="text/plain" className="space-y-6">
-                {/* Name inputs */}
-                <div className="grid grid-cols-3 gap-3">
-                  <input
-                    type="text"
-                    placeholder="Title"
-                    className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
-                  />
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Surname"
-                    className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
-                  />
-                </div>
-                
-                {/* Email */}
-                <input
-                  type="email"
-                  placeholder="Email"
-                  required
-                  className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm"
-                />
-
-                {/* Submit button */}
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Get Started
-                </button>
-                
-                <p className="text-center text-sm text-slate-500 mt-4">
-                  We'll contact you within 24 hours to arrange everything
-                </p>
-              </form>
-            </div>
+            {/* Form Card - Dynamic based on URL params */}
+            <Suspense fallback={<div className="bg-white/40 backdrop-blur-xl rounded-3xl p-10 animate-pulse h-96" />}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </main>

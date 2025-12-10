@@ -10,7 +10,41 @@ import heroReportSharing from "@/public/hero/report_sharing.png"
 import heroRadiologist from "@/public/hero/radiologist.png"
 import heroTheatre from "@/public/hero/theatre_one.png"
 import heroHarley from "@/public/hero/harley.png"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
+
+// Animated counter component
+function CountUp({ end, suffix = "", prefix = "", duration = 2000 }: { end: number; suffix?: string; prefix?: string; duration?: number }) {
+  const [count, setCount] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
+  const ref = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [hasStarted])
+
+  useEffect(() => {
+    if (!hasStarted) return
+    let startTime: number
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+      setCount(Math.floor(progress * end))
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }, [hasStarted, end, duration])
+
+  return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>
+}
 
 export default function HomePageNew() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -255,7 +289,7 @@ export default function HomePageNew() {
           <button onClick={() => scrollToSection('section-prestige')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
         </section>
 
-        {/* Section 4: Prestige/Stats */}
+        {/* Section 4: Prestige/Stats - with animated counters */}
         <section id="section-prestige" className="bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 py-20 border-t border-gray-200">
           <div className="container-custom">
             <div className="max-w-6xl mx-auto text-center mb-12">
@@ -264,19 +298,27 @@ export default function HomePageNew() {
             </div>
             <div className="grid md:grid-cols-4 gap-6 mb-12">
               <div className="bg-white rounded-xl p-6 text-center shadow-lg border border-gray-200">
-                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>~100</p>
+                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  <CountUp end={100} prefix="~" />
+                </p>
                 <p className="text-gray-600">Surgeons</p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg border border-gray-200">
-                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>~95</p>
+                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  <CountUp end={95} prefix="~" />
+                </p>
                 <p className="text-gray-600">Hospitals</p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg border border-gray-200">
-                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>6+</p>
+                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  <CountUp end={6} suffix="+" />
+                </p>
                 <p className="text-gray-600">Major Hospital Groups</p>
               </div>
               <div className="bg-white rounded-xl p-6 text-center shadow-lg border border-gray-200">
-                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>4,095</p>
+                <p className="text-4xl font-bold mb-2" style={{ color: "var(--color-medical-green)" }}>
+                  <CountUp end={4095} duration={2500} />
+                </p>
                 <p className="text-gray-600">Procedures (2023-25)</p>
               </div>
             </div>

@@ -1,11 +1,9 @@
 "use client"
 import { motion } from "framer-motion"
 import { Linkedin, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react"
-import { useState } from "react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-  const [email, setEmail] = useState("")
 
   const footerLinks = {
     Services: [
@@ -22,8 +20,8 @@ export function Footer() {
     ],
     Contact: [
       { name: "Get in Touch", href: "/contact" },
-      { name: "Request Equipment", href: "/contact" },
-      { name: "Book Consultation", href: "/contact" },
+      { name: "Request Equipment", href: "/contact?type=equipment" },
+      { name: "Book Consultation", href: "/contact?type=consultation" },
     ],
   }
 
@@ -41,12 +39,6 @@ export function Footer() {
     { name: "Koelis", logo: "/partners/koelis.png" },
   ]
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Add newsletter signup logic here
-    console.log("Newsletter signup:", email)
-    setEmail("")
-  }
 
   return (
     <footer className="relative overflow-hidden">
@@ -94,26 +86,6 @@ export function Footer() {
                 ))}
               </div>
 
-              {/* Newsletter Signup */}
-              <form onSubmit={handleNewsletterSubmit} className="mt-6">
-                <p className="text-xs text-slate-400 mb-2 uppercase tracking-wide">Stay Updated</p>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email"
-                    className="flex-1 px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors"
-                  >
-                    <ArrowUpRight size={16} />
-                  </button>
-                </div>
-              </form>
             </motion.div>
 
             {/* Services Column */}
