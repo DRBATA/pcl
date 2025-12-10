@@ -79,7 +79,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-lg text-slate-800 mb-1">Phone</p>
-                    <p className="text-slate-600 text-lg">0207 036 8850</p>
+                    <a href="tel:02070368850" className="text-slate-600 text-lg hover:text-teal-600 transition-colors">0207 036 8850</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-5">
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-lg text-slate-800 mb-1">Email</p>
-                    <p className="text-slate-600 text-lg">info@prostatecare.co.uk</p>
+                    <a href="mailto:info@prostatecare.co.uk" className="text-slate-600 text-lg hover:text-teal-600 transition-colors">info@prostatecare.co.uk</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-5">
