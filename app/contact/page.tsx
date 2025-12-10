@@ -46,6 +46,19 @@ function ContactForm() {
         {/* Email */}
         <input type="email" placeholder="Email" required className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm" />
 
+        {/* Enquiry Type Dropdown */}
+        <select 
+          defaultValue={enquiryType || ''}
+          className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 shadow-sm appearance-none cursor-pointer"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.5rem' }}
+        >
+          <option value="" disabled>Select enquiry type...</option>
+          <option value="equipment">Equipment Enquiry</option>
+          <option value="consultation">Consultation Request</option>
+          <option value="general">General Enquiry</option>
+          <option value="partnership">Partnership Discussion</option>
+        </select>
+
         {/* Submit button */}
         <button type="submit" className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]">
           {enquiryType === 'equipment' ? 'Request Equipment' : enquiryType === 'consultation' ? 'Book Consultation' : 'Get Started'}
