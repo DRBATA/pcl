@@ -257,7 +257,7 @@ export default function HomePageNew() {
             {/* Image */}
             <div className="relative h-[400px] lg:h-auto">
               <Image 
-                src="/hero/section3.png" 
+                src="/hero/section3_updated.png" 
                 alt="PCL specialist guiding surgeon" 
                 fill 
                 className="object-cover"
