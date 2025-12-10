@@ -49,6 +49,29 @@ export default function AboutPCLPage() {
       <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
         <div className="container-custom">
 
+          {/* Hook Reiteration + Mission Statement - Paul's UX Rule */}
+          <section className="mb-16 text-center">
+            <p className="text-emerald-600 font-semibold mb-3 uppercase tracking-wide text-sm">Our Track Record</p>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>
+              What the great centres already do.
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Expert mpMRI contouring, fusion biopsy and 3D reports—delivered as a fully managed service on your site.
+            </p>
+            
+            {/* Mission Statement - John's Request */}
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 max-w-4xl mx-auto border border-emerald-200">
+              <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                For over 20 years, Prostate Care Limited has enabled <strong>precision diagnostics and nuanced care</strong> for 
+                prostate cancer patients. We support urological surgeons with state-of-the-art equipment and top-level clinical 
+                planning to achieve the most reliable diagnostics and treatments.
+              </p>
+              <p className="text-emerald-700 font-semibold text-lg italic">
+                "Precision Diagnostics and Nuanced Care" — our guiding principle.
+              </p>
+            </div>
+          </section>
+
           {/* 1. Why Choose Prostate Care Limited */}
           <section className="mb-20">
             <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-12">

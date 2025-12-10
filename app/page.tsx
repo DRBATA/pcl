@@ -4,6 +4,12 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
+
+// Hero images with blur placeholders
+import heroReportSharing from "@/public/hero/report_sharing.png"
+import heroRadiologist from "@/public/hero/radiologist.png"
+import heroTheatre from "@/public/hero/theatre_one.png"
+import heroHarley from "@/public/hero/harley.png"
 import { useState, useEffect } from "react"
 
 export default function HomePageNew() {
@@ -12,43 +18,47 @@ export default function HomePageNew() {
   const heroSlides = [
     {
       id: "report",
-      image: "/hero/report_sharing.png",
+      image: heroReportSharing,
       headline: "The moment they see",
       headlineAccent: "what you see.",
       subline: "3D reports that turn complex diagnostics into clear, confident decisions your patients can understand.",
       cta: "See a patient-ready report",
       ctaLink: "/about/targeting-accuracy-report",
-      scrollTarget: "section-report"
+      scrollTarget: "section-report",
+      position: "left" as const
     },
     {
       id: "radiology",
-      image: "/hero/radiologist.png",
+      image: heroRadiologist,
       headline: "Expert eyes on",
       headlineAccent: "every scan.",
       subline: "Subspecialist prostate MRI read by the radiologist who led the PROMISE Trial.",
       cta: "Meet our radiologists",
       ctaLink: "/services/biopsy-plan",
-      scrollTarget: "section-radiology"
+      scrollTarget: "section-radiology",
+      position: "right" as const
     },
     {
       id: "theatre",
-      image: "/hero/theatre_one.png",
+      image: heroTheatre,
       headline: "The list runs.",
       headlineAccent: "You don't worry.",
       subline: "A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.",
       cta: "See how a list runs",
       ctaLink: "/services",
-      scrollTarget: "section-theatre"
+      scrollTarget: "section-theatre",
+      position: "left" as const
     },
     {
       id: "prestige",
-      image: "/hero/harley.png",
+      image: heroHarley,
       headline: "What the great centres",
       headlineAccent: "already do.",
       subline: "Expert mpMRI contouring, fusion biopsy and 3D reports—delivered as a fully managed service on your site.",
       cta: "See our track record",
       ctaLink: "/about/pcl",
-      scrollTarget: "section-prestige"
+      scrollTarget: "section-prestige",
+      position: "left" as const
     }
   ]
 
@@ -78,16 +88,21 @@ export default function HomePageNew() {
           {/* Background Images */}
           {heroSlides.map((slide, idx) => (
             <div key={slide.id} className="absolute inset-0 transition-opacity duration-1000" style={{ opacity: idx === currentSlide ? 1 : 0 }}>
-              <Image src={slide.image} alt="" fill className="object-cover" priority={idx === 0} />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+              <Image src={slide.image} alt="" fill className="object-cover" priority placeholder="blur" />
+              <div className={`absolute inset-0 ${slide.position === 'right' ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-black/70 via-black/50 to-transparent`} />
             </div>
           ))}
 
-          {/* Content */}
-          <div className="relative h-full flex items-center py-8 pt-28 sm:pt-32 flex-1">
+          {/* Content - Cromwell-style positioning (switches left/right per slide) */}
+          <div className="absolute bottom-20 left-0 right-0">
             <div className="container-custom">
-              <div className="max-w-2xl">
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 md:p-10 shadow-2xl border border-white/30">
+              <div className={`max-w-xl transition-all duration-500 ${heroSlides[currentSlide].position === 'right' ? 'ml-auto' : ''}`}>
+                {/* Glassmorphic texture + Cromwell shape - More translucent per John's request */}
+                <div className={`bg-white/50 backdrop-blur-md p-8 md:p-10 shadow-2xl border border-white/40 transition-all duration-500 ${
+                  heroSlides[currentSlide].position === 'right' 
+                    ? 'rounded-tl-3xl rounded-bl-3xl mr-0 sm:-mr-8' 
+                    : 'rounded-tr-3xl rounded-br-3xl ml-0 sm:-ml-8'
+                }`}>
                   {heroSlides.map((slide, idx) => (
                     <div key={slide.id} className={`transition-opacity duration-500 ${idx === currentSlide ? 'block' : 'hidden'}`}>
                       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -100,7 +115,7 @@ export default function HomePageNew() {
                           {slide.cta}
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         </Link>
-                        <button onClick={() => scrollToSection(slide.scrollTarget)} className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all">
+                        <button onClick={() => scrollToSection(slide.scrollTarget)} className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-gray-300 bg-white/50 text-gray-700 font-semibold rounded-lg hover:bg-white/80 transition-all">
                           Learn more
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
                         </button>
@@ -121,33 +136,49 @@ export default function HomePageNew() {
 
           {/* Bounce Arrow - targets current slide's section */}
           <button onClick={() => scrollToSection('hospital-logos')} className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 animate-bounce cursor-pointer hover:scale-110 transition-transform" aria-label="Scroll to section">
-            <svg className="w-6 h-6 text-white opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+            <svg className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
           </button>
 
           <div className="absolute bottom-0 left-0 right-0 h-1" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
 
-        {/* Hospital Logos Strip */}
-        <section id="hospital-logos" className="bg-white py-8 border-t border-gray-200">
-          <div className="container-custom">
-            <p className="text-center text-xs text-gray-400 mb-4 uppercase tracking-wide">Trusted by leading UK hospital groups</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-              <Image src="/hero/hca_logo.png" alt="HCA Healthcare" width={100} height={40} className="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
-              <Image src="/hero/spirelogo.png" alt="Spire Healthcare" width={100} height={40} className="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
-              <Image src="/hero/circlehealthlogo.png" alt="Circle Health Group" width={100} height={40} className="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
-              <Image src="/hero/newfoscotelogo.png" alt="The New Foscote Hospital" width={100} height={40} className="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+        {/* Hospital Logos Strip - Scrolling Marquee on light background */}
+        <section id="hospital-logos" className="bg-gray-50 overflow-hidden border-t border-gray-200">
+          <div className="relative flex items-center h-20">
+            {/* First set of logos */}
+            <div className="flex animate-marquee items-center gap-12 pr-12">
+              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0 invert" />
+              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+            </div>
+            {/* Duplicate set for seamless loop */}
+            <div className="flex animate-marquee items-center gap-12 pr-12" aria-hidden="true">
+              <Image src="/hero/HCA_logo_transparnt.png" alt="HCA Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/spire_logo_transparnt.png" alt="Spire Healthcare" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/circle_logo_transparent.png" alt="Circle Health Group" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
+              <Image src="/hero/liv_harley_trans.png" alt="Liv Hospital Harley Street" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0 invert" />
+              <Image src="/hero/newfos_log_transparnt.png" alt="The New Foscote Hospital" width={180} height={70} className="h-14 w-auto object-contain flex-shrink-0" />
             </div>
           </div>
         </section>
 
-        {/* Section 1: Report */}
-        <section id="section-report" className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 border-t border-emerald-600/30">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 max-h-[400px]">
-                <Image src="/hero/report_welcome.png" alt="Consultant discussing results with patient" width={600} height={400} className="w-full h-full object-cover" />
-              </div>
-              <div>
+        {/* Section 1: Report - Curved edge image */}
+        <section id="section-report" className="relative bg-white overflow-hidden">
+          <div className="grid lg:grid-cols-2 min-h-[600px]">
+            {/* Curved image container - bleeds left, curved right edge */}
+            <div className="relative h-[400px] lg:h-auto">
+              <Image 
+                src="/hero/report_welcome.png" 
+                alt="Consultant discussing results with patient" 
+                fill 
+                className="object-cover object-[center_30%]"
+              />
+            </div>
+            {/* Text content */}
+            <div className="flex items-center py-16 lg:py-20 px-8 lg:px-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+              <div className="max-w-lg">
                 <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Patient Communication</p>
                 <h2 className="text-4xl font-bold text-white mb-6">Where precision meets understanding.</h2>
                 <p className="text-slate-300 mb-6 text-lg leading-relaxed">When your patient can see their prostate mapped in 3D—with every lesion, every biopsy core visualized—the consultation transforms. <strong className="text-white">85% of patients</strong> report better understanding. More importantly, they trust the plan.</p>
@@ -157,14 +188,15 @@ export default function HomePageNew() {
               </div>
             </div>
           </div>
-          <button onClick={() => scrollToSection('section-radiology')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
+          <button onClick={() => scrollToSection('section-radiology')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
         </section>
 
-        {/* Section 2: Radiology */}
-        <section id="section-radiology" className="relative bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 py-20 border-t border-gray-200">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
+        {/* Section 2: Radiology - Mirrored curved edge (image right, curved left edge) */}
+        <section id="section-radiology" className="relative bg-white overflow-hidden">
+          <div className="grid lg:grid-cols-2 min-h-[600px]">
+            {/* Text content */}
+            <div className="flex items-center py-16 lg:py-20 px-8 lg:px-16 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+              <div className="max-w-lg ml-auto">
                 <p className="font-semibold mb-2 uppercase tracking-wide text-sm" style={{ color: "var(--color-medical-green)" }}>Expert Radiology</p>
                 <h2 className="text-4xl font-bold mb-6" style={{ color: "var(--color-medical-green)" }}>Confidence in every contour.</h2>
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">Every mpMRI is read by a subspecialist prostate radiologist—including <strong>Dr Clare Allen</strong>, lead radiologist on the landmark PROMISE Trial. Your cases receive the same scrutiny as a teaching hospital MDT.</p>
@@ -177,22 +209,35 @@ export default function HomePageNew() {
                   See how we plan your cases <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                 </Link>
               </div>
-              <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 max-h-[450px]">
-                <Image src="/hero/trainee_radiologist_MDT.png" alt="MDT review session" width={600} height={450} className="w-full h-full object-cover" />
-              </div>
+            </div>
+            {/* Curved image container - bleeds right, curved left edge */}
+            <div className="relative h-[400px] lg:h-auto">
+              <Image 
+                src="/hero/trainee_radiologist_MDT.png" 
+                alt="MDT review session" 
+                fill 
+                className="object-cover object-[center_30%]"
+              />
             </div>
           </div>
-          <button onClick={() => scrollToSection('section-theatre')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 opacity-60" style={{ color: "var(--color-medical-green)" }} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
+          <button onClick={() => scrollToSection('section-theatre')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
         </section>
 
         {/* Section 3: Theatre */}
-        <section id="section-theatre" className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 border-t border-emerald-600/30">
-          <div className="container-custom">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 max-h-[450px]">
-                <Image src="/hero/section3.png" alt="PCL specialist guiding surgeon" width={600} height={450} className="w-full h-full object-cover" />
-              </div>
-              <div>
+        <section id="section-theatre" className="relative bg-white overflow-hidden">
+          <div className="grid lg:grid-cols-2 min-h-[600px]">
+            {/* Image */}
+            <div className="relative h-[400px] lg:h-auto">
+              <Image 
+                src="/hero/section3.png" 
+                alt="PCL specialist guiding surgeon" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+            {/* Text content */}
+            <div className="flex items-center py-16 lg:py-20 px-8 lg:px-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+              <div className="max-w-lg">
                 <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Theatre Support</p>
                 <h2 className="text-4xl font-bold text-white mb-6">Your theatre. Our specialist. Every time.</h2>
                 <p className="text-slate-300 mb-6 text-lg leading-relaxed">Our Application Specialists manage the <strong className="text-white">fusion, grid alignment, and software</strong>—so your surgeon and team can focus entirely on the patient. We arrive, we run, we leave your theatre exactly as we found it.</p>
@@ -207,7 +252,7 @@ export default function HomePageNew() {
               </div>
             </div>
           </div>
-          <button onClick={() => scrollToSection('section-prestige')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
+          <button onClick={() => scrollToSection('section-prestige')} className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-transform"><svg className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg></button>
         </section>
 
         {/* Section 4: Prestige/Stats */}

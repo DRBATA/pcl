@@ -262,15 +262,20 @@ export default function BiopsyPlanPage() {
       <Header />
       <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
         
-        {/* Hero Section - Split Layout */}
+        {/* Hero Section - Split Layout with Hook Reiteration */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left: Text Content */}
               <div>
-                <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-                  MRI Fusion Planning & Contouring
+                {/* Hook Reiteration - Paul's UX Rule */}
+                <p className="text-emerald-400 font-semibold mb-3 uppercase tracking-wide text-sm">Expert Radiology</p>
+                <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                  Confidence in every <span className="text-emerald-400">contour.</span>
                 </h1>
+                <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-slate-300">
+                  MRI Fusion Planning & Contouring
+                </h2>
                 <p className="text-xl text-slate-300 mb-8 leading-relaxed">
                   Expert radiologist-led targeting plans delivered before your procedure day. Dr Clare Allen's multiparametric MRI analysis creates millimeter-accurate coordinates for fusion biopsy or HIFU.
                 </p>

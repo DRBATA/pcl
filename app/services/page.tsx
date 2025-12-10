@@ -90,8 +90,22 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main className="pt-48 sm:pt-52 lg:pt-56 pb-20">
-        <div className="container-custom py-20">
+      <main className="pt-32 sm:pt-36 lg:pt-40 pb-20">
+        
+        {/* Hook Reiteration Hero - Paul's UX Rule */}
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 mb-12">
+          <div className="container-custom text-center">
+            <p className="text-emerald-400 font-semibold mb-3 uppercase tracking-wide text-sm">Theatre Support</p>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+              Your theatre. Our specialist. <span className="text-emerald-400">Every time.</span>
+            </h1>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.
+            </p>
+          </div>
+        </section>
+
+        <div className="container-custom py-12">
           {/* Process Overview Section */}
           <div className="mb-20">
             <motion.div

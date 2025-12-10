@@ -80,6 +80,59 @@ export const metadata: Metadata = {
   },
 }
 
+// Schema.org JSON-LD Structured Data for SEO
+const schemaJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://prostatecare.co.uk/#organization",
+      "name": "Prostate Care Limited",
+      "alternateName": "PCL",
+      "description": "Precision diagnostics and nuanced care for prostate cancer. Specialist MRI/US fusion biopsy and HIFU equipment services for urological surgeons across the UK.",
+      "url": "https://prostatecare.co.uk",
+      "logo": "https://prostatecare.co.uk/smallpcl.png",
+      "telephone": "+44 207 036 8850",
+      "email": "info@prostatecare.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "99 Park Drive, Milton Park Innovation Centre",
+        "addressLocality": "Abingdon",
+        "addressRegion": "Oxfordshire",
+        "postalCode": "OX14 4RY",
+        "addressCountry": "GB"
+      },
+      "medicalSpecialty": ["Urology", "Oncology"],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "MR/US Fusion Biopsy",
+          "description": "Precision prostate biopsy using MRI-ultrasound fusion technology"
+        },
+        {
+          "@type": "MedicalProcedure", 
+          "name": "HIFU Treatment",
+          "description": "High-Intensity Focused Ultrasound for focal prostate therapy"
+        }
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "foundingDate": "2003",
+      "numberOfEmployees": "10-50",
+      "slogan": "Precision Diagnostics and Nuanced Care"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://prostatecare.co.uk/#website",
+      "url": "https://prostatecare.co.uk",
+      "name": "Prostate Care Limited",
+      "publisher": { "@id": "https://prostatecare.co.uk/#organization" }
+    }
+  ]
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -87,6 +140,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
+        />
+      </head>
       <body className="font-sans bg-background text-foreground overflow-x-hidden">{children}</body>
     </html>
   )

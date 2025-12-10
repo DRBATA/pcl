@@ -63,7 +63,6 @@ export default function ContactPage() {
                 <div className="space-y-2 text-slate-800">
                   <p className="font-semibold">Claire Lloyd</p>
                   <p className="font-semibold">Emma Frame</p>
-                  <p className="font-semibold">Maggie Weir</p>
                   <p className="font-semibold">Jane Terry</p>
                 </div>
               </div>

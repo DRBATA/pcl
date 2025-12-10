@@ -37,3 +37,13 @@ package-lock.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# archived/old page versions
+*_archive.tsx
+*_old.tsx
+page_old.tsx
+
+# old AI planning docs (not relevant to current work)
+COMPREHENSIVE_IMPLEMENTATION_PLAN.md
+IMPLEMENTATION_SUMMARY.md
+PHOTO_LOG.md
