@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div className="container-custom text-center">
             <p className="text-emerald-400 font-semibold mb-3 uppercase tracking-wide text-sm">Theatre Support</p>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Your theatre. Our specialist. <span className="text-emerald-400">Every time.</span>
+              Every list. <span className="text-emerald-400">Close to clockwork.</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.

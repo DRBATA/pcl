@@ -75,9 +75,9 @@ export default function HomePageNew() {
     {
       id: "theatre",
       image: heroTheatre,
-      headline: "Your theatre. Our specialist.",
-      headlineAccent: "Every time.",
-      subline: "A dedicated applications specialist manages the fusion and software—so your team can focus on the patient.",
+      headline: "Every list.",
+      headlineAccent: "Close to clockwork.",
+      subline: "Our Application Specialists manage the fusion and software—so your team can focus entirely on the patient.",
       cta: "See how a list runs",
       ctaLink: "/services",
       scrollTarget: "section-theatre",
@@ -214,7 +214,7 @@ export default function HomePageNew() {
             <div className="flex items-center py-16 lg:py-20 px-8 lg:px-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
               <div className="max-w-lg">
                 <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Patient Communication</p>
-                <h2 className="text-4xl font-bold text-white mb-6">Where precision meets understanding.</h2>
+                <h2 className="text-4xl font-bold text-white mb-6">The moment they see <span className="text-emerald-400">what you see.</span></h2>
                 <p className="text-slate-300 mb-6 text-lg leading-relaxed">When your patient can see their prostate mapped in 3D—with every lesion, every biopsy core visualized—the consultation transforms. <strong className="text-white">85% of patients</strong> report better understanding. More importantly, they trust the plan.</p>
                 <Link href="/about/targeting-accuracy-report" className="inline-flex items-center gap-2 font-medium text-emerald-400 hover:text-emerald-300">
                   Explore the full report <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
@@ -273,7 +273,7 @@ export default function HomePageNew() {
             <div className="flex items-center py-16 lg:py-20 px-8 lg:px-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
               <div className="max-w-lg">
                 <p className="text-emerald-400 font-semibold mb-2 uppercase tracking-wide text-sm">Theatre Support</p>
-                <h2 className="text-4xl font-bold text-white mb-6">Your theatre. Our specialist. Every time.</h2>
+                <h2 className="text-4xl font-bold text-white mb-6">Every list. <span className="text-emerald-400">Close to clockwork.</span></h2>
                 <p className="text-slate-300 mb-6 text-lg leading-relaxed">Our Application Specialists manage the <strong className="text-white">fusion, grid alignment, and software</strong>—so your surgeon and team can focus entirely on the patient. We arrive, we run, we leave your theatre exactly as we found it.</p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-center gap-3 text-slate-300"><svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 1,000+ cases supported per year</li>
