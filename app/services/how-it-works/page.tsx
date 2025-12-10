@@ -252,6 +252,33 @@ export default function HowItWorksPageNew() {
           </div>
         </section>
 
+        {/* Section 2b: Surgeon Quote - Social Proof */}
+        <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
+                <div className="text-emerald-400 text-5xl mb-4">"</div>
+                <p className="text-xl md:text-2xl text-white leading-relaxed mb-6 italic">
+                  One of the major advantages of working with ProstateCare Ltd is how easy it is to book their service.
+                  Their operations team reserve the equipment for us and then liaise directly with the private hospital. I
+                  know they will be there on time and ready to start.
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white">Consultant Urological Surgeon</p>
+                    <p className="text-sm text-slate-400">Private Practice, London</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Section 3: The Promise */}
         <section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
           <div className="container-custom">
@@ -286,23 +313,23 @@ export default function HowItWorksPageNew() {
         <section className="py-20 bg-white">
           <div className="container-custom text-center">
             <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--color-medical-green)" }}>
-              Ready to Simplify Your Theatre Operations?
+              See How Expert Planning Makes It Possible
             </h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              One call from your secretary starts the process. We handle everything else.
+              Our seamless theatre operations start with expert radiologist planning. See how Dr Clare Allen's contouring creates the precision that powers every procedure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/services/biopsy-plan"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all inline-block"
               >
-                Book Our Service
+                See Biopsy Planning
               </Link>
               <Link
-                href="/services/biopsy-plan"
+                href="/about/pcl"
                 className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all inline-block"
               >
-                See Biopsy Planning
+                About Our Team
               </Link>
             </div>
           </div>
