@@ -434,9 +434,26 @@ export default function BiopsyPlanPageNew() {
                   <div className="space-y-6">
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-4">Background & Expertise</h4>
-                      <p className="text-gray-700 leading-relaxed">
-                        Dr Allen qualified from Oxford and is the uro-radiology lead consultant at UCL. She has pioneered the use of mpMRI imaging for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK and internationally. She was lead radiologist on the PROMISE Trial which proved the efficacy of mpMRI for prostate cancer globally.
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        Dr Allen qualified from Oxford and is the uro-radiology lead consultant at UCL. She has pioneered the use of mpMRI imaging for prostate cancer since 2000 and has led the establishment of reporting standards for prostate cancer imaging in the UK and internationally.
                       </p>
+                      
+                      {/* Research Evidence Box */}
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-200 mb-4">
+                        <p className="text-xs text-blue-600 font-semibold uppercase mb-1">Key Publication</p>
+                        <p className="text-sm text-gray-700">
+                          <strong>Lead Radiologist - PROMIS Trial</strong> (The Lancet, 2017)<br/>
+                          <em>"MP-MRI can reduce over-diagnosis of clinically insignificant prostate cancer AND improve detection of clinically significant cancer."</em>
+                        </p>
+                      </div>
+                      
+                      <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+                        <p className="text-xs text-amber-600 font-semibold uppercase mb-1">Recent Research</p>
+                        <p className="text-sm text-gray-700">
+                          <strong>PRIME Trial</strong> (BMJ Open, 2023) - Biparametric vs Multiparametric MRI<br/>
+                          <em>"In most patients we are unlikely to miss significant prostate cancer if we stop doing the contrast scan."</em>
+                        </p>
+                      </div>
                     </div>
                     <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
                       <p className="text-gray-700 text-sm italic mb-4">
@@ -445,6 +462,73 @@ export default function BiopsyPlanPageNew() {
                       <p className="text-sm font-medium text-emerald-800">— Dr Clare Allen</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 3b: Dr Francesco Giganti - Quality Assurance Research */}
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+          <div className="container-custom">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-8">
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-blue-400 font-semibold mb-2 uppercase tracking-wide text-sm">Quality Assurance Research</p>
+                    <h2 className="text-3xl font-bold text-white mb-4">
+                      Dr Francesco Giganti - MRI Quality Standards
+                    </h2>
+                    <p className="text-slate-300 leading-relaxed mb-6">
+                      Dr Giganti is a Consultant Radiologist and Associate Professor at UCL, whose research has established 
+                      the international standards for prostate MRI quality and active surveillance monitoring.
+                    </p>
+                    
+                    {/* PI-QUAL Evidence Box */}
+                    <div className="bg-blue-900/50 rounded-lg p-4 border border-blue-500/30 mb-4">
+                      <p className="text-xs text-blue-400 font-semibold uppercase mb-1">Creator - PI-QUAL Score</p>
+                      <p className="text-sm text-slate-300">
+                        <strong className="text-white">Prostate Imaging QUALity Score</strong> (European Urology Oncology, 2020)<br/>
+                        <em>A standardized quality control scoring system for prostate MRI, developed from the PRECISION trial. 
+                        Now used internationally to ensure diagnostic-quality imaging.</em>
+                      </p>
+                    </div>
+                    
+                    {/* PRECISE Evidence Box */}
+                    <div className="bg-emerald-900/50 rounded-lg p-4 border border-emerald-500/30 mb-4">
+                      <p className="text-xs text-emerald-400 font-semibold uppercase mb-1">Co-Developer - PRECISE Score</p>
+                      <p className="text-sm text-slate-300">
+                        <strong className="text-white">PRECISE Recommendations</strong> (Radiology, 2018)<br/>
+                        <em>Standardized scoring for sequential MRI in active surveillance patients. Enables consistent 
+                        monitoring of prostate cancer progression across institutions.</em>
+                      </p>
+                    </div>
+
+                    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                      <p className="text-xs text-slate-400 font-semibold uppercase mb-1">Research Collaboration</p>
+                      <p className="text-sm text-slate-300">
+                        Dr Giganti and Dr Allen are <strong className="text-white">co-authors on multiple publications</strong>, 
+                        including the Sequential PRECISE Software Program study (2018). Their combined expertise ensures 
+                        every plan meets the highest quality standards.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <Image
+                    src="/surgeons/fg.png"
+                    alt="Dr Francesco Giganti"
+                    width={300}
+                    height={300}
+                    className="w-full h-auto rounded-xl mb-4"
+                  />
+                  <h3 className="text-2xl font-bold text-white mb-2">Dr Francesco Giganti</h3>
+                  <p className="text-lg font-medium text-emerald-400 mb-2">
+                    Radiologist & Associate Professor
+                  </p>
+                  <p className="text-sm text-slate-400 font-medium">University College London</p>
                 </div>
               </div>
             </div>
