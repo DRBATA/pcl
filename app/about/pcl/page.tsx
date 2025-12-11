@@ -7,8 +7,8 @@ import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 
-// Hero image - same as homepage carousel
-import heroHarley from "@/public/hero/harley.png"
+// Hero image - relay chain showing all teams
+import heroRelay from "@/public/hero/about.png"
 
 // Animated counter component
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -148,8 +148,8 @@ export default function AboutPCLPageNew() {
             {/* Hero Image - Harley Street (same as carousel) */}
             <div className="absolute inset-0">
               <Image
-                src={heroHarley}
-                alt="Prestigious Harley Street medical centre"
+                src={heroRelay}
+                alt="The chain of precision - from planning to surgery"
                 fill
                 className="object-cover"
                 priority
@@ -174,12 +174,11 @@ export default function AboutPCLPageNew() {
                     }}
                   >
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                      What the great centres{" "}
-                      <span style={{ color: "var(--color-medical-green)" }}>already do.</span>
+                      Experience the{" "}
+                      <span style={{ color: "var(--color-medical-green)" }}>chain of precision.</span>
                     </h1>
                     <p className="text-lg sm:text-xl text-gray-700 mb-6 leading-relaxed">
-                      Expert mpMRI contouring, fusion biopsy and 3D reports—delivered as a 
-                      <strong> fully managed service</strong> on your site.
+                      From planning to procedure—every handoff seamless, every detail covered.
                     </p>
                     
                     {/* Key Stat - Director focused */}
