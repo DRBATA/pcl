@@ -89,7 +89,7 @@ export default function HomePageNew() {
       headline: "What the great centres",
       headlineAccent: "already do.",
       subline: "Expert mpMRI contouring, fusion biopsy and 3D reports—delivered as a fully managed service on your site.",
-      cta: "For hospital directors",
+      cta: "For hospital partners",
       ctaLink: "/about/pcl",
       scrollTarget: "section-prestige",
       position: "left" as const

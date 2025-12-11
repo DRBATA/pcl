@@ -49,11 +49,18 @@ export default function AboutPCLPageNew() {
   const [scrollY, setScrollY] = useState(0)
   const heroRef = useRef<HTMLElement>(null)
 
-  // Technician setup images for "Who Delivers" section (from ss*.jpg files)
+  // Technician setup images for "Who Delivers" section (all available ss*.jpg files)
   const technicianImages = [
+    "/ss1.jpg",
     "/ss2.jpg",
+    "/ss3.jpg",
     "/ss4.jpg", 
-    "/ss5.jpg"
+    "/ss5.jpg",
+    "/ss6.jpg",
+    "/ss7.jpg",
+    "/ss8.jpg",
+    "/ss10.jpg",
+    "/ss11.jpg"
   ]
   const [currentTechImage, setCurrentTechImage] = useState(0)
 
@@ -75,9 +82,6 @@ export default function AboutPCLPageNew() {
         "/team/landscape/team_landscape_5.png"
       ]
   const [currentTeamImage, setCurrentTeamImage] = useState(0)
-
-  // Scrolling images for procedures strip
-  const serviceImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -507,28 +511,6 @@ export default function AboutPCLPageNew() {
           </div>
         </section>
 
-        {/* Scrolling Services Images Strip */}
-        <section className="py-8 bg-slate-100 overflow-hidden">
-          <div className="flex gap-6 animate-scroll-left">
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-6 flex-shrink-0">
-                {serviceImages.map((num) => (
-                  <div
-                    key={`${setIndex}-${num}`}
-                    className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden"
-                  >
-                    <Image
-                      src={`/ss${num}.jpg`}
-                      alt={`Service showcase ${num}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
 
         
         {/* CTA Section */}
