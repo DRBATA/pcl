@@ -287,7 +287,7 @@ export default function BiopsyPlanPageNew() {
               <div className="container-custom">
                 <div className="max-w-xl">
                   <div 
-                    className="bg-white rounded-tr-3xl rounded-br-3xl p-8 md:p-10 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
+                    className="bg-white/70 backdrop-blur-md rounded-tr-3xl rounded-br-3xl p-6 md:p-8 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
                     style={{ 
                       opacity: cardOpacity,
                       transform: `translateY(-${cardTranslateY}px)`,
@@ -322,17 +322,6 @@ export default function BiopsyPlanPageNew() {
                       </svg>
                     </Link>
                     
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <Link
-                        href="/about/pcl"
-                        className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
-                      >
-                        Meet Dr Clare Allen
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>

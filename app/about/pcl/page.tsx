@@ -48,14 +48,33 @@ export default function AboutPCLPageNew() {
   // Parallax scroll state for vanishing card
   const [scrollY, setScrollY] = useState(0)
   const heroRef = useRef<HTMLElement>(null)
-  const [currentTeamImage, setCurrentTeamImage] = useState(0)
 
-  const clinicalTeamImages = [
-    { image: "/surgeons/jk.png", name: "John Kelly", role: "Managing Director" },
-    { image: "/surgeons/ca.png", name: "Dr Clare Allen", role: "Lead Radiologist" },
-    { image: "/surgeons/fg.png", name: "Dr Francesco Giganti", role: "Consultant Radiologist" },
-    { image: "/surgeons/aa.png", name: "Adam Anderson", role: "Application Specialist" }
+  // Technician setup images for "Who Delivers" section (from ss*.jpg files)
+  const technicianImages = [
+    "/ss2.jpg",
+    "/ss4.jpg", 
+    "/ss5.jpg"
   ]
+  const [currentTechImage, setCurrentTechImage] = useState(0)
+
+  // Team portraits (responsive - portrait on mobile, landscape on desktop)
+  const [isMobile, setIsMobile] = useState(false)
+  const teamImages = isMobile
+    ? [
+        "/team/portrait/team_portrait_1.png",
+        "/team/portrait/team_portrait_2.png",
+        "/team/portrait/team_portrait_3.png",
+        "/team/portrait/team_portrait_4.png",
+        "/team/portrait/team_portrait_5.png"
+      ]
+    : [
+        "/team/landscape/team_landscape_1.png",
+        "/team/landscape/team_landscape_2.png",
+        "/team/landscape/team_landscape_3.png",
+        "/team/landscape/team_landscape_4.png",
+        "/team/landscape/team_landscape_5.png"
+      ]
+  const [currentTeamImage, setCurrentTeamImage] = useState(0)
 
   // Scrolling images for procedures strip
   const serviceImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -73,12 +92,29 @@ export default function AboutPCLPageNew() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Detect mobile for responsive team images
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Auto-cycle technician images
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTeamImage((prev) => (prev + 1) % clinicalTeamImages.length)
+      setCurrentTechImage((prev) => (prev + 1) % technicianImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [technicianImages.length])
+
+  // Auto-cycle team portraits
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTeamImage((prev) => (prev + 1) % teamImages.length)
     }, 4000)
     return () => clearInterval(interval)
-  }, [clinicalTeamImages.length])
+  }, [teamImages.length])
 
   const cardOpacity = Math.max(0, 1 - scrollY / 300)
   const cardTranslateY = Math.min(scrollY * 0.3, 100)
@@ -126,7 +162,7 @@ export default function AboutPCLPageNew() {
               <div className="container-custom">
                 <div className="max-w-xl">
                   <div 
-                    className="bg-white rounded-tr-3xl rounded-br-3xl p-8 md:p-10 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
+                    className="bg-white/70 backdrop-blur-md rounded-tr-3xl rounded-br-3xl p-6 md:p-8 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
                     style={{ 
                       opacity: cardOpacity,
                       transform: `translateY(-${cardTranslateY}px)`,
@@ -161,17 +197,6 @@ export default function AboutPCLPageNew() {
                       </svg>
                     </Link>
                     
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium transition-colors"
-                      >
-                        Partner with us
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -360,32 +385,68 @@ export default function AboutPCLPageNew() {
                 </p>
               </div>
 
-              {/* Team Image Carousel */}
+              {/* Technician Setup Images - 3 images cycling */}
               <div className="relative h-[400px] rounded-xl overflow-hidden">
-                {clinicalTeamImages.map((member, idx) => (
+                {technicianImages.map((img, idx) => (
                   <div
                     key={idx}
                     className="absolute inset-0 transition-opacity duration-1000"
-                    style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
+                    style={{ opacity: idx === currentTechImage ? 1 : 0 }}
                   >
                     <Image
-                      src={member.image}
-                      alt={member.name}
+                      src={img}
+                      alt={`Technician setup ${idx + 1}`}
                       fill
-                      className="object-contain"
+                      className="object-cover rounded-xl"
                     />
                   </div>
                 ))}
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                  {clinicalTeamImages.map((_, idx) => (
+                  {technicianImages.map((_, idx) => (
                     <div
                       key={idx}
                       className={`h-2 rounded-full transition-all ${
-                        idx === currentTeamImage ? 'w-8 bg-emerald-500' : 'w-2 bg-white/50'
+                        idx === currentTechImage ? 'w-8 bg-emerald-500' : 'w-2 bg-white/50'
                       }`}
                     />
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Spirit Section - Between Technicians and Admin */}
+        <section className="py-16 bg-gradient-to-br from-emerald-50 to-teal-50">
+          <div className="container-custom">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Building Team Spirit</h3>
+              <p className="text-gray-600">In and out of theatre</p>
+            </div>
+            <div className="relative w-full h-[400px] md:h-[500px] max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-lg">
+              {teamImages.map((img, idx) => (
+                <div
+                  key={idx}
+                  className="absolute inset-0 transition-opacity duration-1000"
+                  style={{ opacity: idx === currentTeamImage ? 1 : 0 }}
+                >
+                  <Image
+                    src={img}
+                    alt={`Team ${idx + 1}`}
+                    fill
+                    className="object-contain bg-white"
+                  />
+                </div>
+              ))}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {teamImages.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-2 rounded-full transition-all ${
+                      idx === currentTeamImage ? 'w-8 bg-emerald-600' : 'w-2 bg-gray-300'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
