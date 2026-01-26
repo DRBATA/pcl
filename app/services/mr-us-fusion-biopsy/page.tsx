@@ -242,13 +242,24 @@ export default function FreehandFusionPageV2() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-600/20 rounded-2xl blur-xl"></div>
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-purple-200">
-                  <Image
-                    src="/bigpics/mri/mat3.png"
-                    alt="MRI fusion planning showing needle path visualization and target contouring"
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto"
-                  />
+                  {/* Archived version - mat3.png (contained Marc Emberton)
+                <Image
+                  src="/archive-agent-files/archiveimages/mat3_archive.png"
+                  alt="MRI fusion planning showing needle path visualization and target contouring"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                />
+                */}
+                
+                {/* New image - using same filename but with updated content */}
+                <Image
+                  src="/bigpics/mri/mat3.png"
+                  alt="Real-time fusion alignment with authorized clinician"
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                />  
                 </div>
               </div>
             </div>
