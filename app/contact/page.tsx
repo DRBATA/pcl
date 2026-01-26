@@ -4,29 +4,66 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { useSearchParams } from "next/navigation"
-import { Suspense } from "react"
+import { Suspense, useEffect, useState } from "react"
 
 function ContactForm() {
   const searchParams = useSearchParams()
   const enquiryType = searchParams.get('type')
+  const [title, setTitle] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [surname, setSurname] = useState("")
+  const [email, setEmail] = useState("")
+  const [selectedType, setSelectedType] = useState(enquiryType || "")
+  const [message, setMessage] = useState("")
+
+  useEffect(() => {
+    setSelectedType(enquiryType || "")
+  }, [enquiryType])
   
   const getHeadline = () => {
-    if (enquiryType === 'equipment') return 'Request Equipment'
-    if (enquiryType === 'consultation') return 'Book a Consultation'
+    if (selectedType === 'equipment') return 'Request Equipment'
+    if (selectedType === 'consultation') return 'Book a Consultation'
     return 'Ready to Elevate Your Practice?'
   }
   
   const getSubtext = () => {
-    if (enquiryType === 'equipment') return 'Tell us about your equipment needs'
-    if (enquiryType === 'consultation') return 'Schedule a call with our team'
+    if (selectedType === 'equipment') return 'Tell us about your equipment needs'
+    if (selectedType === 'consultation') return 'Schedule a call with our team'
     return "Quick contact - we'll handle the rest"
+  }
+
+  const handleOpenEmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const recipients = ["claire.lloyd@prostatecare.co.uk", "brian.lynch@prostatecare.co.uk"]
+    const subjectBase = selectedType ? selectedType.replace(/^\w/, (c) => c.toUpperCase()) : "Website"
+    const subjectName = firstName || "PCL website visitor"
+    const subject = `${subjectBase} enquiry from ${subjectName}`
+
+    const body = [
+      "Hello Claire,",
+      "",
+      "A new enquiry was started on the Prostate Care website:",
+      "",
+      `Title: ${title || "—"}`,
+      `Name: ${[firstName, surname].filter(Boolean).join(" ") || "—"}`,
+      `Email: ${email || "—"}`,
+      `Enquiry Type: ${selectedType || "Not specified"}`,
+      "",
+      "Message:",
+      message || "—",
+      "",
+      "Sent via prostatecare.co.uk"
+    ].join("\n")
+
+    const mailto = `mailto:${encodeURIComponent(recipients[0])}?cc=${encodeURIComponent(recipients[1])}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = mailto
   }
 
   return (
     <div className="bg-white/40 backdrop-blur-xl rounded-3xl p-10 border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.5)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.12)] transition-all duration-300">
       <div className="text-center mb-10">
         <h2 className="text-3xl font-serif font-light text-slate-900 mb-3">
-          {enquiryType ? (
+          {selectedType ? (
             <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">{getHeadline()}</span>
           ) : (
             <>Ready to <span className="italic bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">Elevate</span> Your Practice?</>
@@ -35,20 +72,46 @@ function ContactForm() {
         <p className="text-slate-600 text-lg">{getSubtext()}</p>
       </div>
 
-      <form action="mailto:info@prostatecare.co.uk" method="post" encType="text/plain" className="space-y-6">
+      <form onSubmit={handleOpenEmail} className="space-y-6">
         {/* Name inputs */}
         <div className="grid grid-cols-3 gap-3">
-          <input type="text" placeholder="Title" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
-          <input type="text" placeholder="First Name" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
-          <input type="text" placeholder="Surname" className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm" />
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
+          />
+          <input
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+            className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
+          />
+          <input
+            type="text"
+            placeholder="Surname"
+            value={surname}
+            onChange={(event) => setSurname(event.target.value)}
+            className="px-4 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-sm text-slate-800 placeholder-slate-400 shadow-sm"
+          />
         </div>
         
         {/* Email */}
-        <input type="email" placeholder="Email" required className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm" />
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 placeholder-slate-400 shadow-sm"
+        />
 
         {/* Enquiry Type Dropdown */}
         <select 
-          defaultValue={enquiryType || ''}
+          value={selectedType}
+          onChange={(event) => setSelectedType(event.target.value)}
           className="w-full px-5 py-5 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-lg text-slate-800 shadow-sm appearance-none cursor-pointer"
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.5rem' }}
         >
@@ -59,13 +122,21 @@ function ContactForm() {
           <option value="partnership">Partnership Discussion</option>
         </select>
 
+        <textarea
+          placeholder="How can we help?"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          rows={4}
+          className="w-full px-5 py-4 bg-white/60 backdrop-blur-md border border-white/50 rounded-xl focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all text-base text-slate-800 placeholder-slate-400 shadow-sm resize-none"
+        />
+
         {/* Submit button */}
         <button type="submit" className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]">
-          {enquiryType === 'equipment' ? 'Request Equipment' : enquiryType === 'consultation' ? 'Book Consultation' : 'Get Started'}
+          {selectedType === 'equipment' ? 'Draft email to request equipment' : selectedType === 'consultation' ? 'Draft consultation email' : 'Start email to our team'}
         </button>
         
         <p className="text-center text-sm text-slate-500 mt-4">
-          We'll contact you within 24 hours to arrange everything
+          Clicking the button opens your email app with the details pre-filled. Simply review and send.
         </p>
       </form>
     </div>
