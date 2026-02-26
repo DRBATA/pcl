@@ -16,6 +16,10 @@ export default function TargetingAccuracyReportPageNew() {
   const [section3CurrentView, setSection3CurrentView] = useState(0)
   const [section4CurrentView, setSection4CurrentView] = useState(0)
 
+  // Simple click-driven reveal
+  const [cardVisible, setCardVisible] = useState(true)
+  const [hasScrolledDown, setHasScrolledDown] = useState(false)
+
   // Section 2 carousel images (including vertical report)
   const section2Images = [
     { image: "/targetting/section2_image_a.png" },
@@ -69,7 +73,6 @@ export default function TargetingAccuracyReportPageNew() {
     const handleScroll = () => {
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect()
-        // Only track scroll while hero is visible
         if (rect.bottom > 0) {
           setScrollY(window.scrollY)
         }
@@ -79,9 +82,27 @@ export default function TargetingAccuracyReportPageNew() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Calculate card opacity and transform based on scroll
-  const cardOpacity = Math.max(0, 1 - scrollY / 300)
-  const cardTranslateY = Math.min(scrollY * 0.3, 100)
+  // Click handler: fade out card, scroll after 1.2s
+  const handleRevealClick = () => {
+    setCardVisible(false)
+    setTimeout(() => {
+      scrollToSection('how-it-works')
+    }, 1200)
+  }
+
+  // Reset card only after user has scrolled down and back up — not on immediate click
+  useEffect(() => {
+    if (!cardVisible && scrollY > 100) {
+      setHasScrolledDown(true)
+    }
+    if (!cardVisible && hasScrolledDown && scrollY < 50) {
+      setCardVisible(true)
+      setHasScrolledDown(false)
+    }
+  }, [scrollY, cardVisible, hasScrolledDown])
+
+  // Card opacity: 0 when hidden by click, otherwise scroll-driven
+  const cardOpacity = !cardVisible ? 0 : Math.max(0, 1 - scrollY / 300)
   const gradientOpacity = Math.max(0.3, 0.7 - scrollY / 500)
 
   const scrollToSection = (sectionId: string) => {
@@ -126,12 +147,11 @@ export default function TargetingAccuracyReportPageNew() {
             <div className="absolute bottom-16 left-0 right-0">
               <div className="container-custom">
                 <div className="max-w-xl">
-                  {/* Cromwell-style Card - crisp white, bottom-left positioned */}
+                  {/* Card with button inside — fades as one unit */}
                   <div 
-                    className="bg-white/70 backdrop-blur-md rounded-tr-3xl rounded-br-3xl p-6 md:p-8 shadow-xl transition-opacity duration-100 ml-0 sm:-ml-8"
+                    className="bg-white/70 backdrop-blur-md rounded-tr-3xl rounded-br-3xl p-6 md:p-8 shadow-xl ml-0 sm:-ml-8 transition-opacity duration-300 ease-out"
                     style={{ 
                       opacity: cardOpacity,
-                      transform: `translateY(-${cardTranslateY}px)`,
                       pointerEvents: cardOpacity < 0.3 ? 'none' : 'auto'
                     }}
                   >
@@ -152,28 +172,29 @@ export default function TargetingAccuracyReportPageNew() {
                       </p>
                     </div>
 
-                    <Link
-                      href="#how-it-works"
-                      onClick={(e) => { e.preventDefault(); scrollToSection('how-it-works'); }}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all"
+                    {/* Button — inside card, fades with it */}
+                    <button
+                      onClick={handleRevealClick}
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all cursor-pointer"
                     >
                       See how it works
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                       </svg>
-                    </Link>
-                    
+                    </button>
                   </div>
 
                 </div>
               </div>
             </div>
+
           </div>
           
           {/* No scroll arrow on detail pages - let users experience the fade */}
           
           <div className="absolute bottom-0 left-0 right-0 h-1 bg-emerald-600" style={{ backgroundColor: "var(--color-medical-green)" }} />
         </section>
+
 
         {/* Section 1: The Problem We Solve - DARK */}
         <section id="how-it-works" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center pt-20 pb-10 border-t border-emerald-600/30">
