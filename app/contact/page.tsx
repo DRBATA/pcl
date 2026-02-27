@@ -15,7 +15,6 @@ function ContactForm() {
   const [email, setEmail] = useState("")
   const [selectedType, setSelectedType] = useState(enquiryType || "")
   const [message, setMessage] = useState("")
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   useEffect(() => {
     setSelectedType(enquiryType || "")
@@ -33,23 +32,13 @@ function ContactForm() {
     return "Quick contact - we'll handle the rest"
   }
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setStatus('sending')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, firstName, surname, email, selectedType, message }),
-      })
-      if (res.ok) {
-        setStatus('sent')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+  const handleOpenEmail = () => {
+    const name = [title, firstName, surname].filter(Boolean).join(' ') || 'PCL website visitor'
+    const subjectBase = selectedType ? selectedType.replace(/^\w/, (c: string) => c.toUpperCase()) : 'Website'
+    const subject = `${subjectBase} enquiry from ${name}`
+    const body = `Name: ${name}\nEmail: ${email}\nEnquiry Type: ${selectedType || 'Not specified'}\n\nMessage:\n${message}`
+    const mailtoLink = `mailto:claire.lloyd@prostatecare.co.uk?cc=brian.lynch@prostatecare.co.uk&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href = mailtoLink
   }
 
   return (
@@ -65,18 +54,7 @@ function ContactForm() {
         <p className="text-slate-600 text-lg">{getSubtext()}</p>
       </div>
 
-      {status === 'sent' ? (
-        <div className="text-center py-12">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h3 className="text-2xl font-semibold text-slate-800 mb-2">Message sent</h3>
-          <p className="text-slate-600">Claire and the team will be in touch shortly.</p>
-        </div>
-      ) : (
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={(e) => { e.preventDefault(); handleOpenEmail() }} className="space-y-6">
         {/* Name inputs */}
         <div className="grid grid-cols-3 gap-3">
           <input
@@ -137,19 +115,12 @@ function ContactForm() {
         {/* Submit button */}
         <button
           type="submit"
-          disabled={status === 'sending'}
-          className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+          className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-5 rounded-xl font-semibold text-lg hover:from-emerald-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]"
         >
-          {status === 'sending' ? 'Sending…' : selectedType === 'equipment' ? 'Send equipment enquiry' : selectedType === 'consultation' ? 'Send consultation request' : 'Send message'}
+          {selectedType === 'equipment' ? 'Send equipment enquiry' : selectedType === 'consultation' ? 'Send consultation request' : 'Send message'}
         </button>
 
-        {status === 'error' && (
-          <p className="text-center text-sm text-red-500 mt-2">
-            Something went wrong — please try again or email us directly at info@prostatecare.co.uk
-          </p>
-        )}
       </form>
-      )}
     </div>
   )
 }
