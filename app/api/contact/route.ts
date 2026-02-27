@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     ].join('\n')
 
     const { data, error } = await resend.emails.send({
-      from: 'Prostate Care Website <onboarding@resend.dev>',
+      from: 'Prostate Care Website <claire.lloyd@prostatecare.co.uk>',
       to: ['claire.lloyd@prostatecare.co.uk'],
       cc: ['brian.lynch@prostatecare.co.uk'],
       replyTo: email,
