@@ -145,6 +145,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }}
         />
+        <script dangerouslySetInnerHTML={{ __html: `
+          if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(w){w.unregister()})})}
+        `}} />
       </head>
       <body className="font-sans bg-background text-foreground overflow-x-hidden">{children}</body>
     </html>
